@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<menu>
+  <item name="Análisis" url="#" class="menu-laboratorio">
+    <rol type="1" description="Laboratorio"></rol>
+    <rol type="2" description="Recaudacion"></rol>
+  </item>
+  <item name="Clientes" url="#" class="menu-laboratorio">
+    <rol type="1" description="Laboratorio"></rol>
+    <rol type="2" description="Recaudacion"></rol>
+  </item>
+  <item name="Reportes" url="" class="menu-reporte">
+    <rol type="2" description="Recaudacion"></rol>
+    <item name="Análisis de laboratorios" url="#" class="menu-reporte">
+      <rol type="2" description="Recaudacion"></rol>
+    </item>
+    <item name="Pendientes de laboratorios" url="#" class="menu-reporte">
+      <rol type="2" description="Recaudacion"></rol>
+    </item>
+  </item>
+  <item name="Catálogos" url="" class="menu-laboratorio">
+    <rol type="5" description="Administrador_SIRALAB"></rol>
+    <rol type="2" description="Recaudacion"></rol>
+    <item name="Normas" url="#" class="menu-laboratorio">
+      <rol type="2" description="Recaudacion"></rol>
+    </item>
+    <item name="Uso de Agua" url="#" class="menu-laboratorio">
+      <rol type="2" description="Recaudacion"></rol>
+    </item>
+    <item name="Cuerpo receptor" url="#" class="menu-laboratorio">
+      <rol type="2" description="Recaudacion"></rol>
+    </item>
+    <item name="Promedio de reporte" url="#" class="menu-laboratorio">
+      <rol type="2" description="Recaudacion"></rol>
+    </item>
+    <item name="Promedio de muestreo" url="#" class="menu-laboratorio">
+      <rol type="2" description="Recaudacion"></rol>
+    </item>
+    <item name="Cuentas de usuario" url="#" class="menu-laboratorio">
+      <rol type="5" description="Administrador_SIRALAB"></rol>
+    </item>
+  </item>
+  <item name="Salir" url="javascript:Salir();" class="menu-salir">
+    <rol type="1" description="Laboratorio"></rol>
+    <rol type="2" description="Recaudacion"></rol>
+    <rol type="5" description="Administrador_SIRALAB"></rol>
+  </item>
+</menu>
+

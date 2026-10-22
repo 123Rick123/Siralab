@@ -1,0 +1,16 @@
+﻿/* Iconos de 24 pixeles */
+.add-new, .help-tutorial
+{ width: 32px; height: 32px; display: inline-block; }
+/* Iconos de 16 pixeles */
+.add-new-sm, .help-tutorial-sm, .expand-sm, .collapse-sm
+{ width: 16px; height: 16px; display: inline-block; margin: 3px; background-size: 16px 16px; }
+
+.add-new, .add-new-sm { background: url('../image/siralab/24/add-new.png') no-repeat center center; background-size: 24px 24px; }
+.add-new:hover, .add-new-sm:hover { background: url('../image/siralab/24/add-new.png') no-repeat center center; background-size: 24px 24px; }
+.expand-sm { background: url('../image/siralab/16/expand.png') no-repeat center center; }
+.collapse-sm { background: url('../image/siralab/16/collapse.png') no-repeat center center; }
+
+.help-tutorial, .help-tutorial-sm { background: url('../image/mh6.png') no-repeat center center; background-size: 20px 24px; }
+.help-tutorial:hover, .help-tutorial-sm:hover { background: url('../image/mh6.png') no-repeat center center; background-size: 20px 24px; }
+/*.help-tutorial, .help-tutorial-sm { background: url('../image/siralab/24/help-tutorial.png') no-repeat center center; background-size: 24px 24px; }
+.help-tutorial:hover, .help-tutorial-sm:hover { background: url('../image/siralab/24/help-tutorial.png') no-repeat center center; background-size: 24px 24px; }*/

@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://globalkit.globaltrust/WsGlobalTrust.xsd" targetNamespace="http://globalkit.globaltrust/WsGlobalTrust.xsd" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="CertificadoRequest" type="tns:CertificadoRequestType" />
+  <xs:element name="CertificadoResponse" type="tns:CertificadoResponseType" />
+  <xs:element name="ConfirmaCvesRequest" type="tns:ConfirmaCvesRequestType" />
+  <xs:element name="ConfirmaCvesResponse" type="tns:ConfirmaCvesResponseType" />
+  <xs:element name="EliminaCvesRequest" type="tns:EliminaCvesRequestType" />
+  <xs:element name="EliminaCvesResponse" type="tns:EliminaCvesResponseType" />
+  <xs:element name="FirmaLoteIDTRequest" type="tns:FirmaLoteIDTRequestType" />
+  <xs:element name="FirmaLoteIDTResponse" type="tns:FirmaLoteIDTResponseType" />
+  <xs:element name="FirmaRequest" type="tns:FirmaRequestType" />
+  <xs:element name="FirmaResponse" type="tns:FirmaResponseType" />
+  <xs:element name="FirmaSimpleRequest" type="tns:FirmaSimpleRequestType" />
+  <xs:element name="FirmaSimpleResponse" type="tns:FirmaSimpleResponseType" />
+  <xs:element name="FirmaXMLRequest" type="tns:FirmaXMLRequestType" />
+  <xs:element name="FirmaXMLResponse" type="tns:FirmaXMLResponseType" />
+  <xs:element name="GeneraCMSReciboRequest" type="tns:GeneraCMSReciboRequestType" />
+  <xs:element name="GeneraCMSReciboResponse" type="tns:GeneraCMSReciboResponseType" />
+  <xs:element name="GeneraCvesRequest" type="tns:GeneraCvesRequestType" />
+  <xs:element name="GeneraCvesResponse" type="tns:GeneraCvesResponseType" />
+  <xs:element name="GetCMSContentRequest" type="tns:GetCMSContentRequestType" />
+  <xs:element name="GetCMSContentResponse" type="tns:GetCMSContentResponseType" />
+  <xs:element name="GetSignerDataRequest" type="tns:GetSignerDataRequestType" />
+  <xs:element name="GetSignerDataResponse" type="tns:GetSignerDataResponseType" />
+  <xs:element name="GetTSTDataReq" type="tns:GetTSTDataReqType" />
+  <xs:element name="GetTSTDataResp" type="tns:GetTSTDataRespType" />
+  <xs:element name="HashRequest" type="tns:HashRequestType" />
+  <xs:element name="HashResponse" type="tns:HashResponseType" />
+  <xs:element name="RegistraCvesRequest" type="tns:RegistraCvesRequestType" />
+  <xs:element name="RegistraCvesResponse" type="tns:RegistraCvesResponseType" />
+  <xs:element name="ValidaCertificadoRequest" type="tns:ValidaCertificadoRequestType" />
+  <xs:element name="ValidaCertificadoResponse" type="tns:ValidaCertificadoResponseType" />
+  <xs:element name="ValidaFirmaCMSHashRequest" type="tns:ValidaFirmaCMSHashRequestType" />
+  <xs:element name="ValidaFirmaCMSHashResponse" type="tns:ValidaFirmaResponseType" />
+  <xs:element name="ValidaFirmaCMSMasivoRequest" type="tns:ValidaFirmaCMSMasivoRequestType" />
+  <xs:element name="ValidaFirmaCMSMasivoResponse" type="tns:ValidaFirmaCMSMasivoResponseType" />
+  <xs:element name="ValidaFirmaCMSRequest" type="tns:ValidaFirmaCMSRequestType" />
+  <xs:element name="ValidaFirmaCMSResponse" type="tns:ValidaFirmaResponseType" />
+  <xs:element name="ValidaFirmaCMSRutaRequest" type="tns:ValidaFirmaCMSRutaRequestType" />
+  <xs:element name="ValidaFirmaCMSRutaResponse" type="tns:ValidaFirmaResponseType" />
+  <xs:element name="ValidaFirmaHashRequest" type="tns:ValidaFirmaHashRequestType" />
+  <xs:element name="ValidaFirmaHashResponse" type="tns:ValidaFirmaResponseType" />
+  <xs:element name="ValidaFirmaRequest" type="tns:ValidaFirmaRequestType" />
+  <xs:element name="ValidaFirmaResponse" type="tns:ValidaFirmaResponseType" />
+  <xs:element name="ValidaFirmaRutaRequest" type="tns:ValidaFirmaRutaRequestType" />
+  <xs:element name="ValidaFirmaRutaResponse" type="tns:ValidaFirmaResponseType" />
+  <xs:element name="ValidaFirmaXMLRequest" type="tns:ValidaFirmaXMLRequestType" />
+  <xs:element name="ValidaFirmaXMLResponse" type="tns:ValidaFirmaXMLResponseType" />
+  <xs:element name="ValidaTokenRequest" type="tns:ValidaTokenRequestType" />
+  <xs:element name="ValidaTokenResponse" type="tns:ValidaTokenResponseType" />
+  <xs:complexType name="ConfirmaCvesResponseType">
+    <xs:sequence>
+      <xs:element name="resultado" type="tns:ResultadoType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ResultadoType">
+    <xs:sequence>
+      <xs:element name="codigo" type="xs:int" />
+      <xs:element minOccurs="0" name="texto" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetSignerDataRequestType">
+    <xs:sequence>
+      <xs:element name="solicitud" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetSignerDataResponseType">
+    <xs:sequence>
+      <xs:element name="resultado" type="tns:ResultadoType" />
+      <xs:element name="jsonRespuesta" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ValidaFirmaRutaRequestType">
+    <xs:sequence>
+      <xs:element name="certificado" type="tns:CertVal" />
+      <xs:element name="ruta" type="xs:string" />
+      <xs:element name="firma" type="xs:base64Binary" />
+      <xs:element minOccurs="0" default="1" name="tipoCertReq" type="xs:nonNegativeInteger" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CertVal">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id_cert" type="xs:string" />
+      <xs:element minOccurs="0" name="certificado" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegistraCvesRequestType">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string" />
+      <xs:element name="rfc" type="xs:string" />
+      <xs:element name="certificado" type="xs:string" />
+      <xs:element name="cvePriv" type="xs:string" />
+      <xs:element name="pwd" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ValidaFirmaCMSRutaRequestType">
+    <xs:sequence>
+      <xs:element name="ruta" type="xs:string" />
+      <xs:element minOccurs="0" default="U" name="tipoRuta" type="xs:string" />
+      <xs:element minOccurs="0" name="salida" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FirmaSimpleResponseType">
+    <xs:sequence>
+      <xs:element name="resultado" type="tns:ResultadoType" />
+      <xs:element minOccurs="0" name="numeroSerie" type="xs:string" />
+      <xs:element minOccurs="0" name="firma" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ValidaFirmaXMLResponseType">
+    <xs:sequence>
+      <xs:element name="resultados">
+        <xs:simpleType>
+          <xs:list itemType="xs:string" />
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ValidaCertificadoRequestType">
+    <xs:sequence>
+      <xs:element name="certificado" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetTSTDataRespType">
+    <xs:sequence>
+      <xs:element name="resultado" type="tns:ResultadoType" />
+      <xs:element name="jsonRespuesta" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ValidaFirmaRequestType">
+    <xs:sequence>
+      <xs:element name="certificado" type="tns:CertVal" />
+      <xs:element name="cadenaOriginal" type="xs:base64Binary" />
+      <xs:element name="firma" type="xs:base64Binary" />
+      <xs:element minOccurs="0" default="1" name="tipoCertReq" type="xs:nonNegativeInteger" />
+      <xs:element minOccurs="0" name="fechafirma" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="parmsAdicional" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ValidaFirmaResponseType">
+    <xs:sequence>
+      <xs:element name="resultado" type="tns:ResultadoType" />
+      <xs:element minOccurs="0" name="parmAdicional" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GeneraCMSReciboRequestType">
+    <xs:sequence>
+      <xs:element name="cadenaOriginal" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EliminaCvesResponseType">
+    <xs:sequence>
+      <xs:element name="resultado" type="tns:ResultadoType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FirmaXMLRequestType">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string" />
+      <xs:element name="numeroSerie" type="xs:string" />
+      <xs:element name="rfc" type="xs:string" />
+      <xs:element name="algHash" type="xs:string" />
+      <xs:element name="xmls" type="xs:string" />
+      <xs:element minOccurs="0" name="tipoXML" type="xs:string" />
+      <xs:element minOccurs="0" name="xmlnodos">
+        <xs:simpleType>
+          <xs:list itemType="xs:string" />
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="contrasenia" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GeneraCvesResponseType">
+    <xs:sequence>
+      <xs:element name="resultado" type="tns:ResultadoType" />
+      <xs:element name="pubKey" type="xs:string" />
+      <xs:element minOccurs="0" name="privKey" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GeneraCvesRequestType">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string" />
+      <xs:element name="ftoPubKey" type="xs:string" />
+      <xs:element default="2048" name="tamLlave" type="xs:nonNegativeInteger" />
+      <xs:element name="tipo" type="xs:string" />
+      <xs:element name="almInterno" type="xs:boolean" />
+      <xs:element name="nombreDistinguido" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetCMSContentRequestType">
+    <xs:sequence>
+      <xs:element name="solicitud" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ValidaTokenResponseType">
+    <xs:sequence>
+      <xs:element name="resultado" type="tns:ResultadoType" />
+      <xs:element minOccurs="0" name="parmAdicional" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FirmaRequestType">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string" />
+      <xs:element name="rfc" type="xs:string" />
+      <xs:element name="numeroSerie" type="xs:string" />
+      <xs:element name="algHash" type="xs:string" />
+      <xs:element name="cadenaOriginal" type="xs:base64Binary" />
+      <xs:element name="parmsAdicional" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegistraCvesResponseType">
+    <xs:sequence>
+      <xs:element name="resultado" type="tns:ResultadoType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ConfirmaCvesRequestType">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FirmaXMLResponseType">
+    <xs:sequence>
+      <xs:element name="resultado" type="tns:ResultadoType" />
+      <xs:element name="xmlfirmados" type="xs:string" />
+      <xs:element minOccurs="0" name="parmAdicional" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GeneraCMSReciboResponseType">
+    <xs:sequence>
+      <xs:element name="resultado" type="tns:ResultadoType" />
+      <xs:element name="jsonRespuesta" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ValidaCertificadoResponseType">
+    <xs:sequence>
+      <xs:element name="resultado" type="tns:ResultadoType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetTSTDataReqType">
+    <xs:sequence>
+      <xs:element name="jsonSolicitud" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ValidaFirmaCMSMasivoResponseType">
+    <xs:sequence>
+      <xs:element name="codigo" type="xs:int" />
+      <xs:element minOccurs="0" name="texto" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ValidaFirmaHashRequestType">
+    <xs:sequence>
+      <xs:element name="certificado" type="tns:CertVal" />
+      <xs:element name="hash" type="xs:base64Binary" />
+      <xs:element name="algDig" type="xs:string" />
+      <xs:element name="firma" type="xs:base64Binary" />
+      <xs:element minOccurs="0" default="1" name="tipoCertReq" type="xs:nonNegativeInteger" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="HashRequestType">
+    <xs:sequence>
+      <xs:element name="solicitud" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ValidaTokenRequestType">
+    <xs:sequence>
+      <xs:element name="params" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FirmaResponseType">
+    <xs:sequence>
+      <xs:element name="resultado" type="tns:ResultadoType" />
+      <xs:element minOccurs="0" name="firma" type="xs:string" />
+      <xs:element minOccurs="0" name="parmAdicional" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FirmaSimpleRequestType">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string" />
+      <xs:element name="cadenaOriginal" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="algoritmo" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ValidaFirmaXMLRequestType">
+    <xs:sequence>
+      <xs:element name="numeroSerie" type="xs:string" />
+      <xs:element name="xmls">
+        <xs:simpleType>
+          <xs:list itemType="xs:string" />
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="tipoCert" type="xs:integer" />
+      <xs:element name="certificado" type="tns:CertVal" />
+      <xs:element minOccurs="0" name="fechafirma" type="xs:date" />
+      <xs:element minOccurs="0" name="tipoXML" type="xs:string" />
+      <xs:element minOccurs="0" name="xmlsource">
+        <xs:simpleType>
+          <xs:list itemType="xs:string" />
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetCMSContentResponseType">
+    <xs:sequence>
+      <xs:element name="resultado" type="tns:ResultadoType" />
+      <xs:element name="jsonRespuesta" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EliminaCvesRequestType">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string" />
+      <xs:element name="rfc" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ValidaFirmaCMSMasivoRequestType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="certificado" type="tns:CertVal" />
+      <xs:element minOccurs="0" name="jsonParams" type="xs:string" />
+      <xs:element minOccurs="0" default="1" name="tipoCertReq" type="xs:nonNegativeInteger" />
+      <xs:element minOccurs="0" name="salida" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CertificadoResponseType">
+    <xs:sequence>
+      <xs:element name="resultado" type="tns:ResultadoType" />
+      <xs:element minOccurs="0" name="noSerie" type="xs:string" />
+      <xs:element minOccurs="0" name="certificado" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="HashResponseType">
+    <xs:sequence>
+      <xs:element name="resultado" type="tns:ResultadoType" />
+      <xs:element name="jsonRespuesta" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FirmaLoteIDTRequestType">
+    <xs:sequence>
+      <xs:element name="datos" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FirmaLoteIDTResponseType">
+    <xs:sequence>
+      <xs:element name="resultado" type="tns:ResultadoType" />
+      <xs:element name="jsonRespuesta" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CertificadoRequestType">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string" />
+      <xs:element minOccurs="0" name="rfc" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ValidaFirmaCMSRequestType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="certificado" type="tns:CertVal" />
+      <xs:element minOccurs="0" name="cadenaOriginal" type="xs:base64Binary" />
+      <xs:element name="contenedor" type="xs:string" />
+      <xs:element minOccurs="0" default="1" name="tipoCertReq" type="xs:nonNegativeInteger" />
+      <xs:element minOccurs="0" name="salida" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ValidaFirmaCMSHashRequestType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="certificado" type="tns:CertVal" />
+      <xs:element name="hash" type="xs:base64Binary" />
+      <xs:element name="algDig" type="xs:string" />
+      <xs:element name="contenedor" type="xs:string" />
+      <xs:element minOccurs="0" default="1" name="tipoCertReq" type="xs:nonNegativeInteger" />
+      <xs:element minOccurs="0" name="salida" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

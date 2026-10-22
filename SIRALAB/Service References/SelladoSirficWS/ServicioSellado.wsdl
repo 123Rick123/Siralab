@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.conagua.gob.mx/declarAgua" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.conagua.gob.mx/declarAgua" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.conagua.gob.mx/declarAgua">
+      <s:element name="ObtenerNumeroSerie">
+        <s:complexType />
+      </s:element>
+      <s:element name="ObtenerNumeroSerieResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerNumeroSerieResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Generar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cadenaOriginal" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenerarResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ObtenerNumeroSerieSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerNumeroSerie" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerNumeroSerieSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerNumeroSerieResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenerarSoapIn">
+    <wsdl:part name="parameters" element="tns:Generar" />
+  </wsdl:message>
+  <wsdl:message name="GenerarSoapOut">
+    <wsdl:part name="parameters" element="tns:GenerarResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServicioSelladoSoap">
+    <wsdl:operation name="ObtenerNumeroSerie">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Servicio que recupera el número de serie de la selladora. Esto permite confirmar que la selladora está funcionando correctamente.</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerNumeroSerieSoapIn" />
+      <wsdl:output message="tns:ObtenerNumeroSerieSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Generar">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Servicio para generar sellos digitales</wsdl:documentation>
+      <wsdl:input message="tns:GenerarSoapIn" />
+      <wsdl:output message="tns:GenerarSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServicioSelladoSoap" type="tns:ServicioSelladoSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ObtenerNumeroSerie">
+      <soap:operation soapAction="http://www.conagua.gob.mx/declarAgua/ObtenerNumeroSerie" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Generar">
+      <soap:operation soapAction="http://www.conagua.gob.mx/declarAgua/Generar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServicioSelladoSoap12" type="tns:ServicioSelladoSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ObtenerNumeroSerie">
+      <soap12:operation soapAction="http://www.conagua.gob.mx/declarAgua/ObtenerNumeroSerie" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Generar">
+      <soap12:operation soapAction="http://www.conagua.gob.mx/declarAgua/Generar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicioSellado">
+    <wsdl:port name="ServicioSelladoSoap" binding="tns:ServicioSelladoSoap">
+      <soap:address location="http://firmaelectronica.conagua.gob.mx:9080/WS_SELLADORA/ServicioSellado.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServicioSelladoSoap12" binding="tns:ServicioSelladoSoap12">
+      <soap12:address location="http://firmaelectronica.conagua.gob.mx:9080/WS_SELLADORA/ServicioSellado.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

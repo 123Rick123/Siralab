@@ -1,0 +1,116 @@
+﻿div.roller {
+    margin: .3em auto;
+    background: #999;
+    width: 98%;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    padding: 5px;
+}
+
+    div.roller > #sliderDiv {
+        width: 90%;
+        overflow: hidden;
+        margin: 0 auto;
+    }
+
+        div.roller > #sliderDiv > ul {
+            height: 95px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            overflow: hidden;
+        }
+
+            div.roller > #sliderDiv > ul > li {
+                float: left;
+                margin-left: 5px;
+                cursor: pointer;
+                
+            }
+
+
+
+
+.Close, .eliminar {
+    position: relative;
+    padding: 3px 5px;
+    width: 15px;
+    
+    background-color: #fff;
+    
+    color: red;
+     font-weight:bold;
+    text-align: center;
+    font-family: Verdana;
+    font-size: .7em;
+    text-decoration: none;
+
+     filter: alpha(opacity=70); /* opacidad para ie*/
+    -moz-opacity: .7; /*opacidad para firefox*/
+     opacity: .7;
+
+     border-radius: 9px;
+}
+
+    .Close:hover
+    ,.Title:hover
+    ,.eliminar:hover {
+        background-color: #000;
+        filter: alpha(opacity=80); /* opacidad para ie*/
+        -moz-opacity: .8; /*opacidad para firefox*/
+        opacity: .8;
+        color: #FFF;
+    }
+
+.Title {
+    position:relative;
+    background-color: #fff;
+    
+    color: black;
+    float: left;
+    margin-top: -20px;
+    width: 95px;
+    height: 25px;
+    overflow: hidden;
+    font-size:10px;
+    padding-left:1px;
+
+     filter: alpha(opacity=60); /* opacidad para ie*/
+    -moz-opacity: .6; /*opacidad para firefox*/
+     opacity: .6;
+
+      -moz-transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
+    -webkit-transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
+    -o-transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
+    -ms-transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
+    transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
+}
+
+#previous {
+    display: block;
+    height: 62px;
+    width: 33px;
+    background-image: url('Images/wuc_evidencias/Prev.png');
+    float: left;
+    margin: 16px 0 0 0;
+    padding: 0;
+}
+
+    #previous:hover {
+        background-image: url('Images/wuc_evidencias/PrevHover.png');
+    }
+
+#next {
+    display: block;
+    height: 62px;
+    width: 33px;
+    background-image: url('Images/wuc_evidencias/Next.png');
+    float: right;
+    margin: 16px 0 0 0;
+    padding: 0;
+}
+
+    #next:hover {
+        background-image: url('Images/wuc_evidencias/NextHover.png');
+    }

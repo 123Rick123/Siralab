@@ -1,0 +1,1086 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:intf="http://impl.vista.archiva.indra.es" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns1="http://modelo.vista.archiva.indra.es" xmlns:impl="http://impl.vista.archiva.indra.es" targetNamespace="http://impl.vista.archiva.indra.es" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns:intf="http://impl.vista.archiva.indra.es" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://impl.vista.archiva.indra.es">
+      <xsd:import namespace="http://modelo.vista.archiva.indra.es" />
+      <xsd:complexType name="ArrayOf_xsd_string">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_tns1_Extension">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns1:Extension" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_tns1_Asociaciones">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns1:Asociaciones" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="listarRelacionReturn" type="tns1:ResponseListarRelacion" />
+      <xsd:complexType name="ArrayOf_tns1_Criterio">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns1:Criterio" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="request3" type="tns1:RequestSearchDocument" />
+      <xsd:complexType name="ArrayOf_tns1_DatoPropiedad">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns1:DatoPropiedad" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_tns1_SearchData">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns1:SearchData" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="request" type="tns1:RequestRelacionar" />
+      <xsd:element name="relacionarReturn" type="tns1:ResponseRelacionar" />
+      <xsd:element name="request1" type="tns1:RequestEliminarRelacion" />
+      <xsd:element name="eliminarRelacionReturn" type="tns1:ResponseEliminarRelacion" />
+      <xsd:element name="request2" type="tns1:RequestListarRelacion" />
+      <xsd:element name="buscarReturn" type="tns1:ResponseSearchDocument" />
+      <xsd:element name="request4" type="tns1:RequestModificarCarpeta" />
+      <xsd:element name="modificarCarpetaReturn" type="tns1:ResponseModificarCarpeta" />
+      <xsd:element name="request5" type="tns1:RequestAltaCarpeta" />
+      <xsd:element name="crearCarpetaReturn" type="tns1:ResponseAltaCarpeta" />
+      <xsd:element name="request6" type="tns1:RequestImportar" />
+      <xsd:element name="importarReturn" type="tns1:ResponseImportar" />
+      <xsd:element name="request7" type="tns1:RequestVerDoc" />
+      <xsd:element name="verDocReturn" type="tns1:ResponseVerDoc" />
+      <xsd:element name="request8" type="tns1:RequestBorrar" />
+      <xsd:element name="borrarReturn" type="tns1:ResponseBorrar" />
+      <xsd:element name="request9" type="tns1:RequestObtenerPropiedades" />
+      <xsd:element name="obtenerPropiedadesReturn" type="tns1:ResponseObtenerPropiedades" />
+      <xsd:element name="request10" type="tns1:RequestBorrarVersion" />
+      <xsd:element name="eliminarVersionReturn" type="tns1:ResponseBorrarVersion" />
+      <xsd:element name="request11" type="tns1:RequestCheckOut" />
+      <xsd:element name="checkOutReturn" type="tns1:ResponseCheckOut" />
+      <xsd:element name="request12" type="tns1:RequestCancelarCheckOut" />
+      <xsd:element name="cancelarCheckOutReturn" type="tns1:ResponseCancelarCheckOut" />
+      <xsd:element name="request13" type="tns1:RequestListarVersiones" />
+      <xsd:element name="listarVersionesReturn" type="tns1:ResponseListarVersiones" />
+      <xsd:element name="request14" type="tns1:RequestActualizar" />
+      <xsd:element name="actualizarReturn" type="tns1:ResponseActualizar" />
+      <xsd:element name="request15" type="tns1:RequestAsignarCove" />
+      <xsd:element name="asignarCoveReturn" type="tns1:ResponseAsignarCove" />
+      <xsd:element name="request16" type="tns1:RequestObtenerDocumentoCove" />
+      <xsd:element name="obtenerDocumentosCoveReturn" type="tns1:ResponseObtenerDocumentoCove" />
+      <xsd:element name="request17" type="tns1:RequestRetrotraerExpediente" />
+      <xsd:element name="retrotraerExpedienteReturn" type="tns1:ResponseRetrotraerExpediente" />
+      <xsd:element name="request18" type="tns1:RequestObtenerInformacionClases" />
+      <xsd:element name="obtenerInformacionClasesReturn" type="tns1:ResponseObtenerInformacionClases" />
+      <xsd:element name="request19" type="tns1:RequestObtenerDocumentoImprimible" />
+      <xsd:element name="obtenerDocumentoImprimibleReturn" type="tns1:ResponseObtenerDocumentoImprimible" />
+      <xsd:element name="RequestObtenerDocumentoElectronico" type="tns1:RequestObtenerDocumentoElectronico" />
+      <xsd:element name="obtenerDocumentoElectronicoReturn" type="tns1:ResponseObtenerDocumentoElectronico" />
+      <xsd:element name="RequestObtenerExpedienteElectronico" type="tns1:RequestObtenerExpedienteElectronico" />
+      <xsd:element name="obtenerExpedienteElectronicoReturn" type="tns1:ResponseObtenerExpedienteElectronico" />
+      <xsd:element name="obtenerClaseDocumentalRequest" type="tns1:RequestObtenerClaseDocumental" />
+      <xsd:element name="obtenerClaseDocumentalReturn" type="tns1:ResponseObtenerClaseDocumental" />
+      <xsd:element name="RequestValidarUsuario" type="tns1:RequestValidarUsuario" />
+      <xsd:element name="validarUsuarioReturn" type="tns1:ResponseValidarUsuario" />
+    </xsd:schema>
+    <xsd:schema xmlns:intf="http://impl.vista.archiva.indra.es" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://modelo.vista.archiva.indra.es">
+      <xsd:import namespace="http://impl.vista.archiva.indra.es" />
+      <xsd:complexType name="Extension">
+        <xsd:sequence>
+          <xsd:element name="claves" nillable="true" type="xsd:string" />
+          <xsd:element name="valores" nillable="true" type="impl:ArrayOf_xsd_string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RequestRelacionar">
+        <xsd:sequence>
+          <xsd:element name="idenUsuarioLog" nillable="true" type="xsd:string" />
+          <xsd:element name="identificador1" nillable="true" type="xsd:string" />
+          <xsd:element name="identificador2" nillable="true" type="xsd:string" />
+          <xsd:element name="login" nillable="true" type="xsd:string" />
+          <xsd:element name="password" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="relacion" nillable="true" type="xsd:string" />
+          <xsd:element name="skip" nillable="true" type="xsd:string" />
+          <xsd:element name="datosAuditoria" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ResponseRelacionar">
+        <xsd:sequence>
+          <xsd:element name="mensaje" nillable="true" type="xsd:string" />
+          <xsd:element name="operacion" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RequestEliminarRelacion">
+        <xsd:sequence>
+          <xsd:element name="idenUsuarioLog" nillable="true" type="xsd:string" />
+          <xsd:element name="identificador1" nillable="true" type="xsd:string" />
+          <xsd:element name="identificador2" nillable="true" type="xsd:string" />
+          <xsd:element name="login" nillable="true" type="xsd:string" />
+          <xsd:element name="password" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="relacion" nillable="true" type="xsd:string" />
+          <xsd:element name="skip" nillable="true" type="xsd:string" />
+          <xsd:element name="datosAuditoria" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ResponseEliminarRelacion">
+        <xsd:sequence>
+          <xsd:element name="mensaje" nillable="true" type="xsd:string" />
+          <xsd:element name="operacion" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RequestListarRelacion">
+        <xsd:sequence>
+          <xsd:element name="idenUsuarioLog" nillable="true" type="xsd:string" />
+          <xsd:element name="identificador" nillable="true" type="xsd:string" />
+          <xsd:element name="login" nillable="true" type="xsd:string" />
+          <xsd:element name="password" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="relacion" nillable="true" type="xsd:string" />
+          <xsd:element name="skip" nillable="true" type="xsd:string" />
+          <xsd:element name="datosAuditoria" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Asociaciones">
+        <xsd:sequence>
+          <xsd:element name="identificador" nillable="true" type="xsd:string" />
+          <xsd:element name="rol" nillable="true" type="xsd:string" />
+          <xsd:element name="tipoAsociacion" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ResponseListarRelacion">
+        <xsd:sequence>
+          <xsd:element name="identificadores" nillable="true" type="impl:ArrayOf_tns1_Asociaciones" />
+          <xsd:element name="mensaje" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="resultado" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Criterio">
+        <xsd:sequence>
+          <xsd:element name="nombre" nillable="true" type="xsd:string" />
+          <xsd:element name="opLogico" nillable="true" type="xsd:string" />
+          <xsd:element name="operador" nillable="true" type="xsd:string" />
+          <xsd:element name="valor" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RequestSearchDocument">
+        <xsd:sequence>
+          <xsd:element name="clase_documental" nillable="true" type="xsd:string" />
+          <xsd:element name="contenido" nillable="true" type="xsd:string" />
+          <xsd:element name="criterio" nillable="true" type="impl:ArrayOf_tns1_Criterio" />
+          <xsd:element name="idenUsuarioLog" nillable="true" type="xsd:string" />
+          <xsd:element name="login" nillable="true" type="xsd:string" />
+          <xsd:element name="operador" nillable="true" type="xsd:string" />
+          <xsd:element name="password" nillable="true" type="xsd:string" />
+          <xsd:element name="propiedades" nillable="true" type="impl:ArrayOf_xsd_string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="skip" nillable="true" type="xsd:string" />
+          <xsd:element name="datosAuditoria" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DatoPropiedad">
+        <xsd:sequence>
+          <xsd:element name="clave" nillable="true" type="xsd:string" />
+          <xsd:element name="listaValores" nillable="true" type="impl:ArrayOf_xsd_string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SearchData">
+        <xsd:sequence>
+          <xsd:element name="documentName" nillable="true" type="xsd:string" />
+          <xsd:element name="id" nillable="true" type="xsd:string" />
+          <xsd:element name="propiedades" nillable="true" type="impl:ArrayOf_tns1_DatoPropiedad" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ResponseSearchDocument">
+        <xsd:sequence>
+          <xsd:element name="datos" nillable="true" type="impl:ArrayOf_tns1_SearchData" />
+          <xsd:element name="mensaje" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="resultado" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RequestModificarCarpeta">
+        <xsd:sequence>
+          <xsd:element name="idenUsuarioLog" nillable="true" type="xsd:string" />
+          <xsd:element name="identificador" nillable="true" type="xsd:string" />
+          <xsd:element name="login" nillable="true" type="xsd:string" />
+          <xsd:element name="password" nillable="true" type="xsd:string" />
+          <xsd:element name="propiedades" nillable="true" type="impl:ArrayOf_tns1_DatoPropiedad" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="skip" nillable="true" type="xsd:string" />
+          <xsd:element name="datosAuditoria" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ResponseModificarCarpeta">
+        <xsd:sequence>
+          <xsd:element name="mensaje" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="valor" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RequestAltaCarpeta">
+        <xsd:sequence>
+          <xsd:element name="idenUsuarioLog" nillable="true" type="xsd:string" />
+          <xsd:element name="login" nillable="true" type="xsd:string" />
+          <xsd:element name="nombre" nillable="true" type="xsd:string" />
+          <xsd:element name="padre" nillable="true" type="xsd:string" />
+          <xsd:element name="password" nillable="true" type="xsd:string" />
+          <xsd:element name="propiedades" nillable="true" type="impl:ArrayOf_tns1_DatoPropiedad" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="skip" nillable="true" type="xsd:string" />
+          <xsd:element name="tipoDocumental" nillable="true" type="xsd:string" />
+          <xsd:element name="datosAuditoria" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ResponseAltaCarpeta">
+        <xsd:sequence>
+          <xsd:element name="identificador" nillable="true" type="xsd:string" />
+          <xsd:element name="mensaje" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="valor" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RequestImportar">
+        <xsd:sequence>
+          <xsd:element name="idenUsuarioLog" nillable="true" type="xsd:string" />
+          <xsd:element name="login" nillable="true" type="xsd:string" />
+          <xsd:element name="nombre" nillable="true" type="xsd:string" />
+          <xsd:element name="padre" nillable="true" type="xsd:string" />
+          <xsd:element name="password" nillable="true" type="xsd:string" />
+          <xsd:element name="propiedades" nillable="true" type="impl:ArrayOf_tns1_DatoPropiedad" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="skip" nillable="true" type="xsd:string" />
+          <xsd:element name="tipo_documental" nillable="true" type="xsd:string" />
+          <xsd:element xmime:expectedContentTypes="application/octet-stream" name="archivo" nillable="true" type="xsd:base64Binary" />
+          <xsd:element name="datosAuditoria" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ResponseImportar">
+        <xsd:sequence>
+          <xsd:element name="identificador" nillable="true" type="xsd:string" />
+          <xsd:element name="mensaje" nillable="true" type="xsd:string" />
+          <xsd:element name="operacion" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RequestVerDoc">
+        <xsd:sequence>
+          <xsd:element name="iddocumento" nillable="true" type="xsd:string" />
+          <xsd:element name="idenUsuarioLog" nillable="true" type="xsd:string" />
+          <xsd:element name="login" nillable="true" type="xsd:string" />
+          <xsd:element name="password" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="skip" nillable="true" type="xsd:string" />
+          <xsd:element name="datosAuditoria" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ResponseVerDoc">
+        <xsd:sequence>
+          <xsd:element name="mensaje" nillable="true" type="xsd:string" />
+          <xsd:element name="nombre" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="valor" nillable="true" type="xsd:string" />
+          <xsd:element xmime:expectedContentTypes="application/octet-stream" name="archivo" nillable="true" type="xsd:base64Binary" />
+          <xsd:element name="MimeType" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RequestBorrar">
+        <xsd:sequence>
+          <xsd:element name="idenUsuarioLog" nillable="true" type="xsd:string" />
+          <xsd:element name="identificadores" nillable="true" type="impl:ArrayOf_xsd_string" />
+          <xsd:element name="password" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="skip" nillable="true" type="xsd:string" />
+          <xsd:element name="usuario" nillable="true" type="xsd:string" />
+          <xsd:element name="datosAuditoria" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ResponseBorrar">
+        <xsd:sequence>
+          <xsd:element name="mensaje" nillable="true" type="xsd:string" />
+          <xsd:element name="mensajes" nillable="true" type="impl:ArrayOf_xsd_string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="valor" nillable="true" type="xsd:string" />
+          <xsd:element name="valores" nillable="true" type="impl:ArrayOf_xsd_string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RequestObtenerPropiedades">
+        <xsd:sequence>
+          <xsd:element name="idenUsuarioLog" nillable="true" type="xsd:string" />
+          <xsd:element name="identificador" nillable="true" type="xsd:string" />
+          <xsd:element name="login" nillable="true" type="xsd:string" />
+          <xsd:element name="password" nillable="true" type="xsd:string" />
+          <xsd:element name="propiedades" nillable="true" type="impl:ArrayOf_xsd_string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="skip" nillable="true" type="xsd:string" />
+          <xsd:element name="datosAuditoria" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ResponseObtenerPropiedades">
+        <xsd:sequence>
+          <xsd:element name="mensaje" nillable="true" type="xsd:string" />
+          <xsd:element name="propiedades" nillable="true" type="impl:ArrayOf_tns1_DatoPropiedad" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="resultado" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RequestBorrarVersion">
+        <xsd:sequence>
+          <xsd:element name="idenUsuarioLog" nillable="true" type="xsd:string" />
+          <xsd:element name="identificador" nillable="true" type="xsd:string" />
+          <xsd:element name="login" nillable="true" type="xsd:string" />
+          <xsd:element name="password" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="skip" nillable="true" type="xsd:string" />
+          <xsd:element name="datosAuditoria" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ResponseBorrarVersion">
+        <xsd:sequence>
+          <xsd:element name="mensaje" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="resultado" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RequestCheckOut">
+        <xsd:sequence>
+          <xsd:element name="idenUsuarioLog" nillable="true" type="xsd:string" />
+          <xsd:element name="identificador" nillable="true" type="xsd:string" />
+          <xsd:element name="login" nillable="true" type="xsd:string" />
+          <xsd:element name="password" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="skip" nillable="true" type="xsd:string" />
+          <xsd:element name="datosAuditoria" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ResponseCheckOut">
+        <xsd:sequence>
+          <xsd:element name="identificador" nillable="true" type="xsd:string" />
+          <xsd:element name="mensaje" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="valor" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RequestCancelarCheckOut">
+        <xsd:sequence>
+          <xsd:element name="idenUsuarioLog" nillable="true" type="xsd:string" />
+          <xsd:element name="identificador" nillable="true" type="xsd:string" />
+          <xsd:element name="login" nillable="true" type="xsd:string" />
+          <xsd:element name="password" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="skip" nillable="true" type="xsd:string" />
+          <xsd:element name="datosAuditoria" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ResponseCancelarCheckOut">
+        <xsd:sequence>
+          <xsd:element name="identificador" nillable="true" type="xsd:string" />
+          <xsd:element name="mensaje" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="valor" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RequestListarVersiones">
+        <xsd:sequence>
+          <xsd:element name="idenUsuarioLog" nillable="true" type="xsd:string" />
+          <xsd:element name="identificador" nillable="true" type="xsd:string" />
+          <xsd:element name="login" nillable="true" type="xsd:string" />
+          <xsd:element name="password" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="skip" nillable="true" type="xsd:string" />
+          <xsd:element name="datosAuditoria" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ResponseListarVersiones">
+        <xsd:sequence>
+          <xsd:element name="identificadores" nillable="true" type="impl:ArrayOf_xsd_string" />
+          <xsd:element name="labels" nillable="true" type="impl:ArrayOf_xsd_string" />
+          <xsd:element name="mensaje" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="resultado" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RequestActualizar">
+        <xsd:sequence>
+          <xsd:element name="heredar_general" type="xsd:boolean" />
+          <xsd:element name="idenUsuarioLog" nillable="true" type="xsd:string" />
+          <xsd:element name="identificador" nillable="true" type="xsd:string" />
+          <xsd:element name="login" nillable="true" type="xsd:string" />
+          <xsd:element name="password" nillable="true" type="xsd:string" />
+          <xsd:element name="propiedades" nillable="true" type="impl:ArrayOf_tns1_DatoPropiedad" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="skip" nillable="true" type="xsd:string" />
+          <xsd:element name="version" nillable="true" type="xsd:string" />
+          <xsd:element name="nombre" nillable="true" type="xsd:string" />
+          <xsd:element xmime:expectedContentTypes="application/octet-stream" name="archivo" nillable="true" type="xsd:base64Binary" />
+          <xsd:element name="datosAuditoria" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ResponseActualizar">
+        <xsd:sequence>
+          <xsd:element name="identificador" nillable="true" type="xsd:string" />
+          <xsd:element name="mensaje" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="valor" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RequestAsignarCove">
+        <xsd:sequence>
+          <xsd:element name="codigo_expediente" nillable="true" type="xsd:string" />
+          <xsd:element name="fecha_vigencia" nillable="true" type="xsd:string" />
+          <xsd:element name="idenUsuarioLog" nillable="true" type="xsd:string" />
+          <xsd:element name="identificador" nillable="true" type="xsd:string" />
+          <xsd:element name="login" nillable="true" type="xsd:string" />
+          <xsd:element name="password" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="regulacion" nillable="true" type="xsd:string" />
+          <xsd:element name="skip" nillable="true" type="xsd:string" />
+          <xsd:element name="datosAuditoria" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ResponseAsignarCove">
+        <xsd:sequence>
+          <xsd:element name="cove_hexadecimal" nillable="true" type="xsd:string" />
+          <xsd:element name="cove_numerico" nillable="true" type="xsd:string" />
+          <xsd:element name="mensaje" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="valor" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RequestObtenerDocumentoCove">
+        <xsd:sequence>
+          <xsd:element name="cove" nillable="true" type="xsd:string" />
+          <xsd:element name="idenUsuarioLog" nillable="true" type="xsd:string" />
+          <xsd:element name="login" nillable="true" type="xsd:string" />
+          <xsd:element name="password" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="skip" nillable="true" type="xsd:string" />
+          <xsd:element name="datosAuditoria" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ResponseObtenerDocumentoCove">
+        <xsd:sequence>
+          <xsd:element name="mensaje" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="valor" nillable="true" type="xsd:string" />
+          <xsd:element xmime:expectedContentTypes="application/octet-stream" name="archivo" nillable="true" type="xsd:base64Binary" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RequestRetrotraerExpediente">
+        <xsd:sequence>
+          <xsd:element name="anulado" nillable="true" type="xsd:string" />
+          <xsd:element name="idDocumentos" nillable="true" type="impl:ArrayOf_xsd_string" />
+          <xsd:element name="idExpediente" nillable="true" type="xsd:string" />
+          <xsd:element name="idenUsuarioLog" nillable="true" type="xsd:string" />
+          <xsd:element name="password" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="retrotraido" nillable="true" type="xsd:string" />
+          <xsd:element name="skip" nillable="true" type="xsd:string" />
+          <xsd:element name="usuario" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ResponseRetrotraerExpediente">
+        <xsd:sequence>
+          <xsd:element name="mensaje" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="resultado" nillable="true" type="xsd:string" />
+          <xsd:element name="datosAuditoria" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RequestObtenerInformacionClases">
+        <xsd:sequence>
+          <xsd:element name="idenUsuarioLog" nillable="true" type="xsd:string" />
+          <xsd:element name="login" nillable="true" type="xsd:string" />
+          <xsd:element name="password" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="skip" nillable="true" type="xsd:string" />
+          <xsd:element name="tipo" nillable="true" type="xsd:string" />
+          <xsd:element name="datosAuditoria" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ResponseObtenerInformacionClases">
+        <xsd:sequence>
+          <xsd:element name="mensaje" nillable="true" type="xsd:string" />
+          <xsd:element name="nombre" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="valor" nillable="true" type="xsd:string" />
+          <xsd:element xmime:expectedContentTypes="application/octet-stream" name="archivo" nillable="true" type="xsd:base64Binary" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RequestObtenerDocumentoImprimible">
+        <xsd:sequence>
+          <xsd:element name="idenUsuarioLog" nillable="true" type="xsd:string" />
+          <xsd:element name="identificador" nillable="true" type="xsd:string" />
+          <xsd:element name="csv" nillable="true" type="xsd:string" />
+          <xsd:element name="login" nillable="true" type="xsd:string" />
+          <xsd:element name="password" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="skip" nillable="true" type="xsd:string" />
+          <xsd:element name="formato" nillable="true" type="xsd:string" />
+          <xsd:element name="datosAuditoria" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ResponseObtenerDocumentoImprimible">
+        <xsd:sequence>
+          <xsd:element name="mensaje" nillable="true" type="xsd:string" />
+          <xsd:element name="nombre" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="valor" nillable="true" type="xsd:string" />
+          <xsd:element xmime:expectedContentTypes="application/octet-stream" name="archivo" nillable="true" type="xsd:base64Binary" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RequestObtenerDocumentoElectronico">
+        <xsd:sequence>
+          <xsd:element name="idenUsuarioLog" nillable="true" type="xsd:string" />
+          <xsd:element name="identificador" nillable="true" type="xsd:string" />
+          <xsd:element name="login" nillable="true" type="xsd:string" />
+          <xsd:element name="password" nillable="true" type="xsd:string" />
+          <xsd:element name="organo" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="skip" nillable="true" type="xsd:string" />
+          <xsd:element name="datosAuditoria" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ResponseObtenerDocumentoElectronico">
+        <xsd:sequence>
+          <xsd:element name="mensaje" nillable="true" type="xsd:string" />
+          <xsd:element name="nombre" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="valor" nillable="true" type="xsd:string" />
+          <xsd:element xmime:expectedContentTypes="application/octet-stream" name="archivo" nillable="true" type="xsd:base64Binary" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RequestObtenerExpedienteElectronico">
+        <xsd:sequence>
+          <xsd:element name="idenUsuarioLog" nillable="true" type="xsd:string" />
+          <xsd:element name="identificadorExpediente" nillable="true" type="xsd:string" />
+          <xsd:element name="identificadorIndice" nillable="true" type="xsd:string" />
+          <xsd:element name="login" nillable="true" type="xsd:string" />
+          <xsd:element name="password" nillable="true" type="xsd:string" />
+          <xsd:element name="clasificacion" nillable="true" type="xsd:string" />
+          <xsd:element name="estado" nillable="true" type="xsd:string" />
+          <xsd:element name="interesado" nillable="true" type="xsd:string" />
+          <xsd:element name="organo" nillable="true" type="xsd:string" />
+          <xsd:element name="fechaAperturaExpediente" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="identificadores" nillable="true" type="impl:ArrayOf_xsd_string" />
+          <xsd:element name="skip" nillable="true" type="xsd:string" />
+          <xsd:element name="datosAuditoria" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ResponseObtenerExpedienteElectronico">
+        <xsd:sequence>
+          <xsd:element name="mensaje" nillable="true" type="xsd:string" />
+          <xsd:element name="nombre" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="valor" nillable="true" type="xsd:string" />
+          <xsd:element xmime:expectedContentTypes="application/octet-stream" name="archivo" nillable="true" type="xsd:base64Binary" />
+          <xsd:element name="indiceId" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RequestObtenerClaseDocumental">
+        <xsd:sequence>
+          <xsd:element name="login" nillable="true" type="xsd:string" />
+          <xsd:element name="password" nillable="true" type="xsd:string" />
+          <xsd:element name="idenUsuarioLog" nillable="true" type="xsd:string" />
+          <xsd:element name="identificador" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="skip" nillable="true" type="xsd:string" />
+          <xsd:element name="datosAuditoria" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ResponseObtenerClaseDocumental">
+        <xsd:sequence>
+          <xsd:element name="mensaje" nillable="true" type="xsd:string" />
+          <xsd:element name="valor" nillable="true" type="xsd:string" />
+          <xsd:element name="nombre" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RequestValidarUsuario">
+        <xsd:sequence>
+          <xsd:element name="login" nillable="true" type="xsd:string" />
+          <xsd:element name="password" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+          <xsd:element name="skip" nillable="true" type="xsd:string" />
+          <xsd:element name="datosAuditoria" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ResponseValidarUsuario">
+        <xsd:sequence>
+          <xsd:element name="mensaje" nillable="true" type="xsd:string" />
+          <xsd:element name="valor" nillable="true" type="xsd:string" />
+          <xsd:element name="propsExtension" nillable="true" type="impl:ArrayOf_tns1_Extension" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="validarUsuarioRequest">
+    <wsdl:part name="request" element="impl:RequestValidarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="listarRelacionRequest">
+    <wsdl:part name="request" element="impl:request2" />
+  </wsdl:message>
+  <wsdl:message name="listarVersionesResponse">
+    <wsdl:part name="listarVersionesReturn" element="impl:listarVersionesReturn" />
+  </wsdl:message>
+  <wsdl:message name="crearCarpetaRequest">
+    <wsdl:part name="request" element="impl:request5" />
+  </wsdl:message>
+  <wsdl:message name="buscarRequest">
+    <wsdl:part name="request" element="impl:request3" />
+  </wsdl:message>
+  <wsdl:message name="borrarResponse">
+    <wsdl:part name="borrarReturn" element="impl:borrarReturn" />
+  </wsdl:message>
+  <wsdl:message name="obtenerExpedienteElectronicoRequest">
+    <wsdl:part name="request" element="impl:RequestObtenerExpedienteElectronico" />
+  </wsdl:message>
+  <wsdl:message name="importarRequest">
+    <wsdl:part name="request" element="impl:request6" />
+  </wsdl:message>
+  <wsdl:message name="actualizarRequest">
+    <wsdl:part name="request" element="impl:request14" />
+  </wsdl:message>
+  <wsdl:message name="obtenerDocumentosCoveResponse">
+    <wsdl:part name="obtenerDocumentosCoveReturn" element="impl:obtenerDocumentosCoveReturn" />
+  </wsdl:message>
+  <wsdl:message name="listarRelacionResponse">
+    <wsdl:part name="listarRelacionReturn" element="impl:listarRelacionReturn" />
+  </wsdl:message>
+  <wsdl:message name="obtenerClaseDocumentalRequest">
+    <wsdl:part name="request" element="impl:obtenerClaseDocumentalRequest" />
+  </wsdl:message>
+  <wsdl:message name="eliminarVersionResponse">
+    <wsdl:part name="eliminarVersionReturn" element="impl:eliminarVersionReturn" />
+  </wsdl:message>
+  <wsdl:message name="eliminarRelacionResponse">
+    <wsdl:part name="eliminarRelacionReturn" element="impl:eliminarRelacionReturn" />
+  </wsdl:message>
+  <wsdl:message name="checkOutResponse">
+    <wsdl:part name="checkOutReturn" element="impl:checkOutReturn" />
+  </wsdl:message>
+  <wsdl:message name="actualizarResponse">
+    <wsdl:part name="actualizarReturn" element="impl:actualizarReturn" />
+  </wsdl:message>
+  <wsdl:message name="obtenerDocumentosCoveRequest">
+    <wsdl:part name="request" element="impl:request16" />
+  </wsdl:message>
+  <wsdl:message name="modificarCarpetaResponse">
+    <wsdl:part name="modificarCarpetaReturn" element="impl:modificarCarpetaReturn" />
+  </wsdl:message>
+  <wsdl:message name="importarResponse">
+    <wsdl:part name="importarReturn" element="impl:importarReturn" />
+  </wsdl:message>
+  <wsdl:message name="modificarCarpetaRequest">
+    <wsdl:part name="request" element="impl:request4" />
+  </wsdl:message>
+  <wsdl:message name="verDocRequest">
+    <wsdl:part name="request" element="impl:request7" />
+  </wsdl:message>
+  <wsdl:message name="verDocResponse">
+    <wsdl:part name="verDocReturn" element="impl:verDocReturn" />
+  </wsdl:message>
+  <wsdl:message name="obtenerInformacionClasesRequest">
+    <wsdl:part name="request" element="impl:request18" />
+  </wsdl:message>
+  <wsdl:message name="asignarCoveRequest">
+    <wsdl:part name="request" element="impl:request15" />
+  </wsdl:message>
+  <wsdl:message name="borrarRequest">
+    <wsdl:part name="request" element="impl:request8" />
+  </wsdl:message>
+  <wsdl:message name="obtenerDocumentoImprimibleResponse">
+    <wsdl:part name="obtenerDocumentoImprimibleReturn" element="impl:obtenerDocumentoImprimibleReturn" />
+  </wsdl:message>
+  <wsdl:message name="obtenerClaseDocumentalResponse">
+    <wsdl:part name="obtenerClaseDocumentalReturn" element="impl:obtenerClaseDocumentalReturn" />
+  </wsdl:message>
+  <wsdl:message name="obtenerPropiedadesResponse">
+    <wsdl:part name="obtenerPropiedadesReturn" element="impl:obtenerPropiedadesReturn" />
+  </wsdl:message>
+  <wsdl:message name="eliminarVersionRequest">
+    <wsdl:part name="request" element="impl:request10" />
+  </wsdl:message>
+  <wsdl:message name="obtenerExpedienteElectronicoResponse">
+    <wsdl:part name="obtenerExpedienteElectronicoReturn" element="impl:obtenerExpedienteElectronicoReturn" />
+  </wsdl:message>
+  <wsdl:message name="asignarCoveResponse">
+    <wsdl:part name="asignarCoveReturn" element="impl:asignarCoveReturn" />
+  </wsdl:message>
+  <wsdl:message name="eliminarRelacionRequest">
+    <wsdl:part name="request" element="impl:request1" />
+  </wsdl:message>
+  <wsdl:message name="cancelarCheckOutResponse">
+    <wsdl:part name="cancelarCheckOutReturn" element="impl:cancelarCheckOutReturn" />
+  </wsdl:message>
+  <wsdl:message name="relacionarRequest">
+    <wsdl:part name="request" element="impl:request" />
+  </wsdl:message>
+  <wsdl:message name="obtenerDocumentoImprimibleRequest">
+    <wsdl:part name="request" element="impl:request19" />
+  </wsdl:message>
+  <wsdl:message name="validarUsuarioResponse">
+    <wsdl:part name="validarUsuarioReturn" element="impl:validarUsuarioReturn" />
+  </wsdl:message>
+  <wsdl:message name="crearCarpetaResponse">
+    <wsdl:part name="crearCarpetaReturn" element="impl:crearCarpetaReturn" />
+  </wsdl:message>
+  <wsdl:message name="retrotraerExpedienteRequest">
+    <wsdl:part name="request" element="impl:request17" />
+  </wsdl:message>
+  <wsdl:message name="listarVersionesRequest">
+    <wsdl:part name="request" element="impl:request13" />
+  </wsdl:message>
+  <wsdl:message name="checkOutRequest">
+    <wsdl:part name="request" element="impl:request11" />
+  </wsdl:message>
+  <wsdl:message name="obtenerDocumentoElectronicoRequest">
+    <wsdl:part name="request" element="impl:RequestObtenerDocumentoElectronico" />
+  </wsdl:message>
+  <wsdl:message name="obtenerInformacionClasesResponse">
+    <wsdl:part name="obtenerInformacionClasesReturn" element="impl:obtenerInformacionClasesReturn" />
+  </wsdl:message>
+  <wsdl:message name="obtenerDocumentoElectronicoResponse">
+    <wsdl:part name="obtenerDocumentoElectronicoReturn" element="impl:obtenerDocumentoElectronicoReturn" />
+  </wsdl:message>
+  <wsdl:message name="obtenerPropiedadesRequest">
+    <wsdl:part name="request" element="impl:request9" />
+  </wsdl:message>
+  <wsdl:message name="retrotraerExpedienteResponse">
+    <wsdl:part name="retrotraerExpedienteReturn" element="impl:retrotraerExpedienteReturn" />
+  </wsdl:message>
+  <wsdl:message name="relacionarResponse">
+    <wsdl:part name="relacionarReturn" element="impl:relacionarReturn" />
+  </wsdl:message>
+  <wsdl:message name="cancelarCheckOutRequest">
+    <wsdl:part name="request" element="impl:request12" />
+  </wsdl:message>
+  <wsdl:message name="buscarResponse">
+    <wsdl:part name="buscarReturn" element="impl:buscarReturn" />
+  </wsdl:message>
+  <wsdl:portType name="OpServicios">
+    <wsdl:operation name="relacionar" parameterOrder="request">
+      <wsdl:input name="relacionarRequest" message="impl:relacionarRequest" />
+      <wsdl:output name="relacionarResponse" message="impl:relacionarResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminarRelacion" parameterOrder="request">
+      <wsdl:input name="eliminarRelacionRequest" message="impl:eliminarRelacionRequest" />
+      <wsdl:output name="eliminarRelacionResponse" message="impl:eliminarRelacionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="listarRelacion" parameterOrder="request">
+      <wsdl:input name="listarRelacionRequest" message="impl:listarRelacionRequest" />
+      <wsdl:output name="listarRelacionResponse" message="impl:listarRelacionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="buscar" parameterOrder="request">
+      <wsdl:input name="buscarRequest" message="impl:buscarRequest" />
+      <wsdl:output name="buscarResponse" message="impl:buscarResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="modificarCarpeta" parameterOrder="request">
+      <wsdl:input name="modificarCarpetaRequest" message="impl:modificarCarpetaRequest" />
+      <wsdl:output name="modificarCarpetaResponse" message="impl:modificarCarpetaResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="crearCarpeta" parameterOrder="request">
+      <wsdl:input name="crearCarpetaRequest" message="impl:crearCarpetaRequest" />
+      <wsdl:output name="crearCarpetaResponse" message="impl:crearCarpetaResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="importar" parameterOrder="request">
+      <wsdl:input name="importarRequest" message="impl:importarRequest" />
+      <wsdl:output name="importarResponse" message="impl:importarResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="verDoc" parameterOrder="request">
+      <wsdl:input name="verDocRequest" message="impl:verDocRequest" />
+      <wsdl:output name="verDocResponse" message="impl:verDocResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="borrar" parameterOrder="request">
+      <wsdl:input name="borrarRequest" message="impl:borrarRequest" />
+      <wsdl:output name="borrarResponse" message="impl:borrarResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerPropiedades" parameterOrder="request">
+      <wsdl:input name="obtenerPropiedadesRequest" message="impl:obtenerPropiedadesRequest" />
+      <wsdl:output name="obtenerPropiedadesResponse" message="impl:obtenerPropiedadesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminarVersion" parameterOrder="request">
+      <wsdl:input name="eliminarVersionRequest" message="impl:eliminarVersionRequest" />
+      <wsdl:output name="eliminarVersionResponse" message="impl:eliminarVersionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="checkOut" parameterOrder="request">
+      <wsdl:input name="checkOutRequest" message="impl:checkOutRequest" />
+      <wsdl:output name="checkOutResponse" message="impl:checkOutResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="cancelarCheckOut" parameterOrder="request">
+      <wsdl:input name="cancelarCheckOutRequest" message="impl:cancelarCheckOutRequest" />
+      <wsdl:output name="cancelarCheckOutResponse" message="impl:cancelarCheckOutResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="listarVersiones" parameterOrder="request">
+      <wsdl:input name="listarVersionesRequest" message="impl:listarVersionesRequest" />
+      <wsdl:output name="listarVersionesResponse" message="impl:listarVersionesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizar" parameterOrder="request">
+      <wsdl:input name="actualizarRequest" message="impl:actualizarRequest" />
+      <wsdl:output name="actualizarResponse" message="impl:actualizarResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="asignarCove" parameterOrder="request">
+      <wsdl:input name="asignarCoveRequest" message="impl:asignarCoveRequest" />
+      <wsdl:output name="asignarCoveResponse" message="impl:asignarCoveResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerDocumentosCove" parameterOrder="request">
+      <wsdl:input name="obtenerDocumentosCoveRequest" message="impl:obtenerDocumentosCoveRequest" />
+      <wsdl:output name="obtenerDocumentosCoveResponse" message="impl:obtenerDocumentosCoveResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="retrotraerExpediente" parameterOrder="request">
+      <wsdl:input name="retrotraerExpedienteRequest" message="impl:retrotraerExpedienteRequest" />
+      <wsdl:output name="retrotraerExpedienteResponse" message="impl:retrotraerExpedienteResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerInformacionClases" parameterOrder="request">
+      <wsdl:input name="obtenerInformacionClasesRequest" message="impl:obtenerInformacionClasesRequest" />
+      <wsdl:output name="obtenerInformacionClasesResponse" message="impl:obtenerInformacionClasesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerDocumentoImprimible" parameterOrder="request">
+      <wsdl:input name="obtenerDocumentoImprimibleRequest" message="impl:obtenerDocumentoImprimibleRequest" />
+      <wsdl:output name="obtenerDocumentoImprimibleResponse" message="impl:obtenerDocumentoImprimibleResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerDocumentoElectronico" parameterOrder="request">
+      <wsdl:input name="obtenerDocumentoElectronicoRequest" message="impl:obtenerDocumentoElectronicoRequest" />
+      <wsdl:output name="obtenerDocumentoElectronicoResponse" message="impl:obtenerDocumentoElectronicoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerExpedienteElectronico" parameterOrder="request">
+      <wsdl:input name="obtenerExpedienteElectronicoRequest" message="impl:obtenerExpedienteElectronicoRequest" />
+      <wsdl:output name="obtenerExpedienteElectronicoResponse" message="impl:obtenerExpedienteElectronicoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerClaseDocumental" parameterOrder="request">
+      <wsdl:input name="obtenerClaseDocumentalRequest" message="impl:obtenerClaseDocumentalRequest" />
+      <wsdl:output name="obtenerClaseDocumentalResponse" message="impl:obtenerClaseDocumentalResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="validarUsuario" parameterOrder="request">
+      <wsdl:input name="validarUsuarioRequest" message="impl:validarUsuarioRequest" />
+      <wsdl:output name="validarUsuarioResponse" message="impl:validarUsuarioResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="opServiciosSoapBinding" type="impl:OpServicios">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="relacionar">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="relacionarRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="relacionarResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarRelacion">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="eliminarRelacionRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="eliminarRelacionResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarRelacion">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="listarRelacionRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="listarRelacionResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscar">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="buscarRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="buscarResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarCarpeta">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="modificarCarpetaRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="modificarCarpetaResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearCarpeta">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="crearCarpetaRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="crearCarpetaResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="importar">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="importarRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="importarResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verDoc">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="verDocRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="verDocResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="borrar">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="borrarRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="borrarResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerPropiedades">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="obtenerPropiedadesRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="obtenerPropiedadesResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarVersion">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="eliminarVersionRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="eliminarVersionResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkOut">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="checkOutRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="checkOutResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelarCheckOut">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="cancelarCheckOutRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="cancelarCheckOutResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarVersiones">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="listarVersionesRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="listarVersionesResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizar">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="actualizarRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="actualizarResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="asignarCove">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="asignarCoveRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="asignarCoveResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerDocumentosCove">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="obtenerDocumentosCoveRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="obtenerDocumentosCoveResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="retrotraerExpediente">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="retrotraerExpedienteRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="retrotraerExpedienteResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerInformacionClases">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="obtenerInformacionClasesRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="obtenerInformacionClasesResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerDocumentoImprimible">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="obtenerDocumentoImprimibleRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="obtenerDocumentoImprimibleResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerDocumentoElectronico">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="obtenerDocumentoElectronicoRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="obtenerDocumentoElectronicoResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerExpedienteElectronico">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="obtenerExpedienteElectronicoRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="obtenerExpedienteElectronicoResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerClaseDocumental">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="obtenerClaseDocumentalRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="obtenerClaseDocumentalResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validarUsuario">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="validarUsuarioRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="validarUsuarioResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OpServiciosService">
+    <wsdl:port name="opServicios" binding="impl:opServiciosSoapBinding">
+      <wsdlsoap:address location="http://172.29.149.185:9080/archiva/services/opServicios" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

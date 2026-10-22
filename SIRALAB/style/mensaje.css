@@ -1,0 +1,43 @@
+﻿/* Estilos del mesaje */
+.mensaje {
+    width: 500px;
+    border: 1px solid #C2C2C2;
+    background-color: #FFF;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    margin: 30px auto;
+    -moz-box-shadow: 3px 3px 4px #444;
+	-webkit-box-shadow: 3px 3px 4px #444;
+	box-shadow: 3px 3px 4px #444;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#444444')";
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#444444');
+}
+.mensaje-titulo-content { overflow: hidden; margin-bottom: 10px; padding: 5px; position: relative; }
+.mensaje-titulo { zoom: 1; float: left; margin-left: 10px; font-size: 12pt; font-family: Segoe UI; padding: 0; color: #A2A2A2; }
+
+.mensaje-cerrar {
+    position: absolute;
+    padding: 3px 7px;
+    right: 10px;
+    font-size: 11pt;
+    font-family: Segoe UI Light;
+    color: #929292;
+    -moz-opacity: 0.6;
+    -webkit-opacity: 0.6;
+    filter: alpha(opacity=60);
+    opacity:  0.6;
+    text-decoration: none;
+}
+.mensaje-cerrar:hover {
+    -moz-opacity: 0.9;
+    -webkit-opacity: 0.9;
+    filter: alpha(opacity=90);
+    opacity: 0.9;
+}
+
+.mensaje-content { padding: 5px 10px 5px 5px; position: relative; overflow: hidden; }
+.mensaje-image-content { height: 195px; width: 110px; float: left; margin: 5px 0; font-weight: normal; }
+.mensaje-image { width: 48px; margin: 20px auto; zoom: 1; }
+.mensaje-texto { height: 195px; width: 363px; float: left; padding: 5px; font-family: Segoe UI; border: 1px solid #E2E2E2; text-align: justify; background-color: #F5F5F5; }
+.mensaje-botones { text-align: right; padding: 5px 10px 5px 5px; margin-bottom: 10px; }

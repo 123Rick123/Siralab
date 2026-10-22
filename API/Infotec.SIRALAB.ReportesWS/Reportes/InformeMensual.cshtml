@@ -1,0 +1,299 @@
+﻿@using System.Globalization
+@using Infotec.SIRALAB.ReportesWS.DAL.Models.DAO
+@using Infotec.SIRALAB.ReportesWS.DAL.Models.Enums
+@model Infotec.SIRALAB.ReportesWS.Reportes.Models.InformeMensualDTO
+
+@{
+    var header = Model.UspReporteMensualHeader;
+    var analisisList = Model.Analisis;
+    var requiereCompuesta = analisisList?.FirstOrDefault()?.OrdenTrabajo.Norma.RequiereCompuesta;
+    var requiereCaudal = analisisList?.FirstOrDefault()?.OrdenTrabajo.Norma.RequiereCaudal;
+    var requiereMensual = analisisList?.FirstOrDefault()?.OrdenTrabajo.Norma.RequiereMensual;
+    var calculoMensual = Model.CalculoMensual;
+
+
+    var fechaConsulta = DateTime.Now;
+
+    var mensajeLFD = $"El presente informe mensual fue elaborado con base en los registros que obran a {fechaConsulta.ToString("D")} a las {fechaConsulta.ToString("t")} horas, en el Sistema de Recepción de Análisis de Laboratorio (SIRALAB) y se expide sólo para fines fiscales.";
+
+
+    var fechaInicio = analisisList?.FirstOrDefault()?.Muestras.FirstOrDefault()?.Fecha;
+    var periodoInicioString = fechaInicio?.ToString("MMMM", CultureInfo.CreateSpecificCulture("es"));
+    var fechaFin = analisisList?.LastOrDefault()?.Muestras.FirstOrDefault()?.Fecha;
+    var encabezadoPeriodo = "RESULTADOS DE ANÁLISIS INFORME MENSUAL";
+    var diasDiferencia = 0;
+
+    if (fechaInicio != null)
+    {
+        diasDiferencia = DateTime.DaysInMonth(fechaInicio.Value.Year, fechaInicio.Value.Month);
+        periodoInicioString = fechaInicio?.ToString("MMMM", CultureInfo.CreateSpecificCulture("es"));
+    }
+
+
+    if (fechaInicio?.Month != fechaFin?.Month || fechaInicio?.Year != fechaFin?.Year)
+    {
+        if (fechaFin > fechaInicio?.AddDays(diasDiferencia))
+        {
+            encabezadoPeriodo = "RESULTADOS DE ANÁLISIS INFORME DEL PERIODO";
+            var periodoFinString = fechaFin?.ToString("MMMM", CultureInfo.CreateSpecificCulture("es"));
+
+            if (fechaInicio?.Year != fechaFin?.Year)
+            {
+                periodoInicioString += $"-{fechaInicio?.ToString("yyyy")}";
+                periodoFinString += $"-{fechaFin?.ToString("yyyy")}";
+            }
+
+            if (fechaInicio?.Month != fechaFin?.Month)
+            {
+                periodoInicioString += "-" + periodoFinString;
+            }
+
+            if (fechaInicio?.Year == fechaFin?.Year)
+            {
+                periodoInicioString += "/" + fechaInicio?.Year;
+            }
+        }
+    }
+    else
+    {
+        periodoInicioString += " " + fechaInicio?.ToString("yyyy");
+    }
+}
+
+
+
+<html>
+<head>
+    <title>@Model.Titulo</title>
+    <link rel="stylesheet" type="text/css" href="@Model.Css">
+    <style type="text/css">
+        @@media print {
+            @@page {
+                @@top-left {
+                    content: "";
+                }
+
+                @@top-center {
+                    content: "";
+                }
+
+                @@top-right {
+                    content: "";
+                }
+
+                @@bottom-left {
+                    content: "Fecha de consulta: @fechaConsulta";
+                }
+
+                @@bottom-center {
+                }
+
+                @@bottom-right {
+                    content: "Página " counter(page) " de " counter(pages);
+                }
+            }
+        }
+
+        b {
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body style="font-family: Montserrat">
+    <div class="row">
+        <img src="@Model.Logo" />
+        @if (fechaInicio != null)
+        {
+            <h3>@encabezadoPeriodo:</h3>
+            <h3>@periodoInicioString.ToUpper().</h3>
+        }
+        else
+        {
+            <h3>@encabezadoPeriodo.</h3>
+        }
+    </div>
+    <div class="row">
+
+        @if (Model.TipoEvaluacion == TipoEvaluacion.Evaluar_LFD)
+        {
+            <p style="font-size: 10px; text-align: justify !important;">@mensajeLFD</p>
+        }
+
+        <h4>Datos generales.</h4>
+        <table class="table table-striped table-condensed" style="font-size: 10px; text-align: left !important;">
+            <tbody>
+            <tr>
+                <th style="background-color: #E8E8E8 !important; width: 300px">Contribuyente</th>
+                <td>@header.ClienteNombre</td>
+            </tr>
+            <tr>
+                <th style="background-color: #E8E8E8 !important; width: 300px">RFC</th>
+                <td>@header.ClienteRFC</td>
+            </tr>
+            <tr>
+                <th style="background-color: #E8E8E8 !important; width: 300px">Permiso de descarga</th>
+                <td>@header.PuntoDescargaTitulo</td>
+            </tr>
+            <tr>
+                <th style="background-color: #E8E8E8 !important; width: 300px">Anexo</th>
+                <td>@header.Anexo</td>
+            </tr>
+            <tr>
+                <th style="background-color: #E8E8E8 !important; width: 300px">Cuerpo Receptor</th>
+                <td>@header.AnexoCuerpoReceptorNombre</td>
+            </tr>
+            <tr>
+                <th style="background-color: #E8E8E8 !important; width: 300px">Nombre del punto de descarga</th>
+                <td>@header.PuntoDescargaNombreCuerpoReceptor</td>
+            </tr>
+            <tr>
+                <th style="background-color: #E8E8E8 !important; width: 300px">Norma</th>
+                <td>@header.NormaNombre</td>
+            </tr>
+            <tr>
+                <th style="background-color: #E8E8E8 !important; width: 300px">Clasificacion del cuerpo receptor en norma</th>
+                <td>@header.CuerpoReceptorNombre</td>
+            </tr>
+            <tr>
+                <th style="background-color: #E8E8E8 !important; width: 300px">Uso y tipo de cuerpo receptor en norma</th>
+                <td>@header.UsoAguaNombre</td>
+            </tr>
+            </tbody>
+        </table>
+        
+        @if (Model.TipoEvaluacion != TipoEvaluacion.Evaluar_LFD)
+        {
+            <br/>
+        }
+
+        @if (analisisList != null)
+        {
+            @foreach (var analisis in analisisList)
+            {
+
+                var h4Texto = requiereCompuesta ?? true ? "Promedio diario" : "Muestra";
+                h4Texto += " " + (analisisList.FindIndex(a => a.AnalisisID == analisis.AnalisisID) + 1) + ".";
+
+
+                @if (analisis.Muestras.FirstOrDefault()?.MuestraValors.Any() ?? false)
+                {
+                    <div>
+                        <h4>@h4Texto</h4>
+                        @if (requiereCompuesta ?? true)
+                        {
+                            <h5>Resultados muestras simples:</h5>
+                        }
+
+                        <table class="table table-striped table-condensed" style="font-size: 10px; text-align: left !important;">
+                            <tr>
+                                <th style="background-color: #E8E8E8 !important">Parámetro</th>
+                                <th style="text-align: center !important; background-color: #E8E8E8 !important">Resultado</th>
+                                <th style="text-align: center !important; background-color: #E8E8E8 !important">LMP</th>
+                                <th style="text-align: center !important; background-color: #E8E8E8 !important">Cumple</th>
+                            </tr>
+                            <tbody>
+                                @foreach (var analisisPD in Model.AnalisisPD.Where(apd => apd.AnalisisId == analisis.AnalisisID && apd.NivelId == 1))
+                                {
+                                    <tr>
+                                        <td>@analisisPD.Etiqueta</td>
+                                        
+                                        <td style="text-align: center !important;">@analisisPD.Resultado</td>
+                                        <td style="text-align: center !important;">@analisisPD.LMP</td>
+                                        <td style="text-align: center !important;">@analisisPD.Cumple</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+
+
+
+                @if (requiereCompuesta ?? true)
+                {
+                    @if (analisis.Muestras.Any(m => m.NivelID == 1 && !m.MuestraValors.Any()))
+                    {
+                        <h4>@h4Texto</h4>
+                    }
+
+                    <div>
+                        <h5>Resultados muestra compuesta:</h5>
+                        <table class="table table-striped table-condensed" style="font-size: 10px; text-align: left !important;">
+                            <tr>
+                                <th style="background-color: #E8E8E8 !important">Parámetro</th>
+                                <th style="text-align: center !important; background-color: #E8E8E8 !important">Resultado</th>
+                                <th style="text-align: center !important; background-color: #E8E8E8 !important">LMP</th>
+                                <th style="text-align: center !important; background-color: #E8E8E8 !important">Cumple</th>
+                            </tr>
+                            <tbody>
+                                @foreach (var analisisPD in Model.AnalisisPD.Where(apd => apd.AnalisisId == analisis.AnalisisID && apd.NivelId == 2))
+                                {
+                                    <tr>
+                                        <td>@analisisPD.Etiqueta</td>
+                                        <td style="text-align: center !important;">@analisisPD.Resultado</td>
+                                        <td style="text-align: center !important;">@analisisPD.LMP</td>
+                                        <td style="text-align: center !important;">@analisisPD.Cumple</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+            }
+        }
+    </div>
+
+    @if (requiereMensual == true && calculoMensual.Count > 0)
+    {
+        <div class="row">
+            <h4>Evaluación mensual.</h4>
+            <table class="table table-striped table-condensed" style="font-size: 10px; text-align: left !important;">
+                <tr>
+                    <th style="background-color: #E8E8E8 !important">Parámetro</th>
+                    <th style="text-align: center !important; background-color: #E8E8E8 !important">Promedio Ponderado en Función del Caudal</th>
+                    <th style="text-align: center !important; background-color: #E8E8E8 !important">LMP</th>
+                    <th style="text-align: center !important; background-color: #E8E8E8 !important">Cumple</th>
+                </tr>
+                <tbody>
+                    @foreach (var analisisPD in calculoMensual)
+                    {
+                        <tr>
+                            <td>@analisisPD.Etiqueta</td>
+                            <td style="text-align: center !important;">@analisisPD.Resultado</td>
+                            <td style="text-align: center !important;">@analisisPD.LMP </td>
+                            <td style="text-align: center !important;">@analisisPD.Cumple</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+
+
+    <div class="row">
+        <h4>Relación de laboratorios.</h4>
+        <table class="table table-striped table-condensed" style="font-size: 10px; text-align: left !important;">
+            <tr>
+                <th style="background-color: #E8E8E8 !important">Prueba</th>
+                <th style="background-color: #E8E8E8 !important">Laboratorio</th>
+                <th style="background-color: #E8E8E8 !important">Acreditación EMA</th>
+                <th style="background-color: #E8E8E8 !important">Aprobación CONAGUA</th>
+            </tr>
+            <tbody>
+                @foreach (var analisis in analisisList)
+                {
+                    var prueba = requiereCompuesta ?? true ? "Promedio diario " : "Muestra ";
+                    prueba += (@analisisList.FindIndex(a => a.AnalisisID == analisis.AnalisisID) + 1);
+                    <tr>
+                        <td>@prueba</td>
+                        <td>@analisis.Laboratorio.Nombre</td>
+                        <td>@analisis.Laboratorio.LaboratorioAcreditacions.FirstOrDefault()?.Numero</td>
+                        <td>@analisis.Laboratorio.LaboratorioVigencia.LastOrDefault()?.Numero</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+{
+  "NormaId": "1",
+  "FechaFin": "01/01/2022",
+  "Mensaje": "Se hace de su conocimiento que para 2021 hubo cambios en la Ley Federal de Derechos en cuanto a la clasificaci&oacute;n de algunos cuerpos receptores (tipo \"A\", \"B\" o \"C\"), por lo que se deber&aacute; consultar la reforma a dicho ordenamiento legal, publicada el 8 de diciembre de 2020 en el D.O.F.",
+  "Estados": [
+    {
+      "Id": "1",
+      "Nombre": "Aguascalientes"
+    },
+    {
+      "Id": "4",
+      "Nombre": "Campeche"
+    },
+    {
+      "Id": "14",
+      "Nombre": "Jalisco"
+    },
+    {
+      "Id": "21",
+      "Nombre": "Puebla"
+    },
+    {
+      "Id": "20",
+      "Nombre": "Oaxaca"
+    },
+    {
+      "Id": "23",
+      "Nombre": "Quintana Roo"
+    },
+    {
+      "Id": "25",
+      "Nombre": "Sinaloa"
+    },
+    {
+      "Id": "30",
+      "Nombre": "Veracruz"
+    },
+    {
+      "Id": "31",
+      "Nombre": "Yucatán"
+    }
+  ]
+}

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="wsSIRALAB" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://172.29.150.36/WS_SIRALAB/wsSIRALAB.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://172.29.150.36/WS_SIRALAB/wsSIRALAB.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://172.29.150.36/WS_SIRALAB/wsSIRALAB.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/BL_WS_SIRALAB" />
+      <xsd:import schemaLocation="http://172.29.150.36/WS_SIRALAB/wsSIRALAB.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/BL_WS_SIRALAB.clases" />
+      <xsd:import schemaLocation="http://172.29.150.36/WS_SIRALAB/wsSIRALAB.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IwsSIRALAB_Obten_Informacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obten_Informacion" />
+  </wsdl:message>
+  <wsdl:message name="IwsSIRALAB_Obten_Informacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obten_InformacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwsSIRALAB_Obten_Informacion_PD_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obten_Informacion_PD" />
+  </wsdl:message>
+  <wsdl:message name="IwsSIRALAB_Obten_Informacion_PD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obten_Informacion_PDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwsSIRALAB_Obten_Normas_InputMessage">
+    <wsdl:part name="parameters" element="tns:Obten_Normas" />
+  </wsdl:message>
+  <wsdl:message name="IwsSIRALAB_Obten_Normas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Obten_NormasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwsSIRALAB_Validacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:Validacion" />
+  </wsdl:message>
+  <wsdl:message name="IwsSIRALAB_Validacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwsSIRALAB_Listado_Validacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:Listado_Validacion" />
+  </wsdl:message>
+  <wsdl:message name="IwsSIRALAB_Listado_Validacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Listado_ValidacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwsSIRALAB_Archivo_PDF_Analisis_InputMessage">
+    <wsdl:part name="parameters" element="tns:Archivo_PDF_Analisis" />
+  </wsdl:message>
+  <wsdl:message name="IwsSIRALAB_Archivo_PDF_Analisis_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Archivo_PDF_AnalisisResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwsSIRALAB_Archivo_PDF_Mensual_InputMessage">
+    <wsdl:part name="parameters" element="tns:Archivo_PDF_Mensual" />
+  </wsdl:message>
+  <wsdl:message name="IwsSIRALAB_Archivo_PDF_Mensual_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Archivo_PDF_MensualResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IwsSIRALAB">
+    <wsdl:operation name="Obten_Informacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwsSIRALAB/Obten_Informacion" message="tns:IwsSIRALAB_Obten_Informacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwsSIRALAB/Obten_InformacionResponse" message="tns:IwsSIRALAB_Obten_Informacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obten_Informacion_PD">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwsSIRALAB/Obten_Informacion_PD" message="tns:IwsSIRALAB_Obten_Informacion_PD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwsSIRALAB/Obten_Informacion_PDResponse" message="tns:IwsSIRALAB_Obten_Informacion_PD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Obten_Normas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwsSIRALAB/Obten_Normas" message="tns:IwsSIRALAB_Obten_Normas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwsSIRALAB/Obten_NormasResponse" message="tns:IwsSIRALAB_Obten_Normas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Validacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwsSIRALAB/Validacion" message="tns:IwsSIRALAB_Validacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwsSIRALAB/ValidacionResponse" message="tns:IwsSIRALAB_Validacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Listado_Validacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwsSIRALAB/Listado_Validacion" message="tns:IwsSIRALAB_Listado_Validacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwsSIRALAB/Listado_ValidacionResponse" message="tns:IwsSIRALAB_Listado_Validacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Archivo_PDF_Analisis">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwsSIRALAB/Archivo_PDF_Analisis" message="tns:IwsSIRALAB_Archivo_PDF_Analisis_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwsSIRALAB/Archivo_PDF_AnalisisResponse" message="tns:IwsSIRALAB_Archivo_PDF_Analisis_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Archivo_PDF_Mensual">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwsSIRALAB/Archivo_PDF_Mensual" message="tns:IwsSIRALAB_Archivo_PDF_Mensual_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwsSIRALAB/Archivo_PDF_MensualResponse" message="tns:IwsSIRALAB_Archivo_PDF_Mensual_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IwsSIRALAB" type="tns:IwsSIRALAB">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Obten_Informacion">
+      <soap:operation soapAction="http://tempuri.org/IwsSIRALAB/Obten_Informacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obten_Informacion_PD">
+      <soap:operation soapAction="http://tempuri.org/IwsSIRALAB/Obten_Informacion_PD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Obten_Normas">
+      <soap:operation soapAction="http://tempuri.org/IwsSIRALAB/Obten_Normas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Validacion">
+      <soap:operation soapAction="http://tempuri.org/IwsSIRALAB/Validacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Listado_Validacion">
+      <soap:operation soapAction="http://tempuri.org/IwsSIRALAB/Listado_Validacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Archivo_PDF_Analisis">
+      <soap:operation soapAction="http://tempuri.org/IwsSIRALAB/Archivo_PDF_Analisis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Archivo_PDF_Mensual">
+      <soap:operation soapAction="http://tempuri.org/IwsSIRALAB/Archivo_PDF_Mensual" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsSIRALAB">
+    <wsdl:port name="BasicHttpBinding_IwsSIRALAB" binding="tns:BasicHttpBinding_IwsSIRALAB">
+      <soap:address location="http://172.29.150.36/WS_SIRALAB/wsSIRALAB.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

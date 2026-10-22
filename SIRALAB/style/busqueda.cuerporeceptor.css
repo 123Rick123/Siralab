@@ -1,0 +1,48 @@
+﻿.buscar {
+    margin: 20px 30px 10px 10px;
+    text-align: right;
+    position: relative;
+}
+.buscar-txt {
+    border: 1px solid #bbb;
+    width: 300px;
+    padding: 5px;
+    vertical-align: middle;
+    background-color: transparent;
+}
+.buscar-button, .buscar-button-avanzado, .buscar-button-limpiar { width: 16px; height: 24px; display: inline-block; vertical-align: middle; }
+.buscar-button { background: url("../image/buscar.png") no-repeat center; }
+.buscar-button-avanzado { background: url("../image/expandir.png") no-repeat center; width: 16px; }
+.buscar-button:hover { background: url("../image/buscarhover.png") no-repeat center; }
+.buscar-button-avanzado:hover { background: url("../image/expandirhover.png") no-repeat center; }
+.buscar-button-avanzado-seleccionado { background: url("../image/contraer.png") no-repeat center; width: 16px; }
+.buscar-button-avanzado-seleccionado:hover { background: url("../image/contraerhover.png") no-repeat center; }
+.buscar-button-limpiar { background: url("../image/limpiar.png") no-repeat center; width: 16px; }
+.buscar-button-limpiar:hover { background: url("../image/limpiarhover.png") no-repeat center; }
+.buscar-avanzado {
+    background-color: #FFF;
+    display: inline-block;
+    padding: 5px;
+    text-align: left;
+    padding: 5px;
+    border: 1px solid #e2e2e2;
+    z-index: 10000;
+    position: absolute;
+    right: 0;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    display: none;/**/
+    -moz-box-shadow: 2px 2px 3px #444;
+	-webkit-box-shadow: 2px 2px 3px #444;
+	box-shadow: 2px 2px 3px #444;
+	/*-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#444444')";
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#444444');*/
+}
+.buscar-avanzado ul { margin: 0; padding: 0px; list-style: none; }
+.buscar-avanzado ul li { padding: 4px; }
+.buscar-avanzado select { width: 160px; }
+.buscar-avanzado > ul > li > ul > li { display: inline-block; padding: 0; }
+.buscar-avanzado-titulo { font-family: Segoe UI Light; font-size: 12pt; border-bottom: 1px solid #e2e2e2; padding-bottom: 10px; margin-bottom: 3px; }
+.buscar-campos { padding: 5px 5px 2px 6px; color: #B38E5D; font-size: 11px; font-weight: bold; }
+.buscar-table { border-collapse: collapse; }

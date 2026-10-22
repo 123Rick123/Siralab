@@ -1,0 +1,76 @@
+﻿.popform { /*Formularios modales o popup*/
+    background-color: #fff;
+    border: 1px solid #777;
+    margin: 0 auto;
+    /*Borde con puntas redondeadas*/
+    -webkit-border-radius: 7px 7px 0 0;
+    -moz-border-radius: 7px 7px 0 0;
+    border-radius: 7px;
+    /*Sombra*/
+    -moz-box-shadow: 2px 2px 3px #444;
+	-webkit-box-shadow: 2px 2px 3px #444;
+	box-shadow: 2px 2px 3px #444;
+}
+
+div.pop-contenido > ul {
+    margin: 10px;
+    padding: 0;
+    list-style: none;
+}
+
+div.pop-contenido > ul > li > table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 5px auto;
+}
+
+div.pop-contenido > ul > li > table > tbody > tr > td {
+    padding: 3px 2px;
+}
+
+.popform-title {
+    font: 14pt Segoe UI;
+    color: #777;
+    border-bottom: 1px solid #777;
+    padding: 6px 5px;
+}
+
+.popform-subtitle {
+    font: 12pt Segoe UI;
+    color: #777;
+    border-top: 1px solid #777;
+    padding: 5px;
+}
+
+.popform-close-button {
+    background: url('../image/close.png') no-repeat center center;
+    width: 16px;
+    height: 16px;
+    float: right;
+}
+
+.popform-buttons {
+    text-align: right;
+    padding: 10px 0;
+}
+
+.table-list
+{
+    border-collapse: separate;
+    width: 100%;
+    margin: 0;
+}
+
+.table-list > tbody > tr > td, .table-list-header
+{
+    padding: 7px 2px;
+    color: #777;
+}
+
+.table-list-header
+{
+    background-color: #F5F5F5;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}

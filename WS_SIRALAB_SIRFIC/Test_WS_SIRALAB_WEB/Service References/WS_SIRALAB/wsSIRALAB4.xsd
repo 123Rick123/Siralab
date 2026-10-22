@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/BL_WS_SIRALAB" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/BL_WS_SIRALAB" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:2110/wsSIRALAB.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:2110/wsSIRALAB.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/BL_WS_SIRALAB.clases" />
+  <xs:simpleType name="enumTipoEvaluacion">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NoEvaluar">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Evaluar_Simple">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Evaluar_LFD">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Evaluar_LFD_Simple">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="enumTipoEvaluacion" nillable="true" type="tns:enumTipoEvaluacion" />
+  <xs:complexType name="ArrayOfPeriodResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PeriodResult" nillable="true" type="tns:PeriodResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPeriodResult" nillable="true" type="tns:ArrayOfPeriodResult" />
+  <xs:complexType name="PeriodResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="analisis" nillable="true" type="tns:ArrayOfAnalisis" />
+      <xs:element minOccurs="0" name="anexo" nillable="true" type="tns:Anexo" />
+      <xs:element minOccurs="0" name="cliente" nillable="true" type="tns:Cliente" />
+      <xs:element minOccurs="0" name="consecion" nillable="true" type="tns:Titulo" />
+      <xs:element minOccurs="0" name="error" type="xs:boolean" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/BL_WS_SIRALAB.clases" minOccurs="0" name="exception" nillable="true" type="q1:SiralabFaultException" />
+      <xs:element minOccurs="0" name="norma" nillable="true" type="tns:Norma" />
+      <xs:element minOccurs="0" name="valida" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="PeriodResult" nillable="true" type="tns:PeriodResult" />
+  <xs:complexType name="ArrayOfAnalisis">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Analisis" nillable="true" type="tns:Analisis" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAnalisis" nillable="true" type="tns:ArrayOfAnalisis" />
+  <xs:complexType name="Analisis">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AnalisisID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="laboratorio" nillable="true" type="tns:Laboratorio" />
+      <xs:element minOccurs="0" name="muestras" nillable="true" type="tns:ArrayOfMuestra" />
+      <xs:element minOccurs="0" name="observaciones" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="orden_trabajo" nillable="true" type="tns:OrdenTrabajo" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Analisis" nillable="true" type="tns:Analisis" />
+  <xs:complexType name="Laboratorio">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AcreditacionEMA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Aprobacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="apellidoMaterno" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="apellidoPaterno" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="curp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="direccion" nillable="true" type="tns:Direccion" />
+      <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="persona_fisica" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="rfc" nillable="true" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Laboratorio" nillable="true" type="tns:Laboratorio" />
+  <xs:complexType name="Direccion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="calle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="colonia" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="localidad" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="municipio" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="numero_exterior" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="numero_interior" nillable="true" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Direccion" nillable="true" type="tns:Direccion" />
+  <xs:complexType name="ArrayOfMuestra">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Muestra" nillable="true" type="tns:Muestra" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMuestra" nillable="true" type="tns:ArrayOfMuestra" />
+  <xs:complexType name="Muestra">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Muestreador" nillable="true" type="tns:Signatario" />
+      <xs:element minOccurs="0" name="Resultados" nillable="true" type="tns:ArrayOfParametroAnalizado" />
+      <xs:element minOccurs="0" name="cancelado" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="caudal" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="datum" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="direccion" nillable="true" type="tns:Direccion" />
+      <xs:element minOccurs="0" name="fecha" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fecha_recepcion" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="hora" nillable="true" type="ser:duration" />
+      <xs:element minOccurs="0" name="hora_recepcion" nillable="true" type="ser:duration" />
+      <xs:element minOccurs="0" name="identificacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="latitud" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="longitud" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="nivel" nillable="true" type="tns:enumNivel" />
+      <xs:element minOccurs="0" name="numero" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="observaciones" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="requiere_caudal" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Muestra" nillable="true" type="tns:Muestra" />
+  <xs:complexType name="Signatario">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TipoSignatario" nillable="true" type="tns:enumSignatario" />
+      <xs:element minOccurs="0" name="persona" nillable="true" type="tns:Persona" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Signatario" nillable="true" type="tns:Signatario" />
+  <xs:simpleType name="enumSignatario">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Analista">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Muestreador">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="enumSignatario" nillable="true" type="tns:enumSignatario" />
+  <xs:complexType name="Persona">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="apellido_materno" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="apellido_paterno" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="curp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rfc" nillable="true" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Persona" nillable="true" type="tns:Persona" />
+  <xs:complexType name="ArrayOfParametroAnalizado">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ParametroAnalizado" nillable="true" type="tns:ParametroAnalizado" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfParametroAnalizado" nillable="true" type="tns:ArrayOfParametroAnalizado" />
+  <xs:complexType name="ParametroAnalizado">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="acepta_valor" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="evalua" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="exenta" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="exento" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="grupo" nillable="true" type="tns:ArrayOfParametro" />
+      <xs:element minOccurs="0" name="laboratorio" nillable="true" type="tns:Laboratorio" />
+      <xs:element minOccurs="0" name="lc_mc" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ley_federal" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="limite_inferior" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="limite_inferior_LFD" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="limite_superior" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="limite_superior_LFD" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="metodo" nillable="true" type="tns:Metodo" />
+      <xs:element minOccurs="0" name="no_analizado" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="operacion" nillable="true" type="tns:enumOperacion" />
+      <xs:element minOccurs="0" name="parametro" nillable="true" type="tns:Parametro" />
+      <xs:element minOccurs="0" name="valor" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="valor_validacion" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="ParametroAnalizado" nillable="true" type="tns:ParametroAnalizado" />
+  <xs:complexType name="ArrayOfParametro">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Parametro" nillable="true" type="tns:Parametro" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfParametro" nillable="true" type="tns:ArrayOfParametro" />
+  <xs:complexType name="Parametro">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="unidad" nillable="true" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Parametro" nillable="true" type="tns:Parametro" />
+  <xs:complexType name="Metodo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Metodo" nillable="true" type="tns:Metodo" />
+  <xs:simpleType name="enumOperacion">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Sumatoria">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Promedio_Aritmetico">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Ponderado">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Media_Geométrica">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="No_Aplica">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="enumOperacion" nillable="true" type="tns:enumOperacion" />
+  <xs:simpleType name="enumNivel">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Simple">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Compuesta">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Mensual">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="enumNivel" nillable="true" type="tns:enumNivel" />
+  <xs:complexType name="OrdenTrabajo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Anexo" nillable="true" type="tns:Anexo" />
+      <xs:element minOccurs="0" name="Cuerpo" nillable="true" type="tns:CuerpoReceptor" />
+      <xs:element minOccurs="0" name="Norma" nillable="true" type="tns:Norma" />
+      <xs:element minOccurs="0" name="Uso" nillable="true" type="tns:UsoAgua" />
+      <xs:element minOccurs="0" name="anio" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="consecutivo" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="fecha_emision" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="folio" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="horas_proceso" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="numero_informe" nillable="true" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="OrdenTrabajo" nillable="true" type="tns:OrdenTrabajo" />
+  <xs:complexType name="Anexo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Titulo" nillable="true" type="tns:Titulo" />
+      <xs:element minOccurs="0" name="anexo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="datum" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="direccion" nillable="true" type="tns:Direccion" />
+      <xs:element minOccurs="0" name="efluente" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="fuente_abastecimiento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="latitud" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="longitud" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="marcaMedidor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="medidor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nombre_cuerpo_receptor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="origen_descarga" nillable="true" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Anexo" nillable="true" type="tns:Anexo" />
+  <xs:complexType name="Titulo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="titulo" nillable="true" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Titulo" nillable="true" type="tns:Titulo" />
+  <xs:complexType name="CuerpoReceptor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tipo_cuerpo_receptor" nillable="true" type="tns:enumTipoCuerpoReceptor" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="CuerpoReceptor" nillable="true" type="tns:CuerpoReceptor" />
+  <xs:simpleType name="enumTipoCuerpoReceptor">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="A">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="B">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="C">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="D">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="enumTipoCuerpoReceptor" nillable="true" type="tns:enumTipoCuerpoReceptor" />
+  <xs:complexType name="Norma">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Vigente" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="id" nillable="true" type="xs:int" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Norma" nillable="true" type="tns:Norma" />
+  <xs:complexType name="UsoAgua">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="UsoAgua" nillable="true" type="tns:UsoAgua" />
+  <xs:complexType name="Cliente">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Persona">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Correo" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Cliente" nillable="true" type="tns:Cliente" />
+  <xs:complexType name="ArrayOfNorma">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Norma" nillable="true" type="tns:Norma" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNorma" nillable="true" type="tns:ArrayOfNorma" />
+</xs:schema>

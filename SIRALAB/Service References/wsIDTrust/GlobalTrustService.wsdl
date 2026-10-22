@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://globalkit.globaltrust/WsGlobalTrust.wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="GlobalTrustService" targetNamespace="http://globalkit.globaltrust/WsGlobalTrust.wsdl" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://firmaelectronica.conagua.gob.mx:9080/WsGlobalTrust/GlobalTrustService?xsd=1" namespace="http://globalkit.globaltrust/WsGlobalTrust.xsd" />
+    </xsd:schema>
+  </types>
+  <message name="GeneraCMSRecibo">
+    <part xmlns:ns1="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns1:GeneraCMSReciboRequest" />
+  </message>
+  <message name="GeneraCMSReciboResponse">
+    <part xmlns:ns2="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns2:GeneraCMSReciboResponse" />
+  </message>
+  <message name="GetTSTData">
+    <part xmlns:ns3="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns3:GetTSTDataReq" />
+  </message>
+  <message name="GetTSTDataResponse">
+    <part xmlns:ns4="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns4:GetTSTDataResp" />
+  </message>
+  <message name="Certificado">
+    <part xmlns:ns5="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns5:CertificadoRequest" />
+  </message>
+  <message name="CertificadoResponse">
+    <part xmlns:ns6="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns6:CertificadoResponse" />
+  </message>
+  <message name="Firma">
+    <part xmlns:ns7="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns7:FirmaRequest" />
+  </message>
+  <message name="FirmaResponse">
+    <part xmlns:ns8="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns8:FirmaResponse" />
+  </message>
+  <message name="FirmaSimple">
+    <part xmlns:ns9="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns9:FirmaSimpleRequest" />
+  </message>
+  <message name="FirmaSimpleResponse">
+    <part xmlns:ns10="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns10:FirmaSimpleResponse" />
+  </message>
+  <message name="RegistraCves">
+    <part xmlns:ns11="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns11:RegistraCvesRequest" />
+  </message>
+  <message name="RegistraCvesResponse">
+    <part xmlns:ns12="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns12:RegistraCvesResponse" />
+  </message>
+  <message name="EliminaCves">
+    <part xmlns:ns13="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns13:EliminaCvesRequest" />
+  </message>
+  <message name="EliminaCvesResponse">
+    <part xmlns:ns14="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns14:EliminaCvesResponse" />
+  </message>
+  <message name="ValidaFirma">
+    <part xmlns:ns15="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns15:ValidaFirmaRequest" />
+  </message>
+  <message name="ValidaFirmaResponse">
+    <part xmlns:ns16="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns16:ValidaFirmaResponse" />
+  </message>
+  <message name="ValidaFirmaHash">
+    <part xmlns:ns17="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns17:ValidaFirmaHashRequest" />
+  </message>
+  <message name="ValidaFirmaHashResponse">
+    <part xmlns:ns18="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns18:ValidaFirmaHashResponse" />
+  </message>
+  <message name="ValidaFirmaRuta">
+    <part xmlns:ns19="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns19:ValidaFirmaRutaRequest" />
+  </message>
+  <message name="ValidaFirmaRutaResponse">
+    <part xmlns:ns20="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns20:ValidaFirmaRutaResponse" />
+  </message>
+  <message name="ValidaFirmaCMS">
+    <part xmlns:ns21="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns21:ValidaFirmaCMSRequest" />
+  </message>
+  <message name="ValidaFirmaCMSResponse">
+    <part xmlns:ns22="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns22:ValidaFirmaCMSResponse" />
+  </message>
+  <message name="ValidaFirmaCMSMasivo">
+    <part xmlns:ns23="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns23:ValidaFirmaCMSMasivoRequest" />
+  </message>
+  <message name="ValidaFirmaCMSMasivoResponse">
+    <part xmlns:ns24="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns24:ValidaFirmaCMSMasivoResponse" />
+  </message>
+  <message name="ValidaFirmaCMSHash">
+    <part xmlns:ns25="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns25:ValidaFirmaCMSHashRequest" />
+  </message>
+  <message name="ValidaFirmaCMSHashResponse">
+    <part xmlns:ns26="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns26:ValidaFirmaCMSHashResponse" />
+  </message>
+  <message name="ValidaFirmaCMSRuta">
+    <part xmlns:ns27="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns27:ValidaFirmaCMSRutaRequest" />
+  </message>
+  <message name="ValidaFirmaCMSRutaResponse">
+    <part xmlns:ns28="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns28:ValidaFirmaCMSRutaResponse" />
+  </message>
+  <message name="GeneraCves">
+    <part xmlns:ns29="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns29:GeneraCvesRequest" />
+  </message>
+  <message name="GeneraCvesResponse">
+    <part xmlns:ns30="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns30:GeneraCvesResponse" />
+  </message>
+  <message name="ConfirmaCves">
+    <part xmlns:ns31="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns31:ConfirmaCvesRequest" />
+  </message>
+  <message name="ConfirmaCvesResponse">
+    <part xmlns:ns32="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns32:ConfirmaCvesResponse" />
+  </message>
+  <message name="ValidaFirmaXML">
+    <part xmlns:ns33="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns33:ValidaFirmaXMLRequest" />
+  </message>
+  <message name="ValidaFirmaXMLResponse">
+    <part xmlns:ns34="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns34:ValidaFirmaXMLResponse" />
+  </message>
+  <message name="ValidaCertificado">
+    <part xmlns:ns35="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns35:ValidaCertificadoRequest" />
+  </message>
+  <message name="ValidaCertificadoResponse">
+    <part xmlns:ns36="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns36:ValidaCertificadoResponse" />
+  </message>
+  <message name="FirmaXML">
+    <part xmlns:ns37="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns37:FirmaXMLRequest" />
+  </message>
+  <message name="FirmaXMLResponse">
+    <part xmlns:ns38="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns38:FirmaXMLResponse" />
+  </message>
+  <message name="FirmaLote">
+    <part xmlns:ns39="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns39:FirmaLoteIDTRequest" />
+  </message>
+  <message name="FirmaLoteResponse">
+    <part xmlns:ns40="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns40:FirmaLoteIDTResponse" />
+  </message>
+  <message name="ValidaToken">
+    <part xmlns:ns41="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns41:ValidaTokenRequest" />
+  </message>
+  <message name="ValidaTokenResponse">
+    <part xmlns:ns42="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns42:ValidaTokenResponse" />
+  </message>
+  <message name="GetSignerData">
+    <part xmlns:ns43="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns43:GetSignerDataRequest" />
+  </message>
+  <message name="GetSignerDataResponse">
+    <part xmlns:ns44="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns44:GetSignerDataResponse" />
+  </message>
+  <message name="GetCMSContent">
+    <part xmlns:ns45="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns45:GetCMSContentRequest" />
+  </message>
+  <message name="GetCMSContentResponse">
+    <part xmlns:ns46="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns46:GetCMSContentResponse" />
+  </message>
+  <message name="Hash">
+    <part xmlns:ns47="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns47:HashRequest" />
+  </message>
+  <message name="HashResponse">
+    <part xmlns:ns48="http://globalkit.globaltrust/WsGlobalTrust.xsd" name="body" element="ns48:HashResponse" />
+  </message>
+  <portType name="GlobalTrustPortType">
+    <operation name="GeneraCMSRecibo">
+      <input wsam:Action="http://globalkit.globaltrust/WsGlobalTrust/GeneraCMSRecibo" message="tns:GeneraCMSRecibo" />
+      <output wsam:Action="http://globalkit.globaltrust/WsGlobalTrust.wsdl/GlobalTrustPortType/GeneraCMSReciboResponse" message="tns:GeneraCMSReciboResponse" />
+    </operation>
+    <operation name="GetTSTData">
+      <input wsam:Action="http://globalkit.globaltrust/WsGlobalTrust/GetTSTData" message="tns:GetTSTData" />
+      <output wsam:Action="http://globalkit.globaltrust/WsGlobalTrust.wsdl/GlobalTrustPortType/GetTSTDataResponse" message="tns:GetTSTDataResponse" />
+    </operation>
+    <operation name="Certificado">
+      <input wsam:Action="http://globalkit.globaltrust/WsGlobalTrust/Certificado" message="tns:Certificado" />
+      <output wsam:Action="http://globalkit.globaltrust/WsGlobalTrust.wsdl/GlobalTrustPortType/CertificadoResponse" message="tns:CertificadoResponse" />
+    </operation>
+    <operation name="Firma">
+      <input wsam:Action="http://globalkit.globaltrust/WsGlobalTrust/Firma" message="tns:Firma" />
+      <output wsam:Action="http://globalkit.globaltrust/WsGlobalTrust.wsdl/GlobalTrustPortType/FirmaResponse" message="tns:FirmaResponse" />
+    </operation>
+    <operation name="FirmaSimple">
+      <input wsam:Action="http://globalkit.globaltrust/WsGlobalTrust/FirmaSimple" message="tns:FirmaSimple" />
+      <output wsam:Action="http://globalkit.globaltrust/WsGlobalTrust.wsdl/GlobalTrustPortType/FirmaSimpleResponse" message="tns:FirmaSimpleResponse" />
+    </operation>
+    <operation name="RegistraCves">
+      <input wsam:Action="http://globalkit.globaltrust/WsGlobalTrust/RegistraCves" message="tns:RegistraCves" />
+      <output wsam:Action="http://globalkit.globaltrust/WsGlobalTrust.wsdl/GlobalTrustPortType/RegistraCvesResponse" message="tns:RegistraCvesResponse" />
+    </operation>
+    <operation name="EliminaCves">
+      <input wsam:Action="http://globalkit.globaltrust/WsGlobalTrust/EliminaCves" message="tns:EliminaCves" />
+      <output wsam:Action="http://globalkit.globaltrust/WsGlobalTrust.wsdl/GlobalTrustPortType/EliminaCvesResponse" message="tns:EliminaCvesResponse" />
+    </operation>
+    <operation name="ValidaFirma">
+      <input wsam:Action="http://globalkit.globaltrust/WsGlobalTrust/ValidaFirma" message="tns:ValidaFirma" />
+      <output wsam:Action="http://globalkit.globaltrust/WsGlobalTrust.wsdl/GlobalTrustPortType/ValidaFirmaResponse" message="tns:ValidaFirmaResponse" />
+    </operation>
+    <operation name="ValidaFirmaHash">
+      <input wsam:Action="http://globalkit.globaltrust/WsGlobalTrust/ValidaFirmaHash" message="tns:ValidaFirmaHash" />
+      <output wsam:Action="http://globalkit.globaltrust/WsGlobalTrust.wsdl/GlobalTrustPortType/ValidaFirmaHashResponse" message="tns:ValidaFirmaHashResponse" />
+    </operation>
+    <operation name="ValidaFirmaRuta">
+      <input wsam:Action="http://globalkit.globaltrust/WsGlobalTrust/ValidaFirmaRuta" message="tns:ValidaFirmaRuta" />
+      <output wsam:Action="http://globalkit.globaltrust/WsGlobalTrust.wsdl/GlobalTrustPortType/ValidaFirmaRutaResponse" message="tns:ValidaFirmaRutaResponse" />
+    </operation>
+    <operation name="ValidaFirmaCMS">
+      <input wsam:Action="http://globalkit.globaltrust/WsGlobalTrust/ValidaFirmaCMS" message="tns:ValidaFirmaCMS" />
+      <output wsam:Action="http://globalkit.globaltrust/WsGlobalTrust.wsdl/GlobalTrustPortType/ValidaFirmaCMSResponse" message="tns:ValidaFirmaCMSResponse" />
+    </operation>
+    <operation name="ValidaFirmaCMSMasivo">
+      <input wsam:Action="http://globalkit.globaltrust/WsGlobalTrust/ValidaFirmaCMSMasivo" message="tns:ValidaFirmaCMSMasivo" />
+      <output wsam:Action="http://globalkit.globaltrust/WsGlobalTrust.wsdl/GlobalTrustPortType/ValidaFirmaCMSMasivoResponse" message="tns:ValidaFirmaCMSMasivoResponse" />
+    </operation>
+    <operation name="ValidaFirmaCMSHash">
+      <input wsam:Action="http://globalkit.globaltrust/WsGlobalTrust/ValidaFirmaCMSHash" message="tns:ValidaFirmaCMSHash" />
+      <output wsam:Action="http://globalkit.globaltrust/WsGlobalTrust.wsdl/GlobalTrustPortType/ValidaFirmaCMSHashResponse" message="tns:ValidaFirmaCMSHashResponse" />
+    </operation>
+    <operation name="ValidaFirmaCMSRuta">
+      <input wsam:Action="http://globalkit.globaltrust/WsGlobalTrust/ValidaFirmaCMSRuta" message="tns:ValidaFirmaCMSRuta" />
+      <output wsam:Action="http://globalkit.globaltrust/WsGlobalTrust.wsdl/GlobalTrustPortType/ValidaFirmaCMSRutaResponse" message="tns:ValidaFirmaCMSRutaResponse" />
+    </operation>
+    <operation name="GeneraCves">
+      <input wsam:Action="http://globalkit.globaltrust/WsGlobalTrust/GeneraCves" message="tns:GeneraCves" />
+      <output wsam:Action="http://globalkit.globaltrust/WsGlobalTrust.wsdl/GlobalTrustPortType/GeneraCvesResponse" message="tns:GeneraCvesResponse" />
+    </operation>
+    <operation name="ConfirmaCves">
+      <input wsam:Action="http://globalkit.globaltrust/WsGlobalTrust/ConfirmaCves" message="tns:ConfirmaCves" />
+      <output wsam:Action="http://globalkit.globaltrust/WsGlobalTrust.wsdl/GlobalTrustPortType/ConfirmaCvesResponse" message="tns:ConfirmaCvesResponse" />
+    </operation>
+    <operation name="ValidaFirmaXML">
+      <input wsam:Action="http://globalkit.globaltrust/WsGlobalTrust/ValidaFirmaXML" message="tns:ValidaFirmaXML" />
+      <output wsam:Action="http://globalkit.globaltrust/WsGlobalTrust.wsdl/GlobalTrustPortType/ValidaFirmaXMLResponse" message="tns:ValidaFirmaXMLResponse" />
+    </operation>
+    <operation name="ValidaCertificado">
+      <input wsam:Action="http://globalkit.globaltrust/WsGlobalTrust/ValidaCertificado" message="tns:ValidaCertificado" />
+      <output wsam:Action="http://globalkit.globaltrust/WsGlobalTrust.wsdl/GlobalTrustPortType/ValidaCertificadoResponse" message="tns:ValidaCertificadoResponse" />
+    </operation>
+    <operation name="FirmaXML">
+      <input wsam:Action="http://globalkit.globaltrust/WsGlobalTrust/FirmaXML" message="tns:FirmaXML" />
+      <output wsam:Action="http://globalkit.globaltrust/WsGlobalTrust.wsdl/GlobalTrustPortType/FirmaXMLResponse" message="tns:FirmaXMLResponse" />
+    </operation>
+    <operation name="FirmaLote">
+      <input wsam:Action="http://globalkit.globaltrust/WsGlobalTrust/FirmaLote" message="tns:FirmaLote" />
+      <output wsam:Action="http://globalkit.globaltrust/WsGlobalTrust.wsdl/GlobalTrustPortType/FirmaLoteResponse" message="tns:FirmaLoteResponse" />
+    </operation>
+    <operation name="ValidaToken">
+      <input wsam:Action="http://globalkit.globaltrust/WsGlobalTrust/VaidaToken" message="tns:ValidaToken" />
+      <output wsam:Action="http://globalkit.globaltrust/WsGlobalTrust.wsdl/GlobalTrustPortType/ValidaTokenResponse" message="tns:ValidaTokenResponse" />
+    </operation>
+    <operation name="GetSignerData">
+      <input wsam:Action="http://globalkit.globaltrust/WsGlobalTrust/GetSignerData" message="tns:GetSignerData" />
+      <output wsam:Action="http://globalkit.globaltrust/WsGlobalTrust.wsdl/GlobalTrustPortType/GetSignerDataResponse" message="tns:GetSignerDataResponse" />
+    </operation>
+    <operation name="GetCMSContent">
+      <input wsam:Action="http://globalkit.globaltrust/WsGlobalTrust/GetCMSContent" message="tns:GetCMSContent" />
+      <output wsam:Action="http://globalkit.globaltrust/WsGlobalTrust.wsdl/GlobalTrustPortType/GetCMSContentResponse" message="tns:GetCMSContentResponse" />
+    </operation>
+    <operation name="Hash">
+      <input wsam:Action="http://globalkit.globaltrust/WsGlobalTrust/Hash" message="tns:Hash" />
+      <output wsam:Action="http://globalkit.globaltrust/WsGlobalTrust.wsdl/GlobalTrustPortType/HashResponse" message="tns:HashResponse" />
+    </operation>
+  </portType>
+  <binding name="GlobalTrustPortTypePortBinding" type="tns:GlobalTrustPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="GeneraCMSRecibo">
+      <soap:operation soapAction="http://globalkit.globaltrust/WsGlobalTrust/GeneraCMSRecibo" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetTSTData">
+      <soap:operation soapAction="http://globalkit.globaltrust/WsGlobalTrust/GetTSTData" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="Certificado">
+      <soap:operation soapAction="http://globalkit.globaltrust/WsGlobalTrust/Certificado" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="Firma">
+      <soap:operation soapAction="http://globalkit.globaltrust/WsGlobalTrust/Firma" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="FirmaSimple">
+      <soap:operation soapAction="http://globalkit.globaltrust/WsGlobalTrust/FirmaSimple" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="RegistraCves">
+      <soap:operation soapAction="http://globalkit.globaltrust/WsGlobalTrust/RegistraCves" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="EliminaCves">
+      <soap:operation soapAction="http://globalkit.globaltrust/WsGlobalTrust/EliminaCves" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ValidaFirma">
+      <soap:operation soapAction="http://globalkit.globaltrust/WsGlobalTrust/ValidaFirma" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ValidaFirmaHash">
+      <soap:operation soapAction="http://globalkit.globaltrust/WsGlobalTrust/ValidaFirmaHash" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ValidaFirmaRuta">
+      <soap:operation soapAction="http://globalkit.globaltrust/WsGlobalTrust/ValidaFirmaRuta" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ValidaFirmaCMS">
+      <soap:operation soapAction="http://globalkit.globaltrust/WsGlobalTrust/ValidaFirmaCMS" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ValidaFirmaCMSMasivo">
+      <soap:operation soapAction="http://globalkit.globaltrust/WsGlobalTrust/ValidaFirmaCMSMasivo" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ValidaFirmaCMSHash">
+      <soap:operation soapAction="http://globalkit.globaltrust/WsGlobalTrust/ValidaFirmaCMSHash" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ValidaFirmaCMSRuta">
+      <soap:operation soapAction="http://globalkit.globaltrust/WsGlobalTrust/ValidaFirmaCMSRuta" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GeneraCves">
+      <soap:operation soapAction="http://globalkit.globaltrust/WsGlobalTrust/GeneraCves" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ConfirmaCves">
+      <soap:operation soapAction="http://globalkit.globaltrust/WsGlobalTrust/ConfirmaCves" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ValidaFirmaXML">
+      <soap:operation soapAction="http://globalkit.globaltrust/WsGlobalTrust/ValidaFirmaXML" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ValidaCertificado">
+      <soap:operation soapAction="http://globalkit.globaltrust/WsGlobalTrust/ValidaCertificado" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="FirmaXML">
+      <soap:operation soapAction="http://globalkit.globaltrust/WsGlobalTrust/FirmaXML" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="FirmaLote">
+      <soap:operation soapAction="http://globalkit.globaltrust/WsGlobalTrust/FirmaLote" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ValidaToken">
+      <soap:operation soapAction="http://globalkit.globaltrust/WsGlobalTrust/VaidaToken" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetSignerData">
+      <soap:operation soapAction="http://globalkit.globaltrust/WsGlobalTrust/GetSignerData" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetCMSContent">
+      <soap:operation soapAction="http://globalkit.globaltrust/WsGlobalTrust/GetCMSContent" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="Hash">
+      <soap:operation soapAction="http://globalkit.globaltrust/WsGlobalTrust/Hash" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="GlobalTrustService">
+    <port name="GlobalTrustPortTypePort" binding="tns:GlobalTrustPortTypePortBinding">
+      <soap:address location="http://firmaelectronica.conagua.gob.mx:9080/WsGlobalTrust/GlobalTrustService" />
+    </port>
+  </service>
+</definitions>

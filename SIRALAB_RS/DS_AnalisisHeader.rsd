@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <DataSet Name="">
+    <Query>
+      <DataSourceReference>DB_SIRALAB</DataSourceReference>
+      <DataSetParameters>
+        <DataSetParameter Name="@AnalisisID">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>Int32</rd:DbType>
+        </DataSetParameter>
+      </DataSetParameters>
+      <CommandType>StoredProcedure</CommandType>
+      <CommandText>usp_ReporteAnalisisHeader</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="OrdenTrabajoIdentificador">
+        <DataField>OrdenTrabajoIdentificador</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="AnalisisIdentificador">
+        <DataField>AnalisisIdentificador</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="AnalisisEnumeracion">
+        <DataField>AnalisisEnumeracion</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="AnalisisFechaFirma">
+        <DataField>AnalisisFechaFirma</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="LaboratorioIdentificador">
+        <DataField>LaboratorioIdentificador</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="AnalisisMuestraEsCompuesta">
+        <DataField>AnalisisMuestraEsCompuesta</DataField>
+        <rd:TypeName>System.Boolean</rd:TypeName>
+      </Field>
+      <Field Name="AnalisisFirmado">
+        <DataField>AnalisisFirmado</DataField>
+        <rd:TypeName>System.Boolean</rd:TypeName>
+      </Field>
+      <Field Name="FirmaCadenaOriginal">
+        <DataField>FirmaCadenaOriginal</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="FirmaDatosFirmados">
+        <DataField>FirmaDatosFirmados</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="AnalisisFechaInicio">
+        <DataField>AnalisisFechaInicio</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="LaboratorioEsPersonaFisica">
+        <DataField>LaboratorioEsPersonaFisica</DataField>
+        <rd:TypeName>System.Boolean</rd:TypeName>
+      </Field>
+      <Field Name="FirmaDatosSelloDigital">
+        <DataField>FirmaDatosSelloDigital</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="AnalisisFechaFin">
+        <DataField>AnalisisFechaFin</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="LaboratorioRFC">
+        <DataField>LaboratorioRFC</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="LaboratorioCURP">
+        <DataField>LaboratorioCURP</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="OrdenTrabajoNumeroInforme">
+        <DataField>OrdenTrabajoNumeroInforme</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="OrdenTrabajoHorasProceso">
+        <DataField>OrdenTrabajoHorasProceso</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="UsoAguaNombre">
+        <DataField>UsoAguaNombre</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="LaboratorioNombre">
+        <DataField>LaboratorioNombre</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="CuerpoReceptorNombre">
+        <DataField>CuerpoReceptorNombre</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="LaboratorioApellidoPaterno">
+        <DataField>LaboratorioApellidoPaterno</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="LaboratorioApellidoMaterno">
+        <DataField>LaboratorioApellidoMaterno</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="NormaNombre">
+        <DataField>NormaNombre</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ClienteID">
+        <DataField>ClienteID</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="ClienteRFC">
+        <DataField>ClienteRFC</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ClienteCURP">
+        <DataField>ClienteCURP</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ClienteNombre">
+        <DataField>ClienteNombre</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ClienteApellidoPaterno">
+        <DataField>ClienteApellidoPaterno</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ClienteApellidoMaterno">
+        <DataField>ClienteApellidoMaterno</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="MuestraLatitud">
+        <DataField>MuestraLatitud</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="MuestraLongitud">
+        <DataField>MuestraLongitud</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="MuestraDireccion">
+        <DataField>MuestraDireccion</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="PuntoDescargaAnexo">
+        <DataField>PuntoDescargaAnexo</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="PuntoDescargaNombreCuerpoReceptor">
+        <DataField>PuntoDescargaNombreCuerpoReceptor</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="PuntoDescargaLatitud">
+        <DataField>PuntoDescargaLatitud</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="PuntoDescargaLongitud">
+        <DataField>PuntoDescargaLongitud</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="PuntoDescargaDatum">
+        <DataField>PuntoDescargaDatum</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="PuntoDescargaTitulo">
+        <DataField>PuntoDescargaTitulo</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="PuntoDescargaDireccionCalle">
+        <DataField>PuntoDescargaDireccionCalle</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="PuntoDescargaDireccionNumExt">
+        <DataField>PuntoDescargaDireccionNumExt</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="PuntoDescargaDireccionNumInt">
+        <DataField>PuntoDescargaDireccionNumInt</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="PuntoDescargaDireccionColonia">
+        <DataField>PuntoDescargaDireccionColonia</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="PuntoDescargaDireccionLocalidad">
+        <DataField>PuntoDescargaDireccionLocalidad</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="PuntoDescargaDireccionMunicipio">
+        <DataField>PuntoDescargaDireccionMunicipio</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="PuntoDescargaDireccionEstado">
+        <DataField>PuntoDescargaDireccionEstado</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="PuntoDescargaDireccionCP">
+        <DataField>PuntoDescargaDireccionCP</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="EsFuenteAbastecimiento">
+        <DataField>EsFuenteAbastecimiento</DataField>
+        <rd:TypeName>System.Boolean</rd:TypeName>
+      </Field>
+      <Field Name="Aprobacion">
+        <DataField>Aprobacion</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="AcreditacionEMA">
+        <DataField>AcreditacionEMA</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

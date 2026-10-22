@@ -1,0 +1,240 @@
+﻿/* Iconos de 16 pixeles */
+.icono-complementar-16, .icono-pago-16, .icono-faltapago-16, .icono-eliminar-16, .icono-editar-16, .icono-helicoptero-16, .icono-acompaniante-16, .icono-recepcion-16, .icono-cerrar, .icono-guardar-16, 
+.icono-actividad-16, .icono-attach-16, .icono-listado-16, .icono-presidium-16, .icono-ver-detalle-16, .icono-siguiente-16, .icono-anterior-16, .icono-ok-16,
+.icono-okgreen-16, .icono-cerrarrojo-16, .icono-agregarotro-16, .icono-contacto-16, .icono-analista-16, .icono-analistagreen-16, .icono-muestreador-16, .icono-muestreadorgreen-16,
+.icono-firma-16
+{ width: 16px; height: 16px; display: inline-block; margin: 3px; }
+
+/* Iconos de 24 pixeles */
+.add-new, .help-tutorial
+{ width: 32px; height: 32px; display: inline-block; }
+/* Iconos de 16 pixeles */
+.add-new-sm, .help-tutorial-sm, .expand-sm, .collapse-sm
+{ width: 16px; height: 16px; display: inline-block; margin: 3px; background-size: 16px 16px; }
+
+.icono-complementar-16 { background: url('../image/botones/complementario16.png') no-repeat center center; }
+.icono-complementar-16:hover { background: url('../image/botones/complementario16-hover.png') no-repeat center center; }
+.icono-faltapago-16 { background: url('../image/botones/faltapago.png') no-repeat center center; }
+.icono-faltapago-16:hover { background: url('../image/botones/faltapago-hover.png') no-repeat center center; }
+.icono-pago-16 { background: url('../image/botones/pago.png') no-repeat center center; }
+.icono-pago-16:hover { background: url('../image/botones/pago-hover.png') no-repeat center center; }
+
+.add-new, .add-new-sm { background: url('../image/siralab/24/add-new.png') no-repeat center center; background-size: 24px 24px; }
+.add-new:hover, .add-new-sm:hover { background: url('../image/siralab/24/add-new.png') no-repeat center center; background-size: 24px 24px; }
+.expand-sm { background: url('../image/siralab/16/expand.png') no-repeat center center; }
+.collapse-sm { background: url('../image/siralab/16/collapse.png') no-repeat center center; }
+
+.help-tutorial, .help-tutorial-sm { background: url('../image/mh6.png') no-repeat center center; background-size: 20px 24px; }
+.help-tutorial:hover, .help-tutorial-sm:hover { background: url('../image/mh6.png') no-repeat center center; background-size: 20px 24px; }
+
+.icono-firmagreen-16:hover { background: url('../image/botones/firma-16green-hover.png') no-repeat center center; }
+.icono-firmagreen-16 { background: url('../image/botones/firma-16green.png') no-repeat center center; }
+.icono-firma-16:hover { background: url('../image/botones/firma-16-hover.png') no-repeat center center; }
+.icono-firma-16 { background: url('../image/botones/firma-16.png') no-repeat center center; }
+.icono-eliminar-16 { background: url('../image/eliminar-16.png') no-repeat center center; width: 16px; display: inline-block; }
+.icono-eliminar-16:hover { background: url('../image/eliminar-16hover.png') no-repeat center center; }
+.icono-editar-16 { background: url('../image/editar-16.png') no-repeat center center; }
+.icono-editar-16:hover { background: url('../image/editar-16hover.png') no-repeat center center; }
+.icono-helicoptero-16 { background: url('../image/helicoptero-16.png') no-repeat center center; }
+.icono-helicoptero-16:hover { background: url('../image/helicoptero-16hover.png') no-repeat center center; }
+.icono-acompaniante-16 { background: url('../image/acompaniante-16.png') no-repeat center center; }
+.icono-acompaniante-16:hover { background: url('../image/acompaniante-16hover.png') no-repeat center center; }
+.icono-recepcion-16 { background: url('../image/recepcion-16.png') no-repeat center center; }
+.icono-recepcion-16:hover { background: url('../image/recepcion-16hover.png') no-repeat center center; }
+.icono-actividad-16 { background: url('../image/actividad-16.png') no-repeat center center; }
+.icono-actividad-16:hover { background: url('../image/actividad-16hover.png') no-repeat center center; }
+.icono-attach-16 { background: url('../image/attach-16.png') no-repeat center center; }
+.icono-attach-16:hover { background: url('../image/attach-16hover.png') no-repeat center center; }
+.icono-listado-16 { background: url('../image/listado-16.png') no-repeat center center; }
+.icono-listado-16:hover { background: url('../image/listado-16hover.png') no-repeat center center; }
+.icono-presidium-16 { background: url('../image/presidium-16.png') no-repeat center center; }
+.icono-presidium-16:hover { background: url('../image/presidium-16hover.png') no-repeat center center; }
+.icono-ver-detalle-16 { background: url('../image/ver-detalle-16.png') no-repeat center center; }
+.icono-ver-detalle-16:hover { background: url('../image/ver-detalle-16hover.png') no-repeat center center; }
+.icono-guardar-16 { background: url('../image/guardar-16.png') no-repeat center center; }
+.icono-guardar-16:hover { background: url('../image/guardar-16hover.png') no-repeat center center; }
+
+.icono-anterior-16 { background: url('../image/anterior-16.png') no-repeat center center; }
+.icono-anterior-16:hover { background: url('../image/anterior-16hover.png') no-repeat center center; }
+.icono-siguiente-16 { background: url('../image/siguiente-16.png') no-repeat center center; }
+.icono-siguiente-16:hover { background: url('../image/siguiente-16hover.png') no-repeat center center; }
+
+.icono-ok-16 { background: url('../image/ok-16.png') no-repeat center center; }
+.icono-ok-16:hover { background: url('../image/ok-16hover.png') no-repeat center center; }
+.icono-okgreen-16 { background: url('../image/okgreen-16.png') no-repeat center center; }
+.icono-okgreen-16:hover { background: url('../image/okgreen-16hover.png') no-repeat center center; }
+.icono-cerrarrojo-16 { background: url('../image/cerrar-rojo16.png') no-repeat center center; }
+.icono-cerrarrojo-16:hover { background: url('../image/cerrar-rojo16hover.png') no-repeat center center; }
+.icono-agregarotro-16 { background: url('../image/agregarotro-16.png') no-repeat center center; }
+.icono-agregarotro-16:hover { background: url('../image/agregarotro-16hover.png') no-repeat center center; }
+
+.icono-contacto-16 { background: url('../image/contacto-16.png') no-repeat center center; }
+.icono-contacto-16:hover { background: url('../image/contacto-16hover.png') no-repeat center center; }
+
+.icono-analista-16 { background: url('../image/analista-16.png') no-repeat center center; }
+.icono-analista-16:hover { background: url('../image/analista-16hover.png') no-repeat center center; }
+.icono-analistagreen-16 { background: url('../image/analista-16green.png') no-repeat center center; }
+
+.icono-muestreador-16 { background: url('../image/muestreador-16.png') no-repeat center center; }
+.icono-muestreador-16:hover { background: url('../image/muestreador-16hover.png') no-repeat center center; }
+.icono-muestreadorgreen-16 { background: url('../image/muestreador-16green.png') no-repeat center center; }
+
+.icono-limpiar-16 { background: url('../image/limpiar.png') no-repeat center center; }
+.icono-limpiar-16:hover { background: url('../image/limpiarhover.png') no-repeat center center; }
+
+.icono-cerrar { background: url('../image/cerrar-16.png') no-repeat center center; float: right; }  
+.icono-cerrar:hover { background: url('../image/cerrar-16hover.png') no-repeat center center; }
+
+.icono-radio-no {   margin: 0 auto; display: block; width: 16px; height: 16px; background-image: url("../image/radioNo.png"); background-repeat: no-repeat; }
+.icono-radio-yes {   margin: 0 auto; display: block; width: 16px; height: 16px; background-image: url("../image/radioYes.png"); background-repeat: no-repeat; }
+
+/* Iconos de 24 pixeles */
+.icono-agregar-acompanante, .icono-agregar-recepcion, .icono-eliminar, .icono-mapa,
+.icono-actividad, .icono-traslado, .icono-clima, .icono-editar { width: 24px; height: 24px; display: inline-block; }
+
+.icono-actividad { background: url('../image/actividad.png') no-repeat center center; }
+.icono-actividad:hover { background: url('../image/actividadhover.png') no-repeat center center; }
+.icono-traslado { background: url('../image/traslado.png') no-repeat center center; }
+.icono-traslado:hover { background: url('../image/trasladohover.png') no-repeat center center; }
+.icono-clima { background: url('../image/clima.png') no-repeat center center; }
+.icono-clima:hover { background: url('../image/climahover.png') no-repeat center center; }
+.icono-editar { background: url('../image/editar.png') no-repeat center center; }
+.icono-editar:hover { background: url('../image/editarhover.png') no-repeat center center; }
+.icono-eliminar { background: url('../image/eliminar.png') no-repeat center center; }
+.icono-eliminar:hover { background: url('../image/eliminarhover.png') no-repeat center center; }
+.icono-mapa { background: url('../image/Maps.png') no-repeat center center; }
+.icono-mapa:hover { background: url('../image/Mapshover.png') no-repeat center center; }
+
+/* Iconos de 48 pixeles */
+.icono-siguiente { width: 48px; height: 48px; display: inline-block; }
+.icono-siguiente { background: url('../image/siguiente.png') no-repeat center center; }
+.icono-siguiente:hover { background: url('../image/siguientehover.png') no-repeat center center; }
+
+/* Iconos navegacion */
+.icono-previus { width: 48px; height: 48px; display: inline-block; }
+.icono-previus { background: url('../image/botones/Previous.png') no-repeat center center; }
+.icono-previus:hover { background: url('../image/botones/Previous.png') no-repeat center center; }
+
+.icono-manual { width: 48px; height: 60px; display: inline-block; }
+.icono-manual { background: url('../image/mh6.png') no-repeat center center; }
+.icono-manual:hover { background: url('../image/mh6.png') no-repeat center center; }
+.icono-nuevo { width: 48px; height: 48px; display: inline-block; }
+.icono-nuevo { background: url('../image/botones/New.png') no-repeat center center; }
+.icono-nuevo:hover { background: url('../image/botones/New.png') no-repeat center center; }
+
+.icono-guardar { width: 32px; height: 32px; display: inline-block; margin: 3px; }
+.icono-guardar { background: url('../image/botones/guardar.png') no-repeat center center; }
+.icono-guardar:hover { background: url('../image/botones/guardar.png') no-repeat center center; }
+
+.icono-cancelar { width: 32px; height: 32px; display: inline-block; margin: 3px; }
+.icono-cancelar { background: url('../image/botones/Cancel.png') no-repeat center center; }
+.icono-cancelar:hover {background: url('../image/botones/Cancel.png') no-repeat center center; }
+
+.icono-limpiar { width: 32px; height: 32px; display: inline-block; }
+.icono-limpiar { background: url('../image/Clean.png') no-repeat center center; }
+.icono-limpiar:hover { background: url('../image/Clean.png') no-repeat center center; }
+
+.icono-calcular { width: 32px; height: 32px; display: inline-block; margin: 3px; }
+.icono-calcular { background: url('../image/botones/calcular.png') no-repeat center center; }
+.icono-calcular:hover { background: url('../image/botones/calcular.png') no-repeat center center; }
+
+.icono-nvopto { width: 32px; height: 32px; display: inline-block; }
+.icono-nvopto { background: url('../image/botones/descarga.png') no-repeat center center; }
+.icono-nvopto:hover {background: url('../image/botones/descarga.png') no-repeat center center; }
+
+.icono-anexo { width: 24px; height: 24px; display: inline-block; }
+.icono-anexo { background: url('../image/botones/anexo-2.png') no-repeat center center; }
+.icono-anexo:hover {background: url('../image/botones/anexo-2.png') no-repeat center center; }
+
+.icono-masinfo { width: 24px; height: 24px; display: inline-block; }
+.icono-masinfo { background: url('../image/botones/more.png') no-repeat center center; }
+.icono-masinfo:hover {background: url('../image/botones/more.png') no-repeat center center; }
+
+.icono-info-16 { width: 13px; height: 13px; display: inline-block; }
+.icono-info-16 { background: url('../image/information-2.png') no-repeat center center; }
+.icono-info-16:hover {background: url('../image/information-2.png') no-repeat center center; }
+
+.icono-atras { width: 48px; height: 48px; display: inline-block; }
+.icono-atras { background: url('../image/botones/atras.png') no-repeat center center; }
+.icono-atras:hover { background: url('../image/botones/atras.png') no-repeat center center; }
+
+.icono-buscar { width: 24px; height: 24px; display: inline-block; }
+.icono-buscar { background: url('../image/botones/more.png') no-repeat center center; }
+.icono-buscar:hover {background: url('../image/botones/more.png') no-repeat center center; }
+
+.icono-up { width: 24px; height: 24px; display: inline-block; }
+.icono-up { background: url('../image/botones/down-1.png') no-repeat center center; }
+.icono-up:hover {background: url('../image/botones/down-1.png') no-repeat center center; }
+
+.icono-down { width: 24px; height: 24px; display: inline-block; }
+.icono-down { background: url('../image/botones/up-1.png') no-repeat center center; }
+.icono-down:hover {background: url('../image/botones/up-1.png') no-repeat center center; }
+
+.icono-downF { width: 48px; height: 60px; display: inline-block; }
+.icono-downF
+{
+    background: url('../image/mh4.png') no-repeat center center;
+}
+.icono-downF:hover {background: url('../image/mh4.png') no-repeat center center; }
+
+
+.icono-compuesta { width: 32px; height: 32px; display: inline-block; }
+.icono-compuesta { background: url('../image/botones/compuesta.png') no-repeat center center; }
+.icono-compuesta:hover {background: url('../image/botones/compuesta.png') no-repeat center center; }
+
+.icono-fuente { width: 32px; height: 32px; display: inline-block; }
+.icono-fuente { background: url('../image/botones/FuenteAbastecimiento.png') no-repeat center center; }
+.icono-fuente:hover {background: url('../image/botones/FuenteAbastecimiento.png') no-repeat center center; }
+
+.icono-guardar-green { width: 16px; height: 16px; display: inline-block; }
+.icono-guardar-green { background: url('../image/botones/save-green.png') no-repeat center center; }
+.icono-guardar-green:hover {background: url('../image/botones/save-green.png') no-repeat center center; }
+
+.icono-atras-32 { width: 32px; height: 32px; display: inline-block; }
+.icono-atras-32 { background: url('../image/botones/back-32.png') no-repeat center center; }
+.icono-atras-32:hover { background: url('../image/botones/back-32.png') no-repeat center center; }
+
+.icono-backmuestra { width: 32px; height: 32px; display: inline-block; }
+.icono-backmuestra { background: url('../image/botones/quim32x32.png') no-repeat center center; }
+.icono-backmuestra:hover { background: url('../image/botones/quim32x32.png') no-repeat center center; }
+
+.icono-circulosave { width: 32px; height: 32px; display: inline-block; }
+.icono-circulosave { background: url('../image/botones/disc32x32.png') no-repeat center center; }
+.icono-circulosave:hover { background: url('../image/botones/disc32x32.png') no-repeat center center; }
+
+.icono-guardarAnalisis { width: 32px; height: 32px; display: inline-block; }
+.icono-guardarAnalisis { background: url('../image/botones/mutip32x32.png') no-repeat center center; }
+.icono-guardarAnalisis:hover {background: url('../image/botones/mutip32x32.png') no-repeat center center; }
+
+.icono-subir, .icono-bajar { width: 16px; height: 16px; display: inline-block; }
+
+.icono-subir { background: url('../image/botones/subir-16.png') no-repeat center center; }
+.icono-subir:hover { background: url('../image/botones/subir-16-hover.png') no-repeat center center; }
+.icono-bajar { background: url('../image/botones/bajar-16.png') no-repeat center center; }
+.icono-bajar:hover { background: url('../image/botones/bajar-16-hover.png') no-repeat center center; }
+
+.icono-certificado, .icono-noanalizado, .icono-editarParametro,.icono-editarParametroC,.icono-editarParametroNA { width: 26px; height: 16px; display: inline-block; margin: 3px; }
+
+.icono-certificado { background: url('../image/botones/certificado.png') no-repeat center center; }
+.icono-certificado:hover { background: url('../image/botones/certificadohover.png') no-repeat center center; }
+.icono-noanalizado { background: url('../image/botones/NoAnalizado.png') no-repeat center center; }
+.icono-noanalizado:hover { background: url('../image/botones/NoAnalizadohover.png') no-repeat center center; }
+
+.icono-editarParametro { background: url('../image/botones/editarParametro.png') no-repeat center center; }
+.icono-editarParametro:hover { background: url('../image/botones/editarParametrohover.png') no-repeat center center; }
+/**/
+.icono-editarParametroNA{background: url('../image/botones/pluma.png') no-repeat center center;}
+.icono-editarParametroNA:hover { background: url('../image/botones/pluma.png') no-repeat center center; }
+.icono-editarParametroC { background: url('../image/botones/editarParametroC.png') no-repeat center center; }
+.icono-editarParametroC:hover { background: url('../image/botones/editarParametroC.png') no-repeat center center; }
+/**/
+.icono-mensual { width: 32px; height: 32px; display: inline-block; }
+.icono-mensual { background: url('../image/botones/Mensual.png') no-repeat center center; }
+.icono-mensual:hover { background: url('../image/botones/Mensual.png') no-repeat center center; }
+
+
+
+
+
+
+

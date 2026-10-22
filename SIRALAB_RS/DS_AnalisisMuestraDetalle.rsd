@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <DataSet Name="">
+    <Query>
+      <DataSourceReference>DB_SIRALAB</DataSourceReference>
+      <DataSetParameters>
+        <DataSetParameter Name="@AnalisisID">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>Int32</rd:DbType>
+        </DataSetParameter>
+        <DataSetParameter Name="@EsCompuesta">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>Boolean</rd:DbType>
+        </DataSetParameter>
+      </DataSetParameters>
+      <CommandType>StoredProcedure</CommandType>
+      <CommandText>usp_ReporteAnalisisMuestrasDetalle</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="AnalisisIdentificador">
+        <DataField>AnalisisIdentificador</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="OrdenTrabajoIdentificador">
+        <DataField>OrdenTrabajoIdentificador</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="MuestraIdentificador">
+        <DataField>MuestraIdentificador</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="MuestraNumero">
+        <DataField>MuestraNumero</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="MuestraFecha">
+        <DataField>MuestraFecha</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="MuestraDescripcion">
+        <DataField>MuestraDescripcion</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="MuestreadorIdentificador">
+        <DataField>MuestreadorIdentificador</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="MuestraIdentificacion">
+        <DataField>MuestraIdentificacion</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="MuestraObservaciones">
+        <DataField>MuestraObservaciones</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="MuestraNivel">
+        <DataField>MuestraNivel</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="MuestreadorLaboratorioSignatarioID">
+        <DataField>MuestreadorLaboratorioSignatarioID</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="MuestraCaudal">
+        <DataField>MuestraCaudal</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="MuestraLongitudSexagesimal">
+        <DataField>MuestraLongitudSexagesimal</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="MuestraLatitudSexagesimal">
+        <DataField>MuestraLatitudSexagesimal</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="MuestreadorLaboratorioNombre">
+        <DataField>MuestreadorLaboratorioNombre</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="MuestreadorPersonaNombre">
+        <DataField>MuestreadorPersonaNombre</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

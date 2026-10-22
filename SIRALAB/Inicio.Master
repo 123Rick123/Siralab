@@ -1,0 +1,66 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Inicio.master.cs" Inherits="SIRALAB.Inicio" %>
+
+<%@ Register Src="~/Controles/wucMensajes.ascx" TagPrefix="uc1" TagName="wucMensajes" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10,IE=EmulateIE11" />
+    <link href="style/master.css" rel="stylesheet" type="text/css" />
+    <link href="style/mensaje.css" rel="stylesheet" type="text/css" />
+    <link href="style/jquery.jscrollpane.css" rel="stylesheet" type="text/css" />
+    <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="js/mwheelIntent.js" type="text/javascript"></script>
+    <script src="js/jquery.jscrollpane.js" type="text/javascript"></script>
+    <script src="js/jquery.mousewheel.js" type="text/javascript"></script>
+   <%-- <link href="style/cssUpdateProgress.css" rel="stylesheet" type="text/css" /> --%>
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <%--<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>--%>
+        <asp:ScriptManager ID="tsm" runat="server"></asp:ScriptManager>
+
+        <div style="height: 130%; width: 1024px; margin: 0 auto;">
+            <div class="contenido-principal">
+                <div class="master-header">
+                    <div class="master-header-line"></div>
+                </div>
+                <div class="master-content">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+                <div class="master-push"></div>
+            </div>
+            <div class="master-footer">
+                <div style="background-color: #fff; margin: 10px auto 0 auto; height: 2px;">
+                    <div style="width: 35%; float: left; height: 2px; background-color: #007D3B;"></div>
+                    <div style="width: 35%; float: right; height: 2px; background-color: #c6122d;"></div>
+                </div>
+                <div class="master-footer-content">
+                    <p>
+                        Av. Insurgentes Sur # 2416, Col. Copilco el Bajo, Deleg. Coyoacán
+                    <br />
+                        Distrito Federal CP. 04340, Tel. (55) 5174-4000
+                    <br />
+                        <a href="mailto:">Comentarios sobre este Sitio de Internet</a>
+                        <br />
+                        <a href="http://www.conagua.gob.mx/">conagua.gob.mx</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <asp:UpdatePanel ID="upMensaje" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="false">
+            <Triggers>
+                <asp:AsyncPostBackTrigger ControlID="wucMensaje" EventName="Devolucion" />
+                <asp:AsyncPostBackTrigger ControlID="wucMensaje" EventName="Cerrar" />
+            </Triggers>
+            <ContentTemplate>
+                <uc1:wucMensajes runat="server" ID="wucMensaje" />
+            </ContentTemplate>
+        </asp:UpdatePanel>
+    </form>
+</body>
+</html>

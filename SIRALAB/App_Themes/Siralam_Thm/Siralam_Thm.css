@@ -1,0 +1,102 @@
+﻿.catalogo-grid {
+    margin: 5px auto;
+    width: 97%;
+}
+
+.catalogo-grid-header, .catalogo-grid-row, .catalogo-grid-alter-row {
+    border: none;
+    font: 10pt Segoe UI;
+}
+
+.catalogo-grid-header { font-weight: bold; }
+
+.catalogo-grid-header th, .catalogo-grid-row td, .catalogo-grid-alter-row td {
+    padding: 4px 7px;
+}
+
+.catalogo-grid-header {
+    background-color: #555;
+    color: #fff;
+}
+
+.catalogo-grid-row {
+    background-color: #fff;
+    color: #555;
+}
+
+.catalogo-grid-alter-row {
+    background-color: #E2E2E2;
+    color: #555;
+}
+
+.catalogo-grid-pager {
+    height: 30px;
+}
+
+.catalogo-grid-pager a, .catalogo-grid-pager span {
+    display: inline-block;
+    padding: 4px 7px;
+    font: 9pt Segoe UI;
+    text-decoration: none;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.catalogo-grid-pager a {
+    background-color: #D2D2D2;
+    color: #444;
+}
+
+.catalogo-grid-pager a:hover {
+    background-color: #c2c2c2;
+    color: #fff;
+}
+
+.catalogo-grid-pager span {
+    background-color: #a2a2a2;
+    color: #fff;
+}
+
+
+
+
+
+.table-list {
+    width: 97%; margin: 3px auto; border-collapse: separate;
+}
+
+.table-list > tbody > tr > td {
+    border: none;
+    padding: 3px 5px;
+}
+
+.table-list > caption {
+    border: 1px solid #E7DEDE;
+    margin: 3px;
+    padding: 5px 0;
+    font-weight: bold;
+    text-align: center;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    background-color: #555;
+    color: #fff;
+    position: relative;
+}
+
+.table-list > caption > a {
+    float: right;
+    margin-right: 5px;
+}
+
+.table-list > tbody > tr > th {
+    border: 1px solid #e2e2e2;
+    padding: 5px;
+    text-align:center;
+    color:green;
+    font-weight: bold;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+}

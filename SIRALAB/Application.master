@@ -1,0 +1,119 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="Application.master.cs" Inherits="SIRALAB.Application" %>
+
+<%@ Register Src="~/Controles/wucMenu.ascx" TagPrefix="uc1" TagName="wucMenu" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="style/login.css" rel="stylesheet" />
+    <link href="style/inicio.css" rel="stylesheet" />
+
+    <link href="style/wuc_FileUpload.css" rel="stylesheet" />
+    <link href="style/wuc_evidencias.css" rel="stylesheet" />
+
+    <!--Region para grafica base -->
+    <link rel="stylesheet" type="text/css" href="https://framework-gb.cdn.gob.mx/assets/styles/main.css" />
+    <!--final-->
+    <script src="js/wuc_Evidencias.js"></script>
+
+    <link href="JQGridReq/ui.jqgrid.css" rel="stylesheet" />
+    <script src="JQGridReq/jquery.jqGrid.min.js"></script>
+    <script src="JQGridReq/grid.locale-es.js"></script>
+    <script src="JQGridReq/jquery-ui.min.js"></script>
+    <script src="js/ValidadoresPassword.js"></script>
+    <style>
+        .user-credencials { position: relative; }
+    </style>
+    <asp:ContentPlaceHolder ID="cphHeader" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <uc1:wucMenu runat="server" ID="wucMenu1" OnSalir="wucMenu1_Salir" />
+    <br/>
+    <div class="container top-buffer-submenu">
+        <div class="row">
+            <div class="col-md-7">
+                <div id="divbreadcrumb" runat="server"></div>
+            </div>
+            <div class="col-md-5">
+                <div class="user-credencials">
+                    <ul class="list-unstyled">
+                        <li>
+                            <asp:Label ID="lblUsuario" runat="server" CssClass="user-credencials__name"></asp:Label>
+                        </li>
+                        <li><a id="lnkbCambiarPass" class="btn btn-link btn-xs pull-right" onclick="$('#modal').modal();">Cambiar contraseña</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div><br />
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <img class="img-responsive" src="image/master/logo_big.png" />
+            </div>
+            <div class="col-sm-offset-6 col-sm-3">
+                <img class="img-responsive" src="image/master/siralab-logo.png" />
+            </div>
+        </div>
+    </div>
+
+    <div class="container bottom-buffer">
+        <asp:ContentPlaceHolder ID="cphNeasted" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+
+    <%-- Modal cambio de contraseña --%>
+    <div class="modal fade" id="modal" role="dialog">
+        <div class="modal-dialog" role="document" style="margin-top: 124px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">Cambiar contraseña</div>
+                    <asp:LinkButton ID="lnkbCerrar" runat="server" CssClass="close" ToolTip="Cerrar" OnClick="lnkbCerrar_Click" OnClientClick="$('body').removeClass('modal-open');$('.modal-backdrop').hide();"></asp:LinkButton>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="txtEmail" class="control-label">Correo electrónico *</label>
+                                <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control input-sm" ValidationGroup="vgCambiarPassword" placeholder="Correo electrónico"></asp:TextBox>
+                                <span id="errer" class="form-text form-text-error"></span>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="name" class="control-label">Password actual *</label>
+                                <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="form-control input-sm" MaxLength="25" ValidationGroup="vgCambiarPassword" placeholder="Paswword actual"></asp:TextBox>
+                                <span class="form-text form-text-error"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="name" class="control-label">Nuevo password *</label>
+                                <asp:TextBox ID="txtPasswordNuevo" runat="server" TextMode="Password" CssClass="form-control input-sm" MaxLength="25" ValidationGroup="vgCambiarPassword" placeholder="Nuevo paswword"></asp:TextBox>
+                                <span class="form-text form-text-error"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="name" class="control-label">Repita el password *</label>
+                                <asp:TextBox ID="txtPasswordRepite" runat="server" TextMode="Password" CssClass="form-control input-sm" MaxLength="25" ValidationGroup="vgCambiarPassword" placeholder="Repita el password"></asp:TextBox>
+                                <span class="form-text form-text-error"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <asp:LinkButton ID="lnkbGuardar" runat="server" CssClass="btn btn-primary" Text="Aceptar" OnClick="lnkbGuardar_Click" ValidationGroup="vgCambiarPassword"></asp:LinkButton>
+                    <a id="lnkbCancelar" class="btn btn-default" onclick="$('body').removeClass('modal-open');$('.modal-backdrop').hide();$('#modal').modal('toggle');">Cancelar</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <asp:HiddenField ID="hf" runat="server" />
+</asp:Content>

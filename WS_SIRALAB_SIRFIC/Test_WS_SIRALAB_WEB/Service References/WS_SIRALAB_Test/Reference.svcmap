@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="efb1bacc-8fbc-46d0-9bab-ed067db7be91" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Specialized.ListDictionary" Category="Dictionary" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://172.29.150.36/WS_SIRALAB/wsSiralab.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="wsSIRALAB.xsd" MetadataType="Schema" ID="d537000a-83d3-4b14-bb4f-f917026f37f2" SourceId="1" SourceUrl="http://172.29.150.36/WS_SIRALAB/wsSIRALAB.svc?xsd=xsd0" />
+    <MetadataFile FileName="wsSIRALAB.disco" MetadataType="Disco" ID="cab3656a-32fc-45e3-868d-4fe4a90050a6" SourceId="1" SourceUrl="http://172.29.150.36/WS_SIRALAB/wsSIRALAB.svc?disco" />
+    <MetadataFile FileName="wsSIRALAB2.xsd" MetadataType="Schema" ID="708853c3-933d-4547-aaf7-f4e2d872c2d0" SourceId="1" SourceUrl="http://172.29.150.36/WS_SIRALAB/wsSIRALAB.svc?xsd=xsd4" />
+    <MetadataFile FileName="wsSIRALAB3.xsd" MetadataType="Schema" ID="87bf02f9-9d77-48ca-9934-746070612dd2" SourceId="1" SourceUrl="http://172.29.150.36/WS_SIRALAB/wsSIRALAB.svc?xsd=xsd2" />
+    <MetadataFile FileName="wsSIRALAB4.xsd" MetadataType="Schema" ID="80abf31e-32dd-4ee0-b113-71826f599b4a" SourceId="1" SourceUrl="http://172.29.150.36/WS_SIRALAB/wsSIRALAB.svc?xsd=xsd3" />
+    <MetadataFile FileName="wsSIRALAB.wsdl" MetadataType="Wsdl" ID="a9f851b7-18bf-4f1c-8939-21e2bf386b8b" SourceId="1" SourceUrl="http://172.29.150.36/WS_SIRALAB/wsSIRALAB.svc?wsdl" />
+    <MetadataFile FileName="wsSIRALAB1.xsd" MetadataType="Schema" ID="3085f236-7bff-4fd9-bea9-6b2b757950e4" SourceId="1" SourceUrl="http://172.29.150.36/WS_SIRALAB/wsSIRALAB.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

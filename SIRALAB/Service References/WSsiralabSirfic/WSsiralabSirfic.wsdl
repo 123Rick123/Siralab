@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetFuentesAbastecimiento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idContribuyente" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="titulo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="anexo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFuentesAbastecimientoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFuentesAbastecimientoResult" type="tns:SFuentesAbastecimientoDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SFuentesAbastecimientoDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdContribuyente" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdPermiso" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Permiso" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdPuntoDescarga" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="PuntoDescarga" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroAnexo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdUsoMedidorCR" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroSerieMedidorCR" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MarcaMedidorCR" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FuentesAbastecimiento" type="tns:ArrayOfSTituloDTO" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtrasFuentesAbastecimiento" type="tns:ArrayOfSOtraFuenteDTO" />
+          <s:element minOccurs="1" maxOccurs="1" name="Error" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Exception" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSTituloDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="STituloDTO" nillable="true" type="tns:STituloDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="STituloDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Titulo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Aprovechamientos" type="tns:ArrayOfSAprovechamientoDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSAprovechamientoDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SAprovechamientoDTO" nillable="true" type="tns:SAprovechamientoDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SAprovechamientoDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Anexo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Medidores" type="tns:ArrayOfSMedidorDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSMedidorDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SMedidorDTO" nillable="true" type="tns:SMedidorDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SMedidorDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroSerie" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Marca" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSOtraFuenteDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SOtraFuenteDTO" nillable="true" type="tns:SOtraFuenteDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SOtraFuenteDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Observaciones" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetFuentesAbastecimientoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFuentesAbastecimiento" />
+  </wsdl:message>
+  <wsdl:message name="GetFuentesAbastecimientoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFuentesAbastecimientoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WSsiralabSirficSoap">
+    <wsdl:operation name="GetFuentesAbastecimiento">
+      <wsdl:input message="tns:GetFuentesAbastecimientoSoapIn" />
+      <wsdl:output message="tns:GetFuentesAbastecimientoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSsiralabSirficSoap" type="tns:WSsiralabSirficSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetFuentesAbastecimiento">
+      <soap:operation soapAction="http://tempuri.org/GetFuentesAbastecimiento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSsiralabSirficSoap12" type="tns:WSsiralabSirficSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetFuentesAbastecimiento">
+      <soap12:operation soapAction="http://tempuri.org/GetFuentesAbastecimiento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSsiralabSirfic">
+    <wsdl:port name="WSsiralabSirficSoap" binding="tns:WSsiralabSirficSoap">
+      <soap:address location="http://172.29.149.106/WsSiralabSirfic/WSsiralabSirfic.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSsiralabSirficSoap12" binding="tns:WSsiralabSirficSoap12">
+      <soap12:address location="http://172.29.149.106/WsSiralabSirfic/WSsiralabSirfic.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

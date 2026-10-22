@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BL_WS_SIRALAB.Analisis">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAASAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>clases\Analisis.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="laboratorio" />
+      <Property Name="orden_trabajo" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BL_WS_SIRALAB.Anexo">
+    <Position X="13.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABQAAAAQAAIAAAgAAAAAAAAAAJAAAAAgAQAAAACRA=</HashCode>
+      <FileName>clases\Anexo.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Titulo" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BL_WS_SIRALAB.Cliente">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>clases\Cliente.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BL_WS_SIRALAB.CuerpoReceptor">
+    <Position X="13.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAACAAAAAAAAAgA=</HashCode>
+      <FileName>clases\CuerpoReceptor.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="tipo_cuerpo_receptor" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BL_WS_SIRALAB.Direccion">
+    <Position X="0.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACCACgAAAAAAAAAAAAAAAgAAAAAAAAAIAAEAAAAAA=</HashCode>
+      <FileName>clases\Direccion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BL_WS_SIRALAB.Laboratorio">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAIACAAACAAAAAAAAAAAAIAAAAAAAAAAQ=</HashCode>
+      <FileName>clases\Laboratorio.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="direccion" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BL_WS_SIRALAB.Metodo">
+    <Position X="10.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>clases\Metodo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BL_WS_SIRALAB.Muestra">
+    <Position X="7.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEEQAAAARAAIAAAAAUACAgAAAAAIABgAgEQAAAAAIA=</HashCode>
+      <FileName>clases\Muestra.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Muestreador" />
+      <Property Name="nivel" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BL_WS_SIRALAB.Norma">
+    <Position X="18.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAABAAAAAAAAAAAAAAAAAiA=</HashCode>
+      <FileName>clases\Norma.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BL_WS_SIRALAB.OrdenTrabajo">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAIQAAAAAAAAAAAAAAAAAAAMAEBAAAAAJAAAEAA=</HashCode>
+      <FileName>clases\OrdenTrabajo.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Anexo" />
+      <Property Name="Cuerpo" />
+      <Property Name="Uso" />
+      <Property Name="Norma" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BL_WS_SIRALAB.Parametro">
+    <Position X="10.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAACAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>clases\Parametro.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BL_WS_SIRALAB.ParametroAnalizado">
+    <Position X="7.25" Y="7.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>BAAAQIAAAQAAAEAAAACgAAAAkEAgBEAAIAAAIAQBAAA=</HashCode>
+      <FileName>clases\ParametroAnalizado.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="parametro" />
+      <Property Name="metodo" />
+      <Property Name="operacion" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BL_WS_SIRALAB.Persona">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAQAAAKAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>clases\Persona.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BL_WS_SIRALAB.Signatario">
+    <Position X="4.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAkAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>clases\Signatario.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="persona" />
+      <Property Name="TipoSignatario" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BL_WS_SIRALAB.Titulo">
+    <Position X="16" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>clases\Titulo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BL_WS_SIRALAB.UsoAgua">
+    <Position X="13.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>clases\UsoAgua.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="BL_WS_SIRALAB.enumOperacion">
+    <Position X="10.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAABAAAAAAAIAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>enumeraciones\Enumeraciones.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="BL_WS_SIRALAB.enumNivel">
+    <Position X="10.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>enumeraciones\Enumeraciones.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="BL_WS_SIRALAB.enumSignatario">
+    <Position X="4.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>enumeraciones\Enumeraciones.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="BL_WS_SIRALAB.enumTipoCuerpoReceptor">
+    <Position X="16" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAApAEAAAA=</HashCode>
+      <FileName>enumeraciones\Enumeraciones.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

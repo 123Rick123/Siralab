@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.conagua.gob.mx/siralab">
+  <xsd:element name="analisis">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="muestras">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element maxOccurs="unbounded" name="muestra">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="numero" type="xsd:string" />
+                    <xsd:element name="descripcion" type="xsd:string" />
+                    <xsd:element name="identificacion" type="xsd:string" />
+                    <xsd:element name="caudal">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:decimal">
+                          <xsd:fractionDigits value="6"/>
+                        </xsd:restriction>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element name="fecha" type="xsd:dateTime" />
+                    <xsd:element name="fecha_recepcion" type="xsd:dateTime" />
+                    <xsd:element name="valores">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element maxOccurs="unbounded" name="valor">
+                            <xsd:complexType>
+                              <xsd:sequence>
+                                <xsd:element name="parametro_id" type="xsd:unsignedShort" />
+                                <xsd:element name="parametro_metodo_id" nillable="true" type="xsd:string" />
+                                <xsd:element name="laboratorio_id" nillable="true" type="xsd:string" />
+                                <xsd:element name="exento" type="xsd:boolean" />
+                                <xsd:element name="no_analizado" type="xsd:boolean" />
+                                <xsd:element name="valor">
+                                  <xsd:simpleType>
+                                    <xsd:restriction base="xsd:decimal">
+                                      <xsd:fractionDigits value="6"/>
+                                    </xsd:restriction>
+                                  </xsd:simpleType>
+                                </xsd:element>
+                                <xsd:element name="lc_mc" nillable="true">
+                                  <xsd:simpleType>
+                                    <xsd:restriction base="xsd:decimal">
+                                      <xsd:fractionDigits value="6"/>
+                                    </xsd:restriction>
+                                  </xsd:simpleType>
+                                </xsd:element>
+                              </xsd:sequence>
+                            </xsd:complexType>
+                          </xsd:element>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xs:schema>

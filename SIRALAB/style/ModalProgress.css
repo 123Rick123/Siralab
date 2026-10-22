@@ -1,0 +1,8 @@
+﻿.modalBackground, .popUpBackGround {
+    filter: alpha(opacity=90);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+    -moz-opacity: 0.9;
+    -khtml-opacity: 0.9;
+    opacity: 0.9;
+    background-color: gray;
+}

@@ -1,0 +1,599 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CNA_SIRFICModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CNA_SIRFIC.dbo.SIRFIC_SIRALAB' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SIRFIC_SIRALAB">
+          <Key>
+            <PropertyRef Name="ID_CONTRIBUYENTE" />
+            <PropertyRef Name="rfc" />
+            <PropertyRef Name="nombre" />
+            <PropertyRef Name="CLAVE_ESTADO" />
+            <PropertyRef Name="ESTADO" />
+            <PropertyRef Name="CLAVE_MUNICIPIO" />
+            <PropertyRef Name="MUNICIPIO" />
+            <PropertyRef Name="CLAVE_LOCALIDAD" />
+            <PropertyRef Name="LOCALIDAD" />
+            
+            <PropertyRef Name="ASENTAMIENTO_HUMANO" />
+            <PropertyRef Name="codigoPostal" />
+            <PropertyRef Name="ID_TITULO" />
+            <PropertyRef Name="ID_APROVECHAMIENTO" />
+            <PropertyRef Name="numeroAnexo" />
+            <PropertyRef Name="NOM_APROVECHAMIENTO" />
+            <PropertyRef Name="ID_PUNTO_DESCARGA" />
+            <PropertyRef Name="numeroPuntoDescarga" />
+            
+            <PropertyRef Name="latitud" />
+            <PropertyRef Name="longitud" />
+          </Key>
+          <Property Name="ID_CONTRIBUYENTE" Type="bigint" Nullable="false" />
+          <Property Name="rfc" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="apellidoPaterno" Type="varchar" MaxLength="50" />
+          <Property Name="apellidoMaterno" Type="varchar" MaxLength="50" />
+          <Property Name="curp" Type="varchar" MaxLength="20" />
+          <Property Name="email" Type="nvarchar(max)" />
+          <Property Name="vialidad" Type="varchar" MaxLength="100" />
+          <Property Name="numeroExterior1" Type="varchar" MaxLength="50" />
+          <Property Name="numeroExterior2" Type="varchar" MaxLength="50" />
+          <Property Name="numeroInterior" Type="varchar" MaxLength="50" />
+          <Property Name="CLAVE_ESTADO" Type="bigint" Nullable="false" />
+          <Property Name="ESTADO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CLAVE_MUNICIPIO" Type="bigint" Nullable="false" />
+          <Property Name="MUNICIPIO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CLAVE_LOCALIDAD" Type="int" Nullable="false" />
+          <Property Name="LOCALIDAD" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ID_ASENTAMIENTO_HUMANO" Type="bigint" Nullable="false" />
+          <Property Name="ASENTAMIENTO_HUMANO" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="TipoAsentamiento" Type="varchar" MaxLength="21" />
+          <Property Name="codigoPostal" Type="int" Nullable="false" />
+          <Property Name="ID_TITULO" Type="bigint" Nullable="false" />
+          <Property Name="titulo" Type="varchar" MaxLength="50" />
+          <Property Name="ID_APROVECHAMIENTO" Type="bigint" Nullable="false" />
+          <Property Name="numeroAnexo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TipoCuerpoRececptorID" Type="varchar" MaxLength="1" />
+          <Property Name="NOM_APROVECHAMIENTO" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ID_PUNTO_DESCARGA" Type="bigint" Nullable="false" />
+          <Property Name="numeroPuntoDescarga" Type="int" Nullable="false" />
+          <Property Name="CLASIFICACION_DESCARGA" Type="varchar" MaxLength="79" />
+          <Property Name="idCuerpoReceptor" Type="bigint" />
+          <Property Name="NOMBRE_CR" Type="varchar" MaxLength="250" />
+          <Property Name="ID_SERIE_MEDIDOR" Type="bigint" Nullable="false" />
+          <Property Name="numeroMedidor" Type="varchar" MaxLength="30" />
+          <Property Name="ID_MARCA_MEDIDOR" Type="bigint" />
+          <Property Name="MARCA_MEDIDOR" Type="varchar" MaxLength="150" />
+          <Property Name="vialidad_PD" Type="varchar" MaxLength="100" />
+          <Property Name="numeroExterior1_PD" Type="varchar" MaxLength="50" />
+          <Property Name="numeroExterior2_PD" Type="varchar" MaxLength="50" />
+          <Property Name="numeroInterior_PD" Type="varchar" MaxLength="50" />
+          <Property Name="CLAVE_ESTADO_PD" Type="int" />
+          <Property Name="ESTADO_PD" Type="varchar" MaxLength="50" />
+          <Property Name="CLAVE_MUNICIPIO_PD" Type="int" />
+          <Property Name="MUNICIPIO_PD" Type="varchar" MaxLength="50" />
+          <Property Name="CLAVE_LOCALIDAD_PD" Type="int" />
+          <Property Name="LOCALIDAD_PD" Type="varchar" MaxLength="100" />
+          <Property Name="CODIGO_POSTAL_PD" Type="int" />
+          <Property Name="ID_ASENTAMIENTO_HUMANO_PD" Type="int" />
+          <Property Name="ASENTAMIENTO_HUMANO_PD" Type="varchar" MaxLength="100" />
+          <Property Name="latitud" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="longitud" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CNA_SIRFIC.dbo.SIRFIC_SIRALAB_ANCR' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SIRFIC_SIRALAB_ANCR">
+          <Key>
+            <PropertyRef Name="ID_CONTRIBUYENTE" />
+            <PropertyRef Name="rfc" />
+            <PropertyRef Name="nombre" />
+            <PropertyRef Name="CLAVE_ESTADO" />
+            <PropertyRef Name="ESTADO" />
+            <PropertyRef Name="CLAVE_MUNICIPIO" />
+            <PropertyRef Name="MUNICIPIO" />
+            <PropertyRef Name="CLAVE_LOCALIDAD" />
+            <PropertyRef Name="LOCALIDAD" />
+            <PropertyRef Name="ID_ASENTAMIENTO_HUMANO" />
+            <PropertyRef Name="ASENTAMIENTO_HUMANO" />
+            <PropertyRef Name="codigoPostal" />
+            <PropertyRef Name="ID_TITULO" />
+            <PropertyRef Name="ID_APROVECHAMIENTO" />
+            <PropertyRef Name="numeroAnexo" />
+            <PropertyRef Name="NOM_APROVECHAMIENTO" />
+            <PropertyRef Name="ID_SERIE_MEDIDOR" />
+            <PropertyRef Name="latitud" />
+            <PropertyRef Name="longitud" />
+            <PropertyRef Name="FUENTE_ABASTECIMIENTO" />
+          </Key>
+          <Property Name="ID_CONTRIBUYENTE" Type="bigint" Nullable="false" />
+          <Property Name="rfc" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="apellidoPaterno" Type="varchar" MaxLength="50" />
+          <Property Name="apellidoMaterno" Type="varchar" MaxLength="50" />
+          <Property Name="curp" Type="varchar" MaxLength="20" />
+          <Property Name="email" Type="nvarchar(max)" />
+          <Property Name="vialidad" Type="varchar" MaxLength="100" />
+          <Property Name="numeroExterior1" Type="varchar" MaxLength="50" />
+          <Property Name="numeroExterior2" Type="varchar" MaxLength="50" />
+          <Property Name="numeroInterior" Type="varchar" MaxLength="50" />
+          <Property Name="CLAVE_ESTADO" Type="bigint" Nullable="false" />
+          <Property Name="ESTADO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CLAVE_MUNICIPIO" Type="bigint" Nullable="false" />
+          <Property Name="MUNICIPIO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CLAVE_LOCALIDAD" Type="int" Nullable="false" />
+          <Property Name="LOCALIDAD" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ID_ASENTAMIENTO_HUMANO" Type="bigint" Nullable="false" />
+          <Property Name="ASENTAMIENTO_HUMANO" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="TipoAsentamiento" Type="varchar" MaxLength="21" />
+          <Property Name="codigoPostal" Type="int" Nullable="false" />
+          <Property Name="ID_TITULO" Type="bigint" Nullable="false" />
+          <Property Name="titulo" Type="varchar" MaxLength="50" />
+          <Property Name="ID_APROVECHAMIENTO" Type="bigint" Nullable="false" />
+          <Property Name="numeroAnexo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TipoCuerpoRececptorID" Type="varchar" MaxLength="1" />
+          <Property Name="NOM_APROVECHAMIENTO" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ID_PUNTO_DESCARGA" Type="bigint" />
+          <Property Name="numeroPuntoDescarga" Type="int" />
+          <Property Name="CLASIFICACION_DESCARGA" Type="varchar" MaxLength="79" />
+          <Property Name="idCuerpoReceptor" Type="bigint" />
+          <Property Name="NOMBRE_CR" Type="varchar" MaxLength="250" />
+          <Property Name="ID_SERIE_MEDIDOR" Type="bigint" Nullable="false" />
+          <Property Name="numeroMedidor" Type="varchar" MaxLength="35" />
+          <Property Name="ID_MARCA_MEDIDOR" Type="bigint" />
+          <Property Name="MARCA_MEDIDOR" Type="varchar" MaxLength="150" />
+          <Property Name="vialidad_PD" Type="varchar" MaxLength="100" />
+          <Property Name="numeroExterior1_PD" Type="varchar" MaxLength="50" />
+          <Property Name="numeroExterior2_PD" Type="varchar" MaxLength="50" />
+          <Property Name="numeroInterior_PD" Type="varchar" MaxLength="50" />
+          <Property Name="CLAVE_ESTADO_PD" Type="bigint" />
+          <Property Name="ESTADO_PD" Type="varchar" MaxLength="50" />
+          <Property Name="CLAVE_MUNICIPIO_PD" Type="bigint" />
+          <Property Name="MUNICIPIO_PD" Type="varchar" MaxLength="50" />
+          <Property Name="CLAVE_LOCALIDAD_PD" Type="int" />
+          <Property Name="LOCALIDAD_PD" Type="varchar" MaxLength="100" />
+          <Property Name="CODIGO_POSTAL_PD" Type="int" />
+          <Property Name="ID_ASENTAMIENTO_HUMANO_PD" Type="bigint" />
+          <Property Name="ASENTAMIENTO_HUMANO_PD" Type="varchar" MaxLength="100" />
+          <Property Name="latitud" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="longitud" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="idUman" Type="bigint" />
+          <Property Name="FUENTE_ABASTECIMIENTO" Type="int" Nullable="false" />
+          <Property Name="ID_TIPO_CR" Type="bigint" />
+          <Property Name="TIPO_CR" Type="varchar" MaxLength="200" />
+          <Property Name="ID_USO_CR" Type="bigint" />
+          <Property Name="USO_CR" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityContainer Name="CNA_SIRFICModelStoreContainer">
+          <EntitySet Name="SIRFIC_SIRALAB" EntityType="Self.SIRFIC_SIRALAB" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[SIRFIC_SIRALAB].[ID_CONTRIBUYENTE] AS [ID_CONTRIBUYENTE], 
+[SIRFIC_SIRALAB].[rfc] AS [rfc], 
+[SIRFIC_SIRALAB].[nombre] AS [nombre], 
+[SIRFIC_SIRALAB].[apellidoPaterno] AS [apellidoPaterno], 
+[SIRFIC_SIRALAB].[apellidoMaterno] AS [apellidoMaterno], 
+[SIRFIC_SIRALAB].[curp] AS [curp], 
+[SIRFIC_SIRALAB].[email] AS [email], 
+[SIRFIC_SIRALAB].[vialidad] AS [vialidad], 
+[SIRFIC_SIRALAB].[numeroExterior1] AS [numeroExterior1], 
+[SIRFIC_SIRALAB].[numeroExterior2] AS [numeroExterior2], 
+[SIRFIC_SIRALAB].[numeroInterior] AS [numeroInterior], 
+[SIRFIC_SIRALAB].[CLAVE_ESTADO] AS [CLAVE_ESTADO], 
+[SIRFIC_SIRALAB].[ESTADO] AS [ESTADO], 
+[SIRFIC_SIRALAB].[CLAVE_MUNICIPIO] AS [CLAVE_MUNICIPIO], 
+[SIRFIC_SIRALAB].[MUNICIPIO] AS [MUNICIPIO], 
+[SIRFIC_SIRALAB].[CLAVE_LOCALIDAD] AS [CLAVE_LOCALIDAD], 
+[SIRFIC_SIRALAB].[LOCALIDAD] AS [LOCALIDAD], 
+[SIRFIC_SIRALAB].[ID_ASENTAMIENTO_HUMANO] AS [ID_ASENTAMIENTO_HUMANO], 
+[SIRFIC_SIRALAB].[ASENTAMIENTO_HUMANO] AS [ASENTAMIENTO_HUMANO], 
+[SIRFIC_SIRALAB].[TipoAsentamiento] AS [TipoAsentamiento], 
+[SIRFIC_SIRALAB].[codigoPostal] AS [codigoPostal], 
+[SIRFIC_SIRALAB].[ID_TITULO] AS [ID_TITULO], 
+[SIRFIC_SIRALAB].[titulo] AS [titulo], 
+[SIRFIC_SIRALAB].[ID_APROVECHAMIENTO] AS [ID_APROVECHAMIENTO], 
+[SIRFIC_SIRALAB].[numeroAnexo] AS [numeroAnexo], 
+[SIRFIC_SIRALAB].[TipoCuerpoRececptorID] AS [TipoCuerpoRececptorID], 
+[SIRFIC_SIRALAB].[NOM_APROVECHAMIENTO] AS [NOM_APROVECHAMIENTO], 
+[SIRFIC_SIRALAB].[ID_PUNTO_DESCARGA] AS [ID_PUNTO_DESCARGA], 
+[SIRFIC_SIRALAB].[numeroPuntoDescarga] AS [numeroPuntoDescarga], 
+[SIRFIC_SIRALAB].[CLASIFICACION_DESCARGA] AS [CLASIFICACION_DESCARGA], 
+[SIRFIC_SIRALAB].[idCuerpoReceptor] AS [idCuerpoReceptor], 
+[SIRFIC_SIRALAB].[NOMBRE_CR] AS [NOMBRE_CR], 
+[SIRFIC_SIRALAB].[ID_SERIE_MEDIDOR] AS [ID_SERIE_MEDIDOR], 
+[SIRFIC_SIRALAB].[numeroMedidor] AS [numeroMedidor], 
+[SIRFIC_SIRALAB].[ID_MARCA_MEDIDOR] AS [ID_MARCA_MEDIDOR], 
+[SIRFIC_SIRALAB].[MARCA_MEDIDOR] AS [MARCA_MEDIDOR], 
+[SIRFIC_SIRALAB].[vialidad_PD] AS [vialidad_PD], 
+[SIRFIC_SIRALAB].[numeroExterior1_PD] AS [numeroExterior1_PD], 
+[SIRFIC_SIRALAB].[numeroExterior2_PD] AS [numeroExterior2_PD], 
+[SIRFIC_SIRALAB].[numeroInterior_PD] AS [numeroInterior_PD], 
+[SIRFIC_SIRALAB].[CLAVE_ESTADO_PD] AS [CLAVE_ESTADO_PD], 
+[SIRFIC_SIRALAB].[ESTADO_PD] AS [ESTADO_PD], 
+[SIRFIC_SIRALAB].[CLAVE_MUNICIPIO_PD] AS [CLAVE_MUNICIPIO_PD], 
+[SIRFIC_SIRALAB].[MUNICIPIO_PD] AS [MUNICIPIO_PD], 
+[SIRFIC_SIRALAB].[CLAVE_LOCALIDAD_PD] AS [CLAVE_LOCALIDAD_PD], 
+[SIRFIC_SIRALAB].[LOCALIDAD_PD] AS [LOCALIDAD_PD], 
+[SIRFIC_SIRALAB].[CODIGO_POSTAL_PD] AS [CODIGO_POSTAL_PD], 
+[SIRFIC_SIRALAB].[ID_ASENTAMIENTO_HUMANO_PD] AS [ID_ASENTAMIENTO_HUMANO_PD], 
+[SIRFIC_SIRALAB].[ASENTAMIENTO_HUMANO_PD] AS [ASENTAMIENTO_HUMANO_PD], 
+[SIRFIC_SIRALAB].[latitud] AS [latitud], 
+[SIRFIC_SIRALAB].[longitud] AS [longitud]
+FROM [dbo].[SIRFIC_SIRALAB] AS [SIRFIC_SIRALAB]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SIRFIC_SIRALAB_ANCR" EntityType="Self.SIRFIC_SIRALAB_ANCR" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[SIRFIC_SIRALAB_ANCR].[ID_CONTRIBUYENTE] AS [ID_CONTRIBUYENTE], 
+[SIRFIC_SIRALAB_ANCR].[rfc] AS [rfc], 
+[SIRFIC_SIRALAB_ANCR].[nombre] AS [nombre], 
+[SIRFIC_SIRALAB_ANCR].[apellidoPaterno] AS [apellidoPaterno], 
+[SIRFIC_SIRALAB_ANCR].[apellidoMaterno] AS [apellidoMaterno], 
+[SIRFIC_SIRALAB_ANCR].[curp] AS [curp], 
+[SIRFIC_SIRALAB_ANCR].[email] AS [email], 
+[SIRFIC_SIRALAB_ANCR].[vialidad] AS [vialidad], 
+[SIRFIC_SIRALAB_ANCR].[numeroExterior1] AS [numeroExterior1], 
+[SIRFIC_SIRALAB_ANCR].[numeroExterior2] AS [numeroExterior2], 
+[SIRFIC_SIRALAB_ANCR].[numeroInterior] AS [numeroInterior], 
+[SIRFIC_SIRALAB_ANCR].[CLAVE_ESTADO] AS [CLAVE_ESTADO], 
+[SIRFIC_SIRALAB_ANCR].[ESTADO] AS [ESTADO], 
+[SIRFIC_SIRALAB_ANCR].[CLAVE_MUNICIPIO] AS [CLAVE_MUNICIPIO], 
+[SIRFIC_SIRALAB_ANCR].[MUNICIPIO] AS [MUNICIPIO], 
+[SIRFIC_SIRALAB_ANCR].[CLAVE_LOCALIDAD] AS [CLAVE_LOCALIDAD], 
+[SIRFIC_SIRALAB_ANCR].[LOCALIDAD] AS [LOCALIDAD], 
+[SIRFIC_SIRALAB_ANCR].[ID_ASENTAMIENTO_HUMANO] AS [ID_ASENTAMIENTO_HUMANO], 
+[SIRFIC_SIRALAB_ANCR].[ASENTAMIENTO_HUMANO] AS [ASENTAMIENTO_HUMANO], 
+[SIRFIC_SIRALAB_ANCR].[TipoAsentamiento] AS [TipoAsentamiento], 
+[SIRFIC_SIRALAB_ANCR].[codigoPostal] AS [codigoPostal], 
+[SIRFIC_SIRALAB_ANCR].[ID_TITULO] AS [ID_TITULO], 
+[SIRFIC_SIRALAB_ANCR].[titulo] AS [titulo], 
+[SIRFIC_SIRALAB_ANCR].[ID_APROVECHAMIENTO] AS [ID_APROVECHAMIENTO], 
+[SIRFIC_SIRALAB_ANCR].[numeroAnexo] AS [numeroAnexo], 
+[SIRFIC_SIRALAB_ANCR].[TipoCuerpoRececptorID] AS [TipoCuerpoRececptorID], 
+[SIRFIC_SIRALAB_ANCR].[NOM_APROVECHAMIENTO] AS [NOM_APROVECHAMIENTO], 
+[SIRFIC_SIRALAB_ANCR].[ID_PUNTO_DESCARGA] AS [ID_PUNTO_DESCARGA], 
+[SIRFIC_SIRALAB_ANCR].[numeroPuntoDescarga] AS [numeroPuntoDescarga], 
+[SIRFIC_SIRALAB_ANCR].[CLASIFICACION_DESCARGA] AS [CLASIFICACION_DESCARGA], 
+[SIRFIC_SIRALAB_ANCR].[idCuerpoReceptor] AS [idCuerpoReceptor], 
+[SIRFIC_SIRALAB_ANCR].[NOMBRE_CR] AS [NOMBRE_CR], 
+[SIRFIC_SIRALAB_ANCR].[ID_SERIE_MEDIDOR] AS [ID_SERIE_MEDIDOR], 
+[SIRFIC_SIRALAB_ANCR].[numeroMedidor] AS [numeroMedidor], 
+[SIRFIC_SIRALAB_ANCR].[ID_MARCA_MEDIDOR] AS [ID_MARCA_MEDIDOR], 
+[SIRFIC_SIRALAB_ANCR].[MARCA_MEDIDOR] AS [MARCA_MEDIDOR], 
+[SIRFIC_SIRALAB_ANCR].[vialidad_PD] AS [vialidad_PD], 
+[SIRFIC_SIRALAB_ANCR].[numeroExterior1_PD] AS [numeroExterior1_PD], 
+[SIRFIC_SIRALAB_ANCR].[numeroExterior2_PD] AS [numeroExterior2_PD], 
+[SIRFIC_SIRALAB_ANCR].[numeroInterior_PD] AS [numeroInterior_PD], 
+[SIRFIC_SIRALAB_ANCR].[CLAVE_ESTADO_PD] AS [CLAVE_ESTADO_PD], 
+[SIRFIC_SIRALAB_ANCR].[ESTADO_PD] AS [ESTADO_PD], 
+[SIRFIC_SIRALAB_ANCR].[CLAVE_MUNICIPIO_PD] AS [CLAVE_MUNICIPIO_PD], 
+[SIRFIC_SIRALAB_ANCR].[MUNICIPIO_PD] AS [MUNICIPIO_PD], 
+[SIRFIC_SIRALAB_ANCR].[CLAVE_LOCALIDAD_PD] AS [CLAVE_LOCALIDAD_PD], 
+[SIRFIC_SIRALAB_ANCR].[LOCALIDAD_PD] AS [LOCALIDAD_PD], 
+[SIRFIC_SIRALAB_ANCR].[CODIGO_POSTAL_PD] AS [CODIGO_POSTAL_PD], 
+[SIRFIC_SIRALAB_ANCR].[ID_ASENTAMIENTO_HUMANO_PD] AS [ID_ASENTAMIENTO_HUMANO_PD], 
+[SIRFIC_SIRALAB_ANCR].[ASENTAMIENTO_HUMANO_PD] AS [ASENTAMIENTO_HUMANO_PD], 
+[SIRFIC_SIRALAB_ANCR].[latitud] AS [latitud], 
+[SIRFIC_SIRALAB_ANCR].[longitud] AS [longitud], 
+[SIRFIC_SIRALAB_ANCR].[idUman] AS [idUman], 
+[SIRFIC_SIRALAB_ANCR].[FUENTE_ABASTECIMIENTO] AS [FUENTE_ABASTECIMIENTO], 
+[SIRFIC_SIRALAB_ANCR].[ID_TIPO_CR] AS [ID_TIPO_CR], 
+[SIRFIC_SIRALAB_ANCR].[TIPO_CR] AS [TIPO_CR], 
+[SIRFIC_SIRALAB_ANCR].[ID_USO_CR] AS [ID_USO_CR], 
+[SIRFIC_SIRALAB_ANCR].[USO_CR] AS [USO_CR]
+FROM [dbo].[SIRFIC_SIRALAB_ANCR] AS [SIRFIC_SIRALAB_ANCR]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CNA_SIRFICModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="SIRFIC_SIRALAB">
+          <Key>
+            <PropertyRef Name="ID_CONTRIBUYENTE" />
+            <PropertyRef Name="rfc" />
+            <PropertyRef Name="nombre" />
+            <PropertyRef Name="CLAVE_ESTADO" />
+            <PropertyRef Name="ESTADO" />
+            <PropertyRef Name="CLAVE_MUNICIPIO" />
+            <PropertyRef Name="MUNICIPIO" />
+            <PropertyRef Name="CLAVE_LOCALIDAD" />
+            <PropertyRef Name="LOCALIDAD" />
+            <PropertyRef Name="ASENTAMIENTO_HUMANO" />
+            <PropertyRef Name="codigoPostal" />
+            <PropertyRef Name="ID_TITULO" />
+            <PropertyRef Name="ID_APROVECHAMIENTO" />
+            <PropertyRef Name="numeroAnexo" />
+            <PropertyRef Name="NOM_APROVECHAMIENTO" />
+            <PropertyRef Name="ID_PUNTO_DESCARGA" />
+            <PropertyRef Name="numeroPuntoDescarga" />
+            <PropertyRef Name="latitud" />
+            <PropertyRef Name="longitud" />
+          </Key>
+          <Property Name="ID_CONTRIBUYENTE" Type="Int64" Nullable="false" />
+          <Property Name="rfc" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellidoPaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="apellidoMaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="curp" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vialidad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="numeroExterior1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="numeroExterior2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="numeroInterior" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CLAVE_ESTADO" Type="Int64" Nullable="false" />
+          <Property Name="ESTADO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CLAVE_MUNICIPIO" Type="Int64" Nullable="false" />
+          <Property Name="MUNICIPIO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CLAVE_LOCALIDAD" Type="Int32" Nullable="false" />
+          <Property Name="LOCALIDAD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_ASENTAMIENTO_HUMANO" Type="Int64" Nullable="false" />
+          <Property Name="ASENTAMIENTO_HUMANO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TipoAsentamiento" Type="String" MaxLength="21" FixedLength="false" Unicode="false" />
+          <Property Name="codigoPostal" Type="Int32" Nullable="false" />
+          <Property Name="ID_TITULO" Type="Int64" Nullable="false" />
+          <Property Name="titulo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID_APROVECHAMIENTO" Type="Int64" Nullable="false" />
+          <Property Name="numeroAnexo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TipoCuerpoRececptorID" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="NOM_APROVECHAMIENTO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_PUNTO_DESCARGA" Type="Int64" Nullable="false" />
+          <Property Name="numeroPuntoDescarga" Type="Int32" Nullable="false" />
+          <Property Name="CLASIFICACION_DESCARGA" Type="String" MaxLength="79" FixedLength="false" Unicode="false" />
+          <Property Name="idCuerpoReceptor" Type="Int64" />
+          <Property Name="NOMBRE_CR" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ID_SERIE_MEDIDOR" Type="Int64" Nullable="false" />
+          <Property Name="numeroMedidor" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ID_MARCA_MEDIDOR" Type="Int64" />
+          <Property Name="MARCA_MEDIDOR" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="vialidad_PD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="numeroExterior1_PD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="numeroExterior2_PD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="numeroInterior_PD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CLAVE_ESTADO_PD" Type="Int32" />
+          <Property Name="ESTADO_PD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CLAVE_MUNICIPIO_PD" Type="Int32" />
+          <Property Name="MUNICIPIO_PD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CLAVE_LOCALIDAD_PD" Type="Int32" />
+          <Property Name="LOCALIDAD_PD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CODIGO_POSTAL_PD" Type="Int32" />
+          <Property Name="ID_ASENTAMIENTO_HUMANO_PD" Type="Int32" />
+          <Property Name="ASENTAMIENTO_HUMANO_PD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="latitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="longitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="CNA_SIRFICEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="SIRFIC_SIRALAB" EntityType="Self.SIRFIC_SIRALAB" />
+          <EntitySet Name="SIRFIC_SIRALAB_ANCR" EntityType="CNA_SIRFICModel.SIRFIC_SIRALAB_ANCR" />
+        </EntityContainer>
+        <EntityType Name="SIRFIC_SIRALAB_ANCR">
+          <Key>
+            <PropertyRef Name="ID_CONTRIBUYENTE" />
+            <PropertyRef Name="rfc" />
+            <PropertyRef Name="nombre" />
+            <PropertyRef Name="CLAVE_ESTADO" />
+            <PropertyRef Name="ESTADO" />
+            <PropertyRef Name="CLAVE_MUNICIPIO" />
+            <PropertyRef Name="MUNICIPIO" />
+            <PropertyRef Name="CLAVE_LOCALIDAD" />
+            <PropertyRef Name="LOCALIDAD" />
+            <PropertyRef Name="ID_ASENTAMIENTO_HUMANO" />
+            <PropertyRef Name="ASENTAMIENTO_HUMANO" />
+            <PropertyRef Name="codigoPostal" />
+            <PropertyRef Name="ID_TITULO" />
+            <PropertyRef Name="ID_APROVECHAMIENTO" />
+            <PropertyRef Name="numeroAnexo" />
+            <PropertyRef Name="NOM_APROVECHAMIENTO" />
+            <PropertyRef Name="ID_SERIE_MEDIDOR" />
+            <PropertyRef Name="latitud" />
+            <PropertyRef Name="longitud" />
+            <PropertyRef Name="FUENTE_ABASTECIMIENTO" />
+          </Key>
+          <Property Name="ID_CONTRIBUYENTE" Type="Int64" Nullable="false" />
+          <Property Name="rfc" Type="String" Nullable="false" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="apellidoPaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="apellidoMaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="curp" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vialidad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="numeroExterior1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="numeroExterior2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="numeroInterior" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CLAVE_ESTADO" Type="Int64" Nullable="false" />
+          <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CLAVE_MUNICIPIO" Type="Int64" Nullable="false" />
+          <Property Name="MUNICIPIO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CLAVE_LOCALIDAD" Type="Int32" Nullable="false" />
+          <Property Name="LOCALIDAD" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ID_ASENTAMIENTO_HUMANO" Type="Int64" Nullable="false" />
+          <Property Name="ASENTAMIENTO_HUMANO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TipoAsentamiento" Type="String" MaxLength="21" FixedLength="false" Unicode="false" />
+          <Property Name="codigoPostal" Type="Int32" Nullable="false" />
+          <Property Name="ID_TITULO" Type="Int64" Nullable="false" />
+          <Property Name="titulo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID_APROVECHAMIENTO" Type="Int64" Nullable="false" />
+          <Property Name="numeroAnexo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TipoCuerpoRececptorID" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="NOM_APROVECHAMIENTO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ID_PUNTO_DESCARGA" Type="Int64" />
+          <Property Name="numeroPuntoDescarga" Type="Int32" />
+          <Property Name="CLASIFICACION_DESCARGA" Type="String" MaxLength="79" FixedLength="false" Unicode="false" />
+          <Property Name="idCuerpoReceptor" Type="Int64" />
+          <Property Name="NOMBRE_CR" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ID_SERIE_MEDIDOR" Type="Int64" Nullable="false" />
+          <Property Name="numeroMedidor" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="ID_MARCA_MEDIDOR" Type="Int64" />
+          <Property Name="MARCA_MEDIDOR" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="vialidad_PD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="numeroExterior1_PD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="numeroExterior2_PD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="numeroInterior_PD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CLAVE_ESTADO_PD" Type="Int64" />
+          <Property Name="ESTADO_PD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CLAVE_MUNICIPIO_PD" Type="Int64" />
+          <Property Name="MUNICIPIO_PD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CLAVE_LOCALIDAD_PD" Type="Int32" />
+          <Property Name="LOCALIDAD_PD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CODIGO_POSTAL_PD" Type="Int32" />
+          <Property Name="ID_ASENTAMIENTO_HUMANO_PD" Type="Int64" />
+          <Property Name="ASENTAMIENTO_HUMANO_PD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="latitud" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="longitud" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idUman" Type="Int64" />
+          <Property Name="FUENTE_ABASTECIMIENTO" Type="Int32" Nullable="false" />
+          <Property Name="ID_TIPO_CR" Type="Int64" />
+          <Property Name="TIPO_CR" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ID_USO_CR" Type="Int64" />
+          <Property Name="USO_CR" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CNA_SIRFICModelStoreContainer" CdmEntityContainer="CNA_SIRFICEntities">
+          <EntitySetMapping Name="SIRFIC_SIRALAB">
+            <EntityTypeMapping TypeName="CNA_SIRFICModel.SIRFIC_SIRALAB">
+              <MappingFragment StoreEntitySet="SIRFIC_SIRALAB">
+                <ScalarProperty Name="ID_CONTRIBUYENTE" ColumnName="ID_CONTRIBUYENTE" />
+                <ScalarProperty Name="rfc" ColumnName="rfc" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellidoPaterno" ColumnName="apellidoPaterno" />
+                <ScalarProperty Name="apellidoMaterno" ColumnName="apellidoMaterno" />
+                <ScalarProperty Name="curp" ColumnName="curp" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="vialidad" ColumnName="vialidad" />
+                <ScalarProperty Name="numeroExterior1" ColumnName="numeroExterior1" />
+                <ScalarProperty Name="numeroExterior2" ColumnName="numeroExterior2" />
+                <ScalarProperty Name="numeroInterior" ColumnName="numeroInterior" />
+                <ScalarProperty Name="CLAVE_ESTADO" ColumnName="CLAVE_ESTADO" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="CLAVE_MUNICIPIO" ColumnName="CLAVE_MUNICIPIO" />
+                <ScalarProperty Name="MUNICIPIO" ColumnName="MUNICIPIO" />
+                <ScalarProperty Name="CLAVE_LOCALIDAD" ColumnName="CLAVE_LOCALIDAD" />
+                <ScalarProperty Name="LOCALIDAD" ColumnName="LOCALIDAD" />
+                <ScalarProperty Name="ID_ASENTAMIENTO_HUMANO" ColumnName="ID_ASENTAMIENTO_HUMANO" />
+                <ScalarProperty Name="ASENTAMIENTO_HUMANO" ColumnName="ASENTAMIENTO_HUMANO" />
+                <ScalarProperty Name="TipoAsentamiento" ColumnName="TipoAsentamiento" />
+                <ScalarProperty Name="codigoPostal" ColumnName="codigoPostal" />
+                <ScalarProperty Name="ID_TITULO" ColumnName="ID_TITULO" />
+                <ScalarProperty Name="titulo" ColumnName="titulo" />
+                <ScalarProperty Name="ID_APROVECHAMIENTO" ColumnName="ID_APROVECHAMIENTO" />
+                <ScalarProperty Name="numeroAnexo" ColumnName="numeroAnexo" />
+                <ScalarProperty Name="TipoCuerpoRececptorID" ColumnName="TipoCuerpoRececptorID" />
+                <ScalarProperty Name="NOM_APROVECHAMIENTO" ColumnName="NOM_APROVECHAMIENTO" />
+                <ScalarProperty Name="ID_PUNTO_DESCARGA" ColumnName="ID_PUNTO_DESCARGA" />
+                <ScalarProperty Name="numeroPuntoDescarga" ColumnName="numeroPuntoDescarga" />
+                <ScalarProperty Name="CLASIFICACION_DESCARGA" ColumnName="CLASIFICACION_DESCARGA" />
+                <ScalarProperty Name="idCuerpoReceptor" ColumnName="idCuerpoReceptor" />
+                <ScalarProperty Name="NOMBRE_CR" ColumnName="NOMBRE_CR" />
+                <ScalarProperty Name="ID_SERIE_MEDIDOR" ColumnName="ID_SERIE_MEDIDOR" />
+                <ScalarProperty Name="numeroMedidor" ColumnName="numeroMedidor" />
+                <ScalarProperty Name="ID_MARCA_MEDIDOR" ColumnName="ID_MARCA_MEDIDOR" />
+                <ScalarProperty Name="MARCA_MEDIDOR" ColumnName="MARCA_MEDIDOR" />
+                <ScalarProperty Name="vialidad_PD" ColumnName="vialidad_PD" />
+                <ScalarProperty Name="numeroExterior1_PD" ColumnName="numeroExterior1_PD" />
+                <ScalarProperty Name="numeroExterior2_PD" ColumnName="numeroExterior2_PD" />
+                <ScalarProperty Name="numeroInterior_PD" ColumnName="numeroInterior_PD" />
+                <ScalarProperty Name="CLAVE_ESTADO_PD" ColumnName="CLAVE_ESTADO_PD" />
+                <ScalarProperty Name="ESTADO_PD" ColumnName="ESTADO_PD" />
+                <ScalarProperty Name="CLAVE_MUNICIPIO_PD" ColumnName="CLAVE_MUNICIPIO_PD" />
+                <ScalarProperty Name="MUNICIPIO_PD" ColumnName="MUNICIPIO_PD" />
+                <ScalarProperty Name="CLAVE_LOCALIDAD_PD" ColumnName="CLAVE_LOCALIDAD_PD" />
+                <ScalarProperty Name="LOCALIDAD_PD" ColumnName="LOCALIDAD_PD" />
+                <ScalarProperty Name="CODIGO_POSTAL_PD" ColumnName="CODIGO_POSTAL_PD" />
+                <ScalarProperty Name="ID_ASENTAMIENTO_HUMANO_PD" ColumnName="ID_ASENTAMIENTO_HUMANO_PD" />
+                <ScalarProperty Name="ASENTAMIENTO_HUMANO_PD" ColumnName="ASENTAMIENTO_HUMANO_PD" />
+                <ScalarProperty Name="latitud" ColumnName="latitud" />
+                <ScalarProperty Name="longitud" ColumnName="longitud" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SIRFIC_SIRALAB_ANCR">
+            <EntityTypeMapping TypeName="CNA_SIRFICModel.SIRFIC_SIRALAB_ANCR">
+              <MappingFragment StoreEntitySet="SIRFIC_SIRALAB_ANCR">
+                <ScalarProperty Name="USO_CR" ColumnName="USO_CR" />
+                <ScalarProperty Name="ID_USO_CR" ColumnName="ID_USO_CR" />
+                <ScalarProperty Name="TIPO_CR" ColumnName="TIPO_CR" />
+                <ScalarProperty Name="ID_TIPO_CR" ColumnName="ID_TIPO_CR" />
+                <ScalarProperty Name="FUENTE_ABASTECIMIENTO" ColumnName="FUENTE_ABASTECIMIENTO" />
+                <ScalarProperty Name="idUman" ColumnName="idUman" />
+                <ScalarProperty Name="longitud" ColumnName="longitud" />
+                <ScalarProperty Name="latitud" ColumnName="latitud" />
+                <ScalarProperty Name="ASENTAMIENTO_HUMANO_PD" ColumnName="ASENTAMIENTO_HUMANO_PD" />
+                <ScalarProperty Name="ID_ASENTAMIENTO_HUMANO_PD" ColumnName="ID_ASENTAMIENTO_HUMANO_PD" />
+                <ScalarProperty Name="CODIGO_POSTAL_PD" ColumnName="CODIGO_POSTAL_PD" />
+                <ScalarProperty Name="LOCALIDAD_PD" ColumnName="LOCALIDAD_PD" />
+                <ScalarProperty Name="CLAVE_LOCALIDAD_PD" ColumnName="CLAVE_LOCALIDAD_PD" />
+                <ScalarProperty Name="MUNICIPIO_PD" ColumnName="MUNICIPIO_PD" />
+                <ScalarProperty Name="CLAVE_MUNICIPIO_PD" ColumnName="CLAVE_MUNICIPIO_PD" />
+                <ScalarProperty Name="ESTADO_PD" ColumnName="ESTADO_PD" />
+                <ScalarProperty Name="CLAVE_ESTADO_PD" ColumnName="CLAVE_ESTADO_PD" />
+                <ScalarProperty Name="numeroInterior_PD" ColumnName="numeroInterior_PD" />
+                <ScalarProperty Name="numeroExterior2_PD" ColumnName="numeroExterior2_PD" />
+                <ScalarProperty Name="numeroExterior1_PD" ColumnName="numeroExterior1_PD" />
+                <ScalarProperty Name="vialidad_PD" ColumnName="vialidad_PD" />
+                <ScalarProperty Name="MARCA_MEDIDOR" ColumnName="MARCA_MEDIDOR" />
+                <ScalarProperty Name="ID_MARCA_MEDIDOR" ColumnName="ID_MARCA_MEDIDOR" />
+                <ScalarProperty Name="numeroMedidor" ColumnName="numeroMedidor" />
+                <ScalarProperty Name="ID_SERIE_MEDIDOR" ColumnName="ID_SERIE_MEDIDOR" />
+                <ScalarProperty Name="NOMBRE_CR" ColumnName="NOMBRE_CR" />
+                <ScalarProperty Name="idCuerpoReceptor" ColumnName="idCuerpoReceptor" />
+                <ScalarProperty Name="CLASIFICACION_DESCARGA" ColumnName="CLASIFICACION_DESCARGA" />
+                <ScalarProperty Name="numeroPuntoDescarga" ColumnName="numeroPuntoDescarga" />
+                <ScalarProperty Name="ID_PUNTO_DESCARGA" ColumnName="ID_PUNTO_DESCARGA" />
+                <ScalarProperty Name="NOM_APROVECHAMIENTO" ColumnName="NOM_APROVECHAMIENTO" />
+                <ScalarProperty Name="TipoCuerpoRececptorID" ColumnName="TipoCuerpoRececptorID" />
+                <ScalarProperty Name="numeroAnexo" ColumnName="numeroAnexo" />
+                <ScalarProperty Name="ID_APROVECHAMIENTO" ColumnName="ID_APROVECHAMIENTO" />
+                <ScalarProperty Name="titulo" ColumnName="titulo" />
+                <ScalarProperty Name="ID_TITULO" ColumnName="ID_TITULO" />
+                <ScalarProperty Name="codigoPostal" ColumnName="codigoPostal" />
+                <ScalarProperty Name="TipoAsentamiento" ColumnName="TipoAsentamiento" />
+                <ScalarProperty Name="ASENTAMIENTO_HUMANO" ColumnName="ASENTAMIENTO_HUMANO" />
+                <ScalarProperty Name="ID_ASENTAMIENTO_HUMANO" ColumnName="ID_ASENTAMIENTO_HUMANO" />
+                <ScalarProperty Name="LOCALIDAD" ColumnName="LOCALIDAD" />
+                <ScalarProperty Name="CLAVE_LOCALIDAD" ColumnName="CLAVE_LOCALIDAD" />
+                <ScalarProperty Name="MUNICIPIO" ColumnName="MUNICIPIO" />
+                <ScalarProperty Name="CLAVE_MUNICIPIO" ColumnName="CLAVE_MUNICIPIO" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="CLAVE_ESTADO" ColumnName="CLAVE_ESTADO" />
+                <ScalarProperty Name="numeroInterior" ColumnName="numeroInterior" />
+                <ScalarProperty Name="numeroExterior2" ColumnName="numeroExterior2" />
+                <ScalarProperty Name="numeroExterior1" ColumnName="numeroExterior1" />
+                <ScalarProperty Name="vialidad" ColumnName="vialidad" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="curp" ColumnName="curp" />
+                <ScalarProperty Name="apellidoMaterno" ColumnName="apellidoMaterno" />
+                <ScalarProperty Name="apellidoPaterno" ColumnName="apellidoPaterno" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="rfc" ColumnName="rfc" />
+                <ScalarProperty Name="ID_CONTRIBUYENTE" ColumnName="ID_CONTRIBUYENTE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

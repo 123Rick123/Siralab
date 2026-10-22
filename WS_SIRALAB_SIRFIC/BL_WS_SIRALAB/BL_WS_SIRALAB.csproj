@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DF1B06D8-16B5-41B0-B29D-B75F57710224}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BL_WS_SIRALAB</RootNamespace>
+    <AssemblyName>BL_WS_SIRALAB</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\RestSharp.105.2.3\lib\net45\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="clases\Anexo.cs" />
+    <Compile Include="clases\Analisis.cs" />
+    <Compile Include="clases\Direccion.cs" />
+    <Compile Include="clases\Cliente.cs" />
+    <Compile Include="clases\CuerpoReceptor.cs" />
+    <Compile Include="clases\SiralabFaultException.cs" />
+    <Compile Include="clases\Validacion.cs" />
+    <Compile Include="ClienteAPI\ClienteApiReportes.cs" />
+    <Compile Include="ClienteAPI\ReporteRespuesta.cs" />
+    <Compile Include="ClienteAPI\TipoReporte.cs" />
+    <Compile Include="ConfigApiReportes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConfigApiReportes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="enumeraciones\Enumeraciones.cs" />
+    <Compile Include="clases\Laboratorio.cs" />
+    <Compile Include="clases\Metodo.cs" />
+    <Compile Include="clases\Muestra.cs" />
+    <Compile Include="clases\Parametro.cs" />
+    <Compile Include="clases\ParametroAnalizado.cs" />
+    <Compile Include="clases\Norma.cs" />
+    <Compile Include="clases\OrdenTrabajo.cs" />
+    <Compile Include="enumeraciones\ExtendEnum.cs" />
+    <Compile Include="extend\AnalisisDalExtend.cs" />
+    <Compile Include="listados\Normas_BL.cs" />
+    <Compile Include="negocio\Analisis_BL.cs" />
+    <Compile Include="negocio\AnexoMedidor_BL.cs" />
+    <Compile Include="negocio\Anexo_BL.cs" />
+    <Compile Include="negocio\ApercibidosYReincidentes_BL.cs" />
+    <Compile Include="negocio\Cliente_BL.cs" />
+    <Compile Include="negocio\DiaInhabil_BL.cs" />
+    <Compile Include="negocio\Norma2021_BL.cs" />
+    <Compile Include="negocio\NormaConfiguracion_BL.cs" />
+    <Compile Include="negocio\Norma_BL.cs" />
+    <Compile Include="negocio\vw_LaboratoriosPALA_BL.cs" />
+    <Compile Include="PeriodResult.cs" />
+    <Compile Include="clases\Persona.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="clases\Signatario.cs" />
+    <Compile Include="clases\Titulo.cs" />
+    <Compile Include="clases\UsoAgua.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DL_WS_SIRALAB\DL_WS_SIRALAB.csproj">
+      <Project>{cf453fdc-ed5c-4c9b-884a-4506dc092c3c}</Project>
+      <Name>DL_WS_SIRALAB</Name>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="doc\cdSIRALAB.cd" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ConfigApiReportes.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ConfigApiReportes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

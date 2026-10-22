@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ce4852e456624e96a3bbac65205e31b3" Name="Diagram1" ZoomLevel="94">
+        <EntityTypeShape EntityType="Siralab_Model.AnalisisFirma" Width="1.5" PointX="21.75" PointY="57.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.Anexo" Width="1.5" PointX="14.25" PointY="50.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.CatTipoContacto" Width="1.5" PointX="12.75" PointY="94.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.CatTipoCuerpoReceptor" Width="1.5" PointX="9" PointY="44.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.CatTipoDocumentoAnexo" Width="1.5" PointX="19.5" PointY="69.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.CatTipoDocumentoMuestra" Width="1.5" PointX="21.75" PointY="48.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.CatTipoSignatario" Width="1.5" PointX="12.75" PointY="87.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.CatUnidadMedida" Width="1.5" PointX="22.5" PointY="69.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.CatUsoAgua" Width="1.5" PointX="12" PointY="46" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.CatUsuarioRol" Width="1.5" PointX="14.75" PointY="71.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.Cliente" Width="1.5" PointX="9.75" PointY="51.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.ClienteContacto" Width="1.5" PointX="12" PointY="49.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.Colonia" Width="1.5" PointX="5.25" PointY="58.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.ColoniaTipo" Width="1.5" PointX="3" PointY="55.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.Consecion" Width="1.5" PointX="12" PointY="52.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.Contacto" Width="1.5" PointX="15" PointY="90.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.CuerpoReceptor" Width="1.5" PointX="8.625" PointY="42" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.Direccion" Width="1.5" PointX="7.5" PointY="50.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.Documento" Width="1.5" PointX="21.75" PointY="44.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.DocumentoAnalisi" Width="1.5" PointX="24.75" PointY="57.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.DocumentoAnexo" Width="1.5" PointX="21.75" PointY="64.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.DocumentoMuestra" Width="1.5" PointX="24" PointY="52.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.Estado" Width="1.5" PointX="0.75" PointY="40.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.Estatu" Width="1.5" PointX="17.25" PointY="46.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.EstatusTipo" Width="1.5" PointX="15" PointY="47" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.FrecuenciaMuestreo" Width="1.5" PointX="17.25" PointY="78.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.Laboratorio" Width="1.5" PointX="9.75" PointY="65.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.LaboratorioAcreditacion" Width="1.5" PointX="12" PointY="64" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.LaboratorioAprobacion" Width="1.5" PointX="14.25" PointY="74.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.LaboratorioCliente" Width="1.5" PointX="15" PointY="60.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.LaboratorioContacto" Width="1.5" PointX="12" PointY="67.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.LaboratorioRepresentante" Width="1.5" PointX="12" PointY="70" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.LaboratorioSignatario" Width="1.5" PointX="15" PointY="66.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.LaboratorioSucursal" Width="1.5" PointX="12" PointY="80.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.LaboratorioVigencia" Width="1.5" PointX="12" PointY="83.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.Localidad" Width="1.5" PointX="5.25" PointY="61.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.Metodo" Width="1.5" PointX="22.5" PointY="72.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.Muestra" Width="1.5" PointX="21.75" PointY="51.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.MuestraValor" Width="1.5" PointX="27" PointY="58.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.Muestreador" Width="1.5" PointX="24" PointY="60.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.Municipio" Width="1.5" PointX="3" PointY="58.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.NivelConfiguracion" Width="1.5" PointX="19.5" PointY="53" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.Norma" Width="1.5" PointX="12" PointY="58.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.NormaConfiguracion" Width="1.5" PointX="17.25" PointY="57.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.OperacionConsolidado" Width="1.5" PointX="24.75" PointY="49.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.Operador" Width="1.5" PointX="15" PointY="78.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.OrdenTrabajo" Width="1.5" PointX="19.5" PointY="62.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.Parametro" Width="1.5" PointX="24.75" PointY="68.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.ParametroMetodo" Width="1.5" PointX="24.75" PointY="72.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.Persona" Width="1.5" PointX="12.75" PointY="89.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Siralab_Model.Usuario" Width="1.5" PointX="17" PointY="70.625" IsExpanded="true" />
+        <AssociationConnector Association="Siralab_Model.FK_Anexo_CatUsoAgua" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_Anexo_Consecion" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_Anexo_CuerpoReceptor" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_Anexo_Direccion" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_OrdenTrabajo_Anexo" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_Contacto_CatTipoContacto" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_CuerpoReceptor_CatTipoCuerpoReceptor" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_DocumentoAnexo_CatTipoDocumentoAnexo" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_DocumentoMuestra_CatTipoDocumentoMuestra" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_LaboratorioSignatario_CatTipoSignatario" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_Parametro_CatUnidadMedida" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_NormaConfiguracion_CatUsoAgua" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_OrdenTrabajo_CatUsoAgua" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_Usuario_CatUsuarioRol" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_Cliente_Direccion" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_ClienteContacto_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_Consecion_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_LaboratorioCliente_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_Norma_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_OrdenTrabajo_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_ClienteContacto_Persona" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_Colonia_ColoniaTipo" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_Colonia_Municipio" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_Direccion_Colonia" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_OrdenTrabajo_Consecion" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_Contacto_Persona" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_NormaConfiguracion_CuerpoReceptor" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_OrdenTrabajo_CuerpoReceptor" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_Direccion_Estado" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_Direccion_Localidad" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_Direccion_Municipio" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_Laboratorio_Direccion" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_Muestra_Direccion" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_DocumentoAnalisis_Documento" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_DocumentoAnexo_Documento" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_DocumentoMuestra_Documento" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_DocumentoAnexo_OrdenTrabajo" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_DocumentoMuestra_Muestra" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_Municipio_Estado" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_Estatus_EstatusTipo" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_OrdenTrabajo_Estatus" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_FrecuenciaMuestreo_Operador" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_FrecuenciaMuestreo_Operador1" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_OrdenTrabajo_FrecuenciaMuestreo" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_LaboratorioAcreditacion_Laboratorio" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_LaboratorioAprobacion_Laboratorio" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_LaboratorioCliente_Laboratorio" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_LaboratorioContacto_Laboratorio" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_LaboratorioRepresentante_Laboratorio" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_LaboratorioSignatario_Laboratorio" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_LaboratorioSucursal_Laboratorio" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_LaboratorioSucursal_Laboratorio1" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_LaboratorioVigencia_Laboratorio" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_MuestraValor_Laboratorio" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_OrdenTrabajo_Laboratorio" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_Usuario_Laboratorio" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_LaboratorioAprobacion_LaboratorioVigencia" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_LaboratorioAprobacion_ParametroMetodo" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_LaboratorioContacto_Persona" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_LaboratorioRepresentante_Persona" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_LaboratorioSignatario_Persona" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_Muestreador_LaboratorioSignatario" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_Localidad_Municipio" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_ParametroMetodo_Metodo" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_Muestra_NivelConfiguracion" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_MuestraValor_Muestra" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_Muestreador_Muestra" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_MuestraValor_OperacionConsolidado" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_MuestraValor_Parametro" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_MuestraValor_ParametroMetodo" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_NormaConfiguracion_NivelConfiguracion" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_NormaConfiguracion_Norma" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_OrdenTrabajo_Norma" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_NormaConfiguracion_NormaConfiguracion" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_NormaConfiguracion_OperacionConsolidado" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_NormaConfiguracion_Parametro" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_ParametroMetodo_Parametro" ManuallyRouted="false" />
+        <AssociationConnector Association="Siralab_Model.FK_Usuario_Persona" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Siralab_Model.vw_LaboratoriosPALA" Width="1.5" PointX="6" PointY="1.25" />
+        <EntityTypeShape EntityType="Siralab_Model.AnexoMedidor" Width="1.5" PointX="16.5" PointY="51.625" />
+        <AssociationConnector Association="Siralab_Model.FK_AnexoMedidor_Anexo" />
+        <AssociationConnector Association="Siralab_Model.FK_Norma_NormaPadre" />
+        <EntityTypeShape EntityType="Siralab_Model.CatGerenteYSubgerente" Width="1.5" PointX="0.5" PointY="2.75" />
+        <EntityTypeShape EntityType="Siralab_Model.CatMediosDeImpugnacion" Width="1.5" PointX="25.375" PointY="76.375" />
+        <EntityTypeShape EntityType="Siralab_Model.EstatusApercibidosReincidente" Width="1.5" PointX="18.125" PointY="74.75" />
+        <EntityTypeShape EntityType="Siralab_Model.Laboratorios_Apercibidos" Width="1.5" PointX="12.375" PointY="74" />
+        <EntityTypeShape EntityType="Siralab_Model.NomenclaturaMemorando" Width="1.5" PointX="4" PointY="2.25" />
+        <EntityTypeShape EntityType="Siralab_Model.tbl_Reincidencia" Width="1.5" PointX="20.375" PointY="72.875" />
+        <EntityTypeShape EntityType="Siralab_Model.tblEstatusImpugnacion" Width="1.5" PointX="25.375" PointY="78.75" />
+        <EntityTypeShape EntityType="Siralab_Model.tblImpugnacion" Width="1.5" PointX="27.625" PointY="70" />
+        <AssociationConnector Association="Siralab_Model.FK_tblImpugnacion_PK_CatMediosDeImpugnacion" />
+        <AssociationConnector Association="Siralab_Model.FK_Laboratorios_Apercibidos_EstatusApercibidosReincidentes" />
+        <AssociationConnector Association="Siralab_Model.FK_tbl_Reincidencia_EstatusApercibidosReincidentes" />
+        <AssociationConnector Association="Siralab_Model.FK_Laboratorios_Apercibidos_Laboratorio" />
+        <AssociationConnector Association="Siralab_Model.FK_tbl_Reincidencia_Laboratorio" />
+        <AssociationConnector Association="Siralab_Model.FK_tblImpugnacion_PK_Laboratorio" />
+        <AssociationConnector Association="Siralab_Model.FK_tblImpugnacion_PK_Laboratorios_Apercibidos" />
+        <AssociationConnector Association="Siralab_Model.FK_tblImpugnacion_PK_tbl_Reincidencia" />
+        <AssociationConnector Association="Siralab_Model.FK_tblImpugnacion_PK_EstatusImpugnacion" />
+        <EntityTypeShape EntityType="Siralab_Model.CatDiaInhabil" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="Siralab_Model.tblProgramaCumplimientoNom001" Width="1.5" PointX="3.375" PointY="7.75" />
+        <EntityTypeShape EntityType="Siralab_Model.Analisi" Width="1.5" PointX="27.75" PointY="51" />
+        <AssociationConnector Association="Siralab_Model.FK_Analisis_Analisis" />
+        <AssociationConnector Association="Siralab_Model.FK_Analisis_Anexo" />
+        <AssociationConnector Association="Siralab_Model.FK_Analisis_Consecion" />
+        <AssociationConnector Association="Siralab_Model.FK_Analisis_Estatus" />
+        <AssociationConnector Association="Siralab_Model.FK_Analisis_Laboratorio" />
+        <AssociationConnector Association="Siralab_Model.FK_Analisis_OrdenTrabajo" />
+        <AssociationConnector Association="Siralab_Model.FK_AnalisisFirma_Analisis" />
+        <AssociationConnector Association="Siralab_Model.FK_DocumentoAnalisis_Analisis" />
+        <AssociationConnector Association="Siralab_Model.FK_Muestra_Analisis" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

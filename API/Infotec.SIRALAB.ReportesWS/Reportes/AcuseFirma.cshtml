@@ -1,0 +1,193 @@
+﻿@model Infotec.SIRALAB.ReportesWS.Reportes.Models.InformeDTO
+
+
+@{
+    var fechaFirma = Model.Analisis.AnalisisFirmas.FirstOrDefault()?.FechaRegistro?.ToString("D");
+    var horaFirma = Model.Analisis.AnalisisFirmas.FirstOrDefault()?.FechaRegistro?.ToString("t");
+    var numInforme = Model.Analisis.OrdenTrabajo.NumeroInforme;
+    numInforme += Model.Analisis.OrdenTrabajo.Norma.RequiereCaudal ? " PD/" : " Muestra/";
+    numInforme += Model.numPD;
+    var contribuyente = Model.Analisis.OrdenTrabajo.Cliente.Nombre;
+    contribuyente += string.IsNullOrEmpty(Model.Analisis.OrdenTrabajo.Cliente.ApellidoPaterno) ? "" : " " + Model.Analisis.OrdenTrabajo.Cliente.ApellidoPaterno;
+    contribuyente += string.IsNullOrEmpty(Model.Analisis.OrdenTrabajo.Cliente.ApellidoPaterno) ? "" : " " + Model.Analisis.OrdenTrabajo.Cliente.ApellidoMaterno;
+    var rfcContribuyente = Model.Analisis.OrdenTrabajo.Cliente.RFC;
+    var firmaLab = Model.Analisis.AnalisisFirmas.FirstOrDefault()?.Firma;
+    var tamanhoFirma = firmaLab?.Length;
+    var listaFirma = new List<string>();
+    var selloDigital = Model.Analisis.AnalisisFirmas.FirstOrDefault()?.SelloDigital;
+    var selloDigitalTamanho = selloDigital?.Length;
+    var listaSello = new List<string>();
+    var tamanhoLinea = 115;
+    var anhoFiscal = Model.Analisis.Muestras.FirstOrDefault(m => m.NivelID == 1)?.Fecha?.Year;
+
+    for (var i = 0; i < tamanhoFirma; i += tamanhoLinea)
+    {
+
+        listaFirma.Add(i + tamanhoLinea > tamanhoFirma ? firmaLab.Substring(i) : firmaLab.Substring(i, tamanhoLinea));
+    }
+
+    for (var i = 0; i < selloDigitalTamanho; i += 115)
+    {
+        listaSello.Add(i + tamanhoLinea > selloDigitalTamanho ? selloDigital.Substring(i) : selloDigital.Substring(i, tamanhoLinea));
+    }
+
+    firmaLab = listaFirma.Aggregate("", (current, item) => current + (item + " "));
+    selloDigital = listaSello.Aggregate("", (current, item) => current + (item + " "));
+}
+<html>
+<head>
+    <title>@Model.Titulo</title>
+    <link rel="stylesheet" type="text/css" href="@Model.Css">
+    <style type="text/css">
+        @@media print {
+            @@page {
+                @@top-left {
+                    content: "";
+                }
+
+                @@top-center {
+                    content: "";
+                }
+
+                @@top-right {
+                    content: "";
+                }
+
+                @@bottom-left {
+                }
+
+                @@bottom-center {
+                    content: "Página " counter(page) " de " counter(pages);
+                }
+
+                @@bottom-right {
+                }
+            }
+        }
+
+        b {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body style="font-family: Montserrat">
+    <div class="row">
+        <img src="@Model.Logo" />
+        <h4>ACUSE DE RECEPCIÓN INFORME DE ANÁLISIS DE LABORATORIO.</h4>
+    </div>
+
+    <div class="row">
+        <div style="text-align: right; font-size: 10px">
+            <span><b>Folio CONAGUA: </b></span><span runat="server" id="spnFolioCNA">@Model.Analisis.AnalisisID</span>
+        </div>
+
+        <div style="text-align: justify; font-size: 10px;">
+            <p runat="server" id="pLaboratorio" style="text-align: justify; font-size: 10px;"><b>@Model.Analisis.OrdenTrabajo.Laboratorio.Nombre</b></p>
+            <p runat="server" id="pMensajeInicio" style="text-align: justify; font-size: 10px;">Se le informa que la Comisión Nacional de Agua ha recibido con fecha <b>@fechaFirma</b> a las <b>@horaFirma</b> horas, el reporte de análisis de laboratorio número <b>@numInforme</b> que efectuó al usuario/contribuyente <b>@contribuyente</b>, con RFC <b>@rfcContribuyente</b>, del que se desprenden lo siguientes datos:</p>
+        </div>
+        <p></p>
+
+        <table class="table table-striped table-condensed" style="font-size: 10px; text-align: left !important;">
+            <tbody>
+                <tr>
+                    <th style="background-color: #E8E8E8 !important; width: 300px">Título de concesión o asignación</th>
+                    <td>@Model.DatosGenerales.PuntoDescargaTitulo</td>
+                </tr>
+                <tr>
+                    <th style="background-color: #E8E8E8 !important; width: 300px">Anexo</th>
+                    <td>@Model.DatosGenerales.PuntoDescargaAnexo</td>
+                </tr>
+                <tr>
+                    @if (Model.Analisis.OrdenTrabajo.Norma.FuenteAbastecimiento == true || Model.Analisis.OrdenTrabajo.Norma.RequiereCompuesta == false)
+                    {
+                        <th style="background-color: #E8E8E8 !important; width: 300px">Nombre del aprovechamiento</th>
+                    }
+                    else
+                    {
+                        <th style="background-color: #E8E8E8 !important; width: 300px">Nombre del Punto de descarga</th>
+                    }
+
+                    <td>@Model.DatosGenerales.PuntoDescargaNombreCuerpoReceptor</td>
+                </tr>
+                <tr>
+                    <th style="background-color: #E8E8E8 !important;width: 300px">Norma o parámetros muestreados</th>
+                    <td>@Model.Analisis.OrdenTrabajo.Norma.Nombre</td>
+                </tr>
+                <tr>
+                    <th style="background-color: #E8E8E8 !important;width: 300px">Ubicación</th>
+                    <td>@Model.DatosGenerales.MuestraDireccion</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div style="text-align: justify; font-size: 9px">
+            @if (Model.Analisis.Procesado)
+            {
+                <p style="text-align: justify">
+                    Se hace de su conocimiento que el reporte en cuestión ha sido recibido fuera del plazo a que se refiere la regla @Model.ReglaMiscelanea
+                    de la Resolución Miscelánea Fiscal para @anhoFiscal, por lo que en caso de que el usuario/contribuyente haya aplicado indebidamente con motivo de
+                    dicha extemporaneidad, algún acreditamiento, exención o descuento para efectos fiscales, esta autoridad estará en la posibilidad de proceder
+                    conforme a lo establecido en la fracción VIII del artículo 278-B de la Ley Federal de Derechos.
+                </p>
+            }
+            else
+            {
+                <p style="text-align: justify">
+                    Este acuse es emitido, sin prejuzgar la veracidad de los datos asentados en el reporte del
+                    análisis de laboratorio, ni sobre el cumplimiento de las disposiciones normativas aplicables en
+                    cuanto al muestreo, frecuencia y análisis que corresponda, dejando a salvo las facultades de
+                    revisión de esta autoridad.
+                </p>
+            }
+
+            <p style="text-align: justify">
+                Los datos personales proporcionados en el reporte de análisis de laboratorio son incorporados y protegidos en los sistemas de la Comisión Nacional de Agua, de conformidad con los
+                Lineamientos de Protección de Datos Personales y con las diversas disposiciones legales sobre
+                confidencialidad y protección de datos.
+            </p>
+        </div>
+        <div class="table table-responsive">
+            <table class="table table-bordered table-sm" style="font-size: 9px; table-layout:fixed">
+                <thead>
+                    <tr>
+                        <th>Firma Digital del Laboratorio:</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@firmaLab</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table table-bordered table-sm" style="font-size: 9px">
+                <thead>
+                    <tr>
+                        <th>Cadena Original:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@Model.Analisis.AnalisisFirmas.FirstOrDefault()?.Cadena</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table table-bordered table-sm" style="font-size: 9px">
+                <thead>
+                    <tr>
+                        <th>Sello Digital Conagua:</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@selloDigital</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

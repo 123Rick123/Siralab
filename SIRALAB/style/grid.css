@@ -1,0 +1,23 @@
+﻿.seccion-GridHeader
+{ 
+    
+   padding: 5px;
+   text-align:center;
+   color:green;
+   
+   font-weight: bold;
+   border-color:yellow;
+   height:28px;
+   background-color:#ebe1e1;
+}
+
+.seccion-GridCellAlternating
+{
+   padding: 5px;
+   text-align:center;
+   color:black;   
+   border-color:black;
+   height:24px;
+   background-color:#faf5f5;  
+   
+}

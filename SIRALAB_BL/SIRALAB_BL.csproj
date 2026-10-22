@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B79B39E5-AC3D-435C-89DC-95A9BC93289A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SIRALAB_BL</RootNamespace>
+    <AssemblyName>SIRALAB_BL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.6.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ArchivosComunes\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Gma.QrCodeNet.Encoding">
+      <HintPath>..\ArchivosComunes\Gma.QrCodeNet.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.2\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="zxing, Version=0.16.6.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.6\lib\net45\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.6.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.6\lib\net45\zxing.presentation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base_BL.cs" />
+    <Compile Include="catalogos\CatDiaInhabil_BL.cs" />
+    <Compile Include="catalogos\CatTipoDocumentoMuestra_BL.cs" />
+    <Compile Include="catalogos\CatTipoDocumentoAnexo_BL.cs" />
+    <Compile Include="catalogos\CuerpoReceptor_BL.cs" />
+    <Compile Include="catalogos\CatTipoCuerpoReceptor_BL.cs" />
+    <Compile Include="catalogos\CatUsoAgua_BL.cs" />
+    <Compile Include="catalogos\Estatus.cs" />
+    <Compile Include="catalogos\OperacionConsolidado_BL.cs" />
+    <Compile Include="catalogos\Parametro_BL.cs" />
+    <Compile Include="negocio\analisis\AnalisisColaDetalle_BL.cs" />
+    <Compile Include="negocio\analisis\AnalisisColaEncabezado_BL.cs" />
+    <Compile Include="negocio\analisis\AnalisisFaltaPago_BL.cs" />
+    <Compile Include="negocio\analisis\DocumentoAnalisis_BL.cs" />
+    <Compile Include="negocio\analisis\LaboratoriosCNA_BL.cs" />
+    <Compile Include="negocio\cancelacion\SolicitudCancelacionAnalisis_BL.cs" />
+    <Compile Include="negocio\cancelacion\SolicitudCancelacionDetalle_BL.cs" />
+    <Compile Include="negocio\cancelacion\SolicitudCancelacion_BL.cs" />
+    <Compile Include="negocio\cliente\AnexoMedidor_BL.cs" />
+    <Compile Include="negocio\Comun\DiaInhabil_BL.cs" />
+    <Compile Include="negocio\Comun\PlantillaBLL.cs" />
+    <Compile Include="negocio\Comun\PlantillaDTO.cs" />
+    <Compile Include="negocio\Contacto\ContactoArgs.cs" />
+    <Compile Include="negocio\Contacto\Contacto_BL.cs" />
+    <Compile Include="negocio\Contacto\LaboratorioContacto_BL.cs" />
+    <Compile Include="negocio\Documentos\DocumentoAnexo_BL.cs" />
+    <Compile Include="negocio\Extemporaneos\Extemporaneos_BL.cs" />
+    <Compile Include="negocio\LaboratoriosApercibidos\Enum\EnumEstatusApercibidosReincidentes.cs" />
+    <Compile Include="negocio\LaboratoriosApercibidos\LabApercibidosYReincidentes.cs" />
+    <Compile Include="negocio\LaboratoriosApercibidos\LabApercibidosYReincidentesBLL.cs" />
+    <Compile Include="negocio\muestra\MuestraValorConfig_BL.cs" />
+    <Compile Include="negocio\Norma\NormaConfiguracion_BL.cs" />
+    <Compile Include="negocio\Norma\Norma_BL.cs" />
+    <Compile Include="catalogos\Usuario_BL.cs" />
+    <Compile Include="catalogos\ParametroMetodo_BL.cs" />
+    <Compile Include="catalogos\common\ApplicationSettings.cs" />
+    <Compile Include="catalogos\common\Archivos.cs" />
+    <Compile Include="catalogos\common\ArgumentosBase_BL.cs" />
+    <Compile Include="catalogos\common\Coordenadas_BL.cs" />
+    <Compile Include="catalogos\common\Crypt.cs" />
+    <Compile Include="catalogos\common\Enumeraciones.cs" />
+    <Compile Include="catalogos\common\Extension.cs" />
+    <Compile Include="catalogos\common\LoadDrops.cs" />
+    <Compile Include="catalogos\common\SqltoEntitiesExtend.cs" />
+    <Compile Include="correo\Mailer.cs" />
+    <Compile Include="catalogos\common\Seguridad_BL.cs" />
+    <Compile Include="catalogos\Documento_BL.cs" />
+    <Compile Include="negocio\muestra\LaboratorioSignatario_BL.cs" />
+    <Compile Include="negocio\muestra\Metodo_BL.cs" />
+    <Compile Include="negocio\muestra\MuestraValor_BL.cs" />
+    <Compile Include="negocio\muestra\Muestreador_BL.cs" />
+    <Compile Include="negocio\analisis\AnalisisFirma_BL.cs" />
+    <Compile Include="negocio\muestra\Muestra_BL.cs" />
+    <Compile Include="negocio\analisis\Persona_BL.cs" />
+    <Compile Include="negocio\analisis\Laboratorio_BL.cs" />
+    <Compile Include="negocio\analisis\Analisis_BL.cs" />
+    <Compile Include="negocio\cliente\Anexo_BL.cs" />
+    <Compile Include="negocio\cliente\Cliente_BL.cs" />
+    <Compile Include="negocio\cliente\Consecion_BL.cs" />
+    <Compile Include="negocio\login\Login_BL.cs" />
+    <Compile Include="negocio\ordentrabajo\FrecuenciaMuestreo_BL.cs" />
+    <Compile Include="negocio\cliente\Direccion_BL.cs" />
+    <Compile Include="negocio\ordentrabajo\OrdenTrabajo_BL.cs" />
+    <Compile Include="negocio\ordentrabajo\vw_oT.cs" />
+    <Compile Include="negocio\ordentrabajo\vw_ot_k.cs" />
+    <Compile Include="negocio\ordentrabajo\Correspondencia_CR_UA_BL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="seguridad\CatModulos_BL.cs" />
+    <Compile Include="seguridad\CatPagina_BL.cs" />
+    <Compile Include="seguridad\CatPermisosRol_BL.cs" />
+    <Compile Include="seguridad\CatUsuarioRol_BL.cs" />
+    <Compile Include="Service References\FileTransfer\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="SingletonContext.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SIRALAB_DAL\SIRALAB_DAL.csproj">
+      <Project>{75c45946-6d7b-49fe-85da-ecf89dbebaa3}</Project>
+      <Name>SIRALAB_DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Service References\FileTransfer\fileTransfer1.wsdl" />
+    <None Include="Service References\FileTransfer\SIRALAB_BL.FileTransfer.EliminarArchivo1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FileTransfer\SIRALAB_BL.FileTransfer.IfFileExist1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FileTransfer\SIRALAB_BL.FileTransfer.InsertarArchivo1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FileTransfer\SIRALAB_BL.FileTransfer.ObtenerDocumento1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\FileTransfer\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FileTransfer\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FileTransfer\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FileTransfer\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FileTransfer\fileTransfer1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="negocio\Permisos\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

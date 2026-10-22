@@ -1,0 +1,107 @@
+﻿.botonEditar
+{
+     background-image: url("../image/botones/EditarSeleccion.png");
+     zoom: 1; 
+     width: 16px;
+     height: 16px;
+     display: inline-block;
+}
+
+.botonEliminar
+{
+     background-image: url("../image/botones/Borrar.png");
+     zoom: 1; 
+     width: 16px;
+     height: 16px;
+     display: inline-block;
+}
+
+.botonEnviado
+{
+     background-image: url("../image/botones/Enviado.png");
+     zoom: 1; 
+     width: 16px;
+     height: 16px;
+     display: inline-block;
+}
+
+.botonNoEnviado
+{
+     background-image: url("../image/botones/NoEnviado.png");
+     zoom: 1; 
+     width: 16px;
+     height: 16px;
+     display: inline-block;
+}
+
+.botonNoCheck
+{
+     background-image: url("../image/botones/NoCheck.png");
+     zoom: 1; 
+     width: 16px;
+     height: 16px;
+     display: inline-block;
+}
+
+.botonCheck
+{
+     background-image: url("../image/botones/Check.png");
+     zoom: 1; 
+     width: 16px;
+     height: 16px;
+     display: inline-block;
+}
+
+.botonFirmar
+{
+     background-image: url("../image/botones/Firma.png");
+     zoom: 1; 
+     width: 32px;
+     height: 32px;
+     display: inline-block;
+}
+
+.botonAsociar
+{
+     background-image: url("../image/botones/asociar-1.png");
+     zoom: 1; 
+     width: 16px;
+     height: 16px;
+     display: inline-block;
+}
+
+.botonHeredado
+{
+     background-image: url("../image/botones/herencia.png");
+     zoom: 1; 
+     width: 16px;
+     height: 16px;
+     display: inline-block;
+}
+
+.botonDoc
+{
+     background-image: url("../image/botones/documento.png");
+     zoom: 1; 
+     width: 16px;
+     height: 16px;
+     display: inline-block;
+}
+
+.botonAgregarDoc
+{
+     background-image: url("../image/botones/docs.png");
+     zoom: 1; 
+     width: 16px;
+     height: 16px;
+     display: inline-block;
+}
+
+.botonEliminarAnalisis
+{
+     background-image: url("../image/botones/garbage2.png");
+     zoom: 1; 
+     width: 16px;
+     height: 16px;
+     display: inline-block;
+}

@@ -1,0 +1,71 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+<PropertyGroup Label="Globals">
+<SccProjectName>SAK</SccProjectName>
+<SccProvider>SAK</SccProvider>
+<SccAuxPath>SAK</SccAuxPath>
+<SccLocalPath>SAK</SccLocalPath>
+</PropertyGroup>
+
+<PropertyGroup>
+<TargetFramework>net5.0</TargetFramework>
+<UserSecretsId>b4c2cb27-bc05-41dd-b127-975e99acb5f7</UserSecretsId>
+</PropertyGroup>
+
+<ItemGroup>
+<PackageReference Include="itext7" Version="7.1.14" />
+<PackageReference Include="itext7.pdfhtml" Version="3.0.3" />
+<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.2" />
+<PackageReference Include="Microsoft.DotNet.PlatformAbstractions" Version="3.1.6" />
+<PackageReference Include="Razor.Templating.Core" Version="1.4.0" />
+<PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+</ItemGroup>
+
+<ItemGroup>
+<ProjectReference Include="..\Infotec.SIRALAB.ReportesWS.DAL\Infotec.SIRALAB.ReportesWS.DAL.csproj" />
+</ItemGroup>
+
+<ItemGroup>
+<Folder Include="Reportes\css\" />
+<Folder Include="Reportes\font\" />
+<Folder Include="Reportes\Models\Enum\" />
+</ItemGroup>
+
+<ItemGroup>
+<Compile Update="Properties\Resources.Designer.cs">
+<DesignTime>True</DesignTime>
+<AutoGen>True</AutoGen>
+<DependentUpon>Resources.resx</DependentUpon>
+</Compile>
+</ItemGroup>
+
+<ItemGroup>
+<EmbeddedResource Update="Properties\Resources.resx">
+<Generator>ResXFileCodeGenerator</Generator>
+<LastGenOutput>Resources.Designer.cs</LastGenOutput>
+</EmbeddedResource>
+</ItemGroup>
+
+<ItemGroup>
+<None Update="images\EncCorreo.png">
+<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+</None>
+<None Update="Reportes\css\reportes.css">
+<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+</None>
+<None Update="Reportes\font\Montserrat-Bold.ttf">
+<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+</None>
+<None Update="Reportes\font\Montserrat-Regular.ttf">
+<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+</None>
+<None Update="Reportes\font\Montserrat-SemiBold.ttf">
+<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+</None>
+</ItemGroup>
+
+<ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+
+</Project>
+
+

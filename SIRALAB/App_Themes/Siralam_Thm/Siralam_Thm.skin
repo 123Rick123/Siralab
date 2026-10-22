@@ -1,0 +1,36 @@
+﻿<%--DEFINICION PARA LOS GridView--%>
+    <asp:GridView  runat="server" 
+        AutoGenerateColumns="False" 
+        AllowPaging="True" 
+        PageSize="25" 
+        AllowSorting="True" 
+        Visible="true" 
+        ShowHeaderWhenEmpty="true"
+        Width="97%" CssClass="table-list" CellSpacing="2" BorderWidth="0"
+        PagerStyle-CssClass="catalogo-grid-pager">
+       
+       <EmptyDataTemplate>
+            <div>
+                <h3>No hay información disponible para desplegar</h3>
+		    </div>				
+	    </EmptyDataTemplate>
+    </asp:gridview>
+
+
+<%--DEFINICION PARA LOS GridView--%>
+    <asp:GridView  runat="server"  SkinID="GridviewSmallSizePage"
+        AutoGenerateColumns="False" 
+        AllowPaging="True" 
+        PageSize="25" 
+        AllowSorting="True" 
+        Visible="true" 
+        ShowHeaderWhenEmpty="true"
+        Width="97%" CssClass="table-list" CellSpacing="2" BorderWidth="0"
+        PagerStyle-CssClass="catalogo-grid-pager">
+       
+       <EmptyDataTemplate>
+            <div>
+                <h3>No hay información disponible para desplegar</h3>
+		    </div>				
+	    </EmptyDataTemplate>
+    </asp:gridview>

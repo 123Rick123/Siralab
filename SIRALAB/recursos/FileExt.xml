@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<fileext>
+  <ext extension="" header="application/octet-stream" previewImage="File.png" />
+
+
+  <ext extension=".tiff" header="image/tiff" previewImage="tiff-128_32.png" />
+  <ext extension=".tif"  header="image/tiff" previewImage="tiff-128_32.png" />
+  <ext extension=".gif"  header="image/gif" previewImage="gif-128_32.png" />
+  <ext extension=".jpe" header="image/jpeg" previewImage="jpeg-128_32.png" />
+  <ext extension=".jpe" header="image/pjpeg" previewImage="jpeg-128_32.png" />
+  <ext extension=".jpeg" header="image/jpeg" previewImage="jpeg-128_32.png" />
+  <ext extension=".jpeg" header="image/pjpeg" previewImage="jpeg-128_32.png" />
+  <ext extension=".jpg" header="image/jpeg" previewImage="jpeg-128_32.png" />
+  <ext extension=".jpg" header="image/pjpeg" previewImage="jpeg-128_32.png" />
+  <ext extension=".bmp"  header="image/bmp" previewImage="bmp-128_32.png" />
+  <ext extension=".png"  header="image/png" previewImage="png-128_32.png" />
+  <ext extension=".dwdwg"  header="image/vnd.dwg" previewImage="File.png" />
+
+  <ext extension=".htm"  header="text/HTML" previewImage="File.png" />
+  <ext extension=".html" header="text/HTML" previewImage="File.png" />
+  <ext extension=".log"  header="text/HTML" previewImage="File.png" />
+  <ext extension=".txt"  header="text/plain" previewImage="text-128_32.png" />
+  <ext extension=".asp"  header="text/asp" previewImage="File.png" />
+
+  <ext extension=".zip" header="application/x-compressed" previewImage="Zip.png" />
+  <ext extension=".zip" header="application/x-zip-compressed" previewImage="Zip.png" />
+  <ext extension=".zip" header="multipart/x-zip" previewImage="Zip.png" />
+  <ext extension=".zip"  header="application/zip" previewImage="Zip.png" />
+  <ext extension=".pdf"  header="application/pdf" previewImage="AcrobatPDF.png" />
+  <ext extension=".doc"  header="application/ms-word" previewImage="Word.png" />
+  <ext extension=".docx" header="application/vnd.openxmlformats-officedocument.wordprocessingml.document" previewImage="Word.png" />
+  <ext extension=".xls"  header="application/vnd.ms-excel" previewImage="Excel.png"  />
+  <ext extension=".xlsx" header="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" previewImage="Excel.png"  />
+  <ext extension=".csv"  header="application/vnd.ms-excel" previewImage="Excel.png"  />
+  <ext extension=".ppt"  header="application/mspowerpoint" previewImage="PowerPoint.png"  />
+  <ext extension=".pps" header="application/mspowerpoint" previewImage="PowerPoint.png" />
+  <ext extension=".pps" header="application/vnd.ms-powerpoint" previewImage="PowerPoint.png" />
+  <ext extension=".ppt" header="application/powerpoint" previewImage="PowerPoint.png" />
+  <ext extension=".ppt" header="application/vnd.ms-powerpoint" previewImage="PowerPoint.png" />
+  <ext extension=".ppt" header="application/x-mspowerpoint" previewImage="PowerPoint.png" />
+  <ext extension=".ppz" header="application/mspowerpoint" previewImage="PowerPoint.png" />
+  <ext extension=".pptx" header="application/vnd.openxmlformats-officedocument.presentationml.presentation" previewImage="PowerPoint.png"  />
+  <ext extension=".msg"  header="application/msoutlook" previewImage="Outlook.png"  />
+
+  <ext extension=".fdf"  header="application/vnd.fdf" previewImage="File.png" />
+  <ext extension=".xml"  header="application/xml" previewImage="File.png" />
+  <ext extension=".sdxl" header="application/xml" previewImage="File.png" />
+  <ext extension=".xdp"  header="application/vnd.adobe.xdp+xml" previewImage="File.png" />
+  <ext extension=".rtf"  header="application/rtf" previewImage="File.png" />
+
+  <ext extension=".asf"  header="video/x-ms-asf" previewImage="File.png" />
+  <ext extension=".avi"  header="video/avi" previewImage="avi-128_32.png" />
+  <ext extension=".mpg"  header="video/mpeg" previewImage="mpeg-128_32.png" />
+  <ext extension=".mpeg" header="video/mpeg" previewImage="mpeg-128_32.png" />
+
+  <ext extension=".wav" header="audio/wav" previewImage="wav-128_32.png" />
+  <ext extension=".mp3" header="audio/mpeg3" previewImage="mp3-128_32.png" />
+  <ext extension=".mp3" header="audio/x-mpeg-3" previewImage="mp3-128_32.png" />
+  <ext extension=".mp3" header="video/mpeg" previewImage="mp3-128_32.png" />
+  <ext extension=".mp3" header="video/x-mpeg" previewImage="mp3-128_32.png" />
+
+</fileext>

@@ -1,0 +1,34 @@
+﻿.master-helper-col1 {
+    width: 100%;
+    overflow: hidden;
+    background-color: #4A966A;
+    margin-bottom: 75px;
+}
+
+.master-helper-col2 {
+    float: left;
+    left: 215px;
+    background-color: #FFF;
+    width: 100%;
+    min-height: 600px;
+    position: relative;
+}
+
+.master-col1 { /*Este es el menú*/
+    width: 205px;
+    float: left;
+    margin-left: -215px;
+    overflow: hidden;
+}
+
+.master-col2 {
+    /*right: 100%;*/
+    margin: 0 215px 0 15px;
+    overflow: hidden;
+}
+
+.master-col1 > ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}

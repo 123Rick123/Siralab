@@ -1,0 +1,79 @@
+﻿
+.titulo-resultados 
+{
+    font: 10pt Segoe UI;
+    text-align:center;
+}
+.div-animado
+{
+    display: none;
+}
+.pnl-invisible
+{
+    visibility: collapse;
+}
+.pnl-visible 
+{
+    visibility: visible;
+}
+
+.seccion-tituloAnexo
+{
+    border: 1px solid #e2e2e2;
+    padding: 5px;
+    text-align:center;
+    color: #B38E5D;
+    font-weight: bold;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+}
+
+.Seccion-Encabezado-anexo {
+    text-align: center;
+    border: 1px solid #e2e2e2;
+    height:25px;
+    color: #777;
+    font-size: 9pt;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+}
+.seccion-anexo {
+    border-top: 0px solid #e2e2e2;
+    text-align: center;
+    height:25px;
+    color: #777;
+    font-size: 9pt;
+    
+    
+}
+.seccion-anexo-division {
+    border-bottom: 2px solid #e2e2e2;
+    text-align: center;
+    height:25px;
+    color: #777;
+    font-size: 9pt;    
+}
+
+.seccion-tituloAnalisis
+{
+    
+    padding: 5px;
+    text-align:center;
+    color: #B38E5D;
+    background:White;
+    font-weight: bold;
+    
+}
+.seccion-tituloAlternating
+{
+    border: 0px solid #e2e2e2;
+    padding: 5px;
+    text-align:center;
+    color: #B38E5D;
+    background:#F1F1F1;
+    font-weight: bold;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+}

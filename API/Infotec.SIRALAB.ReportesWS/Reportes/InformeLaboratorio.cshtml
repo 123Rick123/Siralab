@@ -1,0 +1,767 @@
+﻿@using System.Globalization
+@model Infotec.SIRALAB.ReportesWS.Reportes.Models.InformeDTO
+
+
+@{
+
+    //Preparar el reporte.
+    var MensajeInicial = @"A continuación se presenta el reporte de los resultados de las determinaciones analíticas realizadas por este laboratorio en los muestreos del día ";
+
+    var MensajeInicialMultdia = @"A continuación se presenta el reporte de los resultados de las determinaciones analíticas realizadas por este laboratorio en los muestreos de los días ";
+
+    var MensajeInicialSDT = @"A continuación se presenta el reporte de los resultados de las determinaciones analíticas realizadas por este laboratorio en los muestreos del día ";
+
+    var fechaPrimeraMuestra = Model.Analisis.Muestras.FirstOrDefault()?.Fecha;
+    var fechaUltimaMuestra = Model.Analisis.Muestras.LastOrDefault()?.Fecha;
+    var fechaMensajeInicial = Model.Analisis.Muestras.FirstOrDefault()?.Fecha != null ? Model.Analisis.Muestras.LastOrDefault()?.Fecha?.ToString("D") : Model.Analisis.FechaRegistro?.ToString("D");
+    var pMensajeInicial = "";
+
+    if (fechaUltimaMuestra != null && fechaPrimeraMuestra != null && fechaPrimeraMuestra?.Day != fechaUltimaMuestra?.Day)
+    {
+        pMensajeInicial = Model.Analisis.OrdenTrabajo.Norma.RequiereCaudal ? MensajeInicialMultdia : MensajeInicialSDT;
+        pMensajeInicial += " " + fechaPrimeraMuestra?.Day + " y " + fechaMensajeInicial?.Substring(fechaMensajeInicial.IndexOf(",", StringComparison.Ordinal) + 1) + ".";
+    }
+    else
+    {
+        pMensajeInicial = Model.Analisis.OrdenTrabajo.Norma.RequiereCaudal ? MensajeInicial : MensajeInicialSDT;
+        pMensajeInicial += " " + fechaMensajeInicial + ".";
+    }
+
+
+    var fechaFirma = Model.Analisis.AnalisisFirmas.FirstOrDefault()?.FechaRegistro?.ToString("D");
+    var horaFirma = Model.Analisis.AnalisisFirmas.FirstOrDefault()?.FechaRegistro?.ToString("t");
+    var numInforme = Model.Analisis.OrdenTrabajo.NumeroInforme;
+    numInforme += Model.Analisis.OrdenTrabajo.Norma.RequiereCaudal ? " PD/" : " Muestra/";
+    numInforme += Model.Analisis.OrdenTrabajo.Analisis.ToList().FindIndex(an => an.AnalisisID == Model.Analisis.AnalisisID) + 1;
+    
+    
+    var contribuyente = Model.Analisis.OrdenTrabajo.Cliente.Nombre + " " + Model.Analisis.OrdenTrabajo.Cliente.ApellidoPaterno + " " + Model.Analisis.OrdenTrabajo.Cliente.ApellidoMaterno;
+
+    var datosGenerales = Model.DatosGenerales;
+    var pdMuestra = Model.Analisis.OrdenTrabajo.Norma.RequiereCompuesta == true ? "PD/" : "Muestra/";
+    var pPromedioDiario = pdMuestra + Model.numPD;
+
+    var muestrasSimplesList = Model.Analisis.Muestras.Where(muestra => muestra.NivelID == 1).ToList();
+
+
+    var muestraSimpleEtiquetas = new List<string>();
+    var muestraValorEtiqueta = Model?.Analisis?.Muestras?.FirstOrDefault(m => m.NivelID == 1)?.MuestraValors;
+
+    if (muestraValorEtiqueta != null)
+    {
+        foreach (var muestraValor in muestraValorEtiqueta)
+        {
+            var etiqueta = Model.Analisis.OrdenTrabajo.Norma.NormaConfiguracions.FirstOrDefault(nc => nc.ParametroID == muestraValor.ParametroID && nc.NivelID == 1)?.Etiqueta;
+            muestraSimpleEtiquetas.Add(etiqueta);
+        }
+    }
+
+
+
+    var muestraSimple = Model.Analisis.Muestras.FirstOrDefault()?.MuestraID;
+    var laboratorioSignatario = Model.Analisis.Muestras.FirstOrDefault()?.Muestreadors.FirstOrDefault(signatario => signatario.MuestraID == muestraSimple && signatario.Activo == true)?.LaboratorioSignatario;
+    var esCPD = Model.Analisis.OrdenTrabajo.Norma.CPD;
+    var muestraCompuesta = Model.Analisis.Muestras.FirstOrDefault(muestra => muestra.NivelID == 2);
+    var laboratorio = "";
+    var metodo = "";
+    var situacion = "";
+
+
+
+
+    var firmaLab = Model.Analisis.AnalisisFirmas.FirstOrDefault()?.Firma;
+    var tamanhoFirma = firmaLab?.Length;
+    var listaFirma = new List<string>();
+    var selloDigital = Model.Analisis.AnalisisFirmas.FirstOrDefault()?.SelloDigital;
+    var selloDigitalTamanho = selloDigital?.Length;
+    var listaSello = new List<string>();
+    var tamanhoLinea = 115;
+    for (var i = 0; i < tamanhoFirma; i += tamanhoLinea)
+    {
+
+        listaFirma.Add(i + tamanhoLinea > tamanhoFirma ? firmaLab.Substring(i) : firmaLab.Substring(i, tamanhoLinea));
+    }
+
+    for (var i = 0; i < selloDigitalTamanho; i += 115)
+    {
+        listaSello.Add(i + tamanhoLinea > selloDigitalTamanho ? selloDigital.Substring(i) : selloDigital.Substring(i, tamanhoLinea));
+    }
+
+    firmaLab = listaFirma.Aggregate("", (current, item) => current + (item + " "));
+    selloDigital = listaSello.Aggregate("", (current, item) => current + (item + " "));
+
+    var etiquetaTitulo = Model.Analisis.OrdenTrabajo.Norma.RequiereCompuesta == false || Model.Analisis.OrdenTrabajo.Norma.FuenteAbastecimiento == true ? "Título de concesión" : "Permiso de descarga";
+    var etiquetaAprovechamiento = Model.Analisis.OrdenTrabajo.Norma.RequiereCompuesta == false || Model.Analisis.OrdenTrabajo.Norma.FuenteAbastecimiento == true ? "Nombre del aprovechamiento" : "Nombre del punto de descarga";
+
+
+
+}
+<html>
+<head>
+    <title>@Model.Titulo</title>
+    <link rel="stylesheet" type="text/css" href="@Model.Css">
+    <style type="text/css">
+        @@media print {
+            @@page {
+                @@top-left {
+                    content: "";
+                }
+
+                @@top-center {
+                    content: "";
+                }
+
+                @@top-right {
+                    content: "";
+                }
+
+                @@bottom-left {
+                    content: "Fecha de consulta: @DateTime.Now.ToString()";
+                }
+
+                @@bottom-center {
+                }
+
+                @@bottom-right {
+                    content: "Página " counter(page) " de " counter(pages);
+                }
+            }
+
+        }
+        b {
+            font-weight: bold;
+        }
+    </style>
+    
+</head>
+<body style="font-family: Montserrat">
+    <div class="row">
+        <img src="images/EncCorreo.png" />
+    </div>
+    <div class="row">
+
+        <div style="text-align: right; font-size: 10px">
+            <p><b>Folio Conagua<sup style="vertical-align: super">1</sup>: </b><span id="pNumAnalisis">@Model.Analisis.AnalisisID</span></p>
+            <p id="pLaboratorio"><b>Laboratorio: </b>@Model.Analisis.Laboratorio.Nombre</p>
+            <p><b>No de acreditación EMA: </b><span id="pNumAcreditacion">@datosGenerales.AcreditacionEMA</span></p>
+            <p><b>No de aprobación Conagua: </b><span id="pNumAprobacion">@datosGenerales.Aprobacion</span></p>
+            <p><b>Asunto: </b><span id="pAsunto">Se emite reporte de análisis de laboratorio.</span></p>
+            @if (datosGenerales.AnalisisFechaFirma != null)
+            {
+                var fecha = datosGenerales.AnalisisFechaFirma?.ToString("D").ToCharArray();
+                fecha[0] = char.IsLower(fecha[0]) ? char.ToUpper(fecha[0]) : fecha[0];
+                var pFechaFirma = new string(fecha) + ", " + datosGenerales.AnalisisFechaFirma?.ToString("HH:mm");
+
+                <p id="pFechaFirma"><b>Fecha Firma: </b>@pFechaFirma</p>
+            }
+
+            <p><b>Número de informe: </b><span id="pNumInforme"> @datosGenerales.OrdenTrabajoNumeroInforme</span></p>
+            <p><b>Análisis: </b><span id="pPromDiario">@pPromedioDiario</span></p>
+        </div>
+    </div>
+    <div class="row">
+        <div style="text-align: justify; font-size: 10px">
+
+
+            <p><b id="pCliente">@contribuyente:</b></p>
+            <p id="pMensajeInicial">@pMensajeInicial</p>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <table class="table table-striped table-condensed" style="font-size: 10px; text-align: left !important;">
+            <tbody>
+                <tr>
+                    <th class="active" style="background-color: #E8E8E8 !important; width: 250px"><b>@etiquetaTitulo</b></th>
+                    <td id="tdPermisoDescarga">@datosGenerales.PuntoDescargaTitulo</td>
+                </tr>
+                <tr>
+                    <th class="active" style="background-color: #E8E8E8 !important; width: 250px"><b>Anexo</b></th>
+                    <td id="tdAnexo">@datosGenerales.PuntoDescargaAnexo</td>
+                </tr>
+                <tr>
+                    <th class="active" style="background-color: #E8E8E8 !important; width: 250px"><b>@etiquetaAprovechamiento</b></th>
+                    <td id="tdNombrePtoDescarga">@datosGenerales.PuntoDescargaNombreCuerpoReceptor</td>
+                </tr>
+                <tr>
+                    <th class="active" style="background-color: #E8E8E8 !important; width: 250px"><b>Norma</b></th>
+                    <td id="tdNorma">@Model.Analisis.OrdenTrabajo.Norma.Nombre</td>
+                </tr>
+                <tr>
+                    <th class="active" style="background-color: #E8E8E8 !important; width: 250px"><b>Ubicación</b></th>
+                    <td id="tdUbicacion">@datosGenerales.MuestraDireccion</td>
+                </tr>
+                <tr>
+                    <th class="active" style="background-color: #E8E8E8 !important; width: 250px"><b>Latitud</b></th>
+                    <td id="tdLatitud">@datosGenerales.MuestraLatitud</td>
+                </tr>
+                <tr>
+                    <th class="active" style="background-color: #E8E8E8 !important; width: 250px"><b>Longitud</b></th>
+                    <td id="tdLongitud">@datosGenerales.MuestraLongitud</td>
+                </tr>
+                @if (Model.Analisis.OrdenTrabajo.Norma.RequiereCaudal)
+                {
+                    <tr id="trFrecuenciaMuestreo">
+                        <th class="active" style="background-color: #E8E8E8 !important; width: 250px"><b>Horas del muestreo</b></th>
+                        <td id="tdFrecuenciaDescarga">@Model.Analisis.OrdenTrabajo.HorasProceso</td>
+                    </tr>
+                }
+                <tr>
+                    <th class="active" style="background-color: #E8E8E8 !important; width: 250px; padding: 3px;"><b>Laboratorio</b></th>
+                    <td id="tdLaboratorio">@laboratorioSignatario?.Laboratorio?.Nombre</td>
+                </tr>
+                <tr>
+                    <th class="active" style="background-color: #E8E8E8 !important; width: 250px; padding: 3px;"><b>Muestreador</b></th>
+                    <td>@laboratorioSignatario?.Persona?.Nombre  @laboratorioSignatario?.Persona?.ApellidoPaterno @laboratorioSignatario?.Persona?.ApellidoMaterno</td>
+                </tr>
+            </tbody>
+        </table>
+        <div style="text-align: justify; font-size: 8px;">
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <p>
+                <sup style="vertical-align: super">1</sup>El folio Conagua es un registro numérico que establece la Comisión Nacional del Agua para poder otorgar orientación y asistencia en
+                referencia al análisis de laboratorio registrado.
+            </p>
+            <div style="page-break-before: always">&nbsp;</div>
+        </div>
+    </div>
+
+    @* Muestra simple: *@
+
+    @if (Model.Analisis.Muestras.Any())
+    {
+        var h3Muestras = Model.Analisis.OrdenTrabajo.Norma.RequiereCompuesta == true ? "Muestras simples." : "Muestra.";
+        <div class="row">
+            <h3 id="h3Muestras">@h3Muestras</h3>
+
+            @if (Model.Analisis.OrdenTrabajo.Norma.RequiereCaudal)
+            {
+
+                <h5>Información de las muestras.</h5>
+                <table class="table table-striped table-sm" style="font-size: 10px">
+                    <thead>
+                        <tr class="active">
+                            <th style="background-color: #E8E8E8 !important;">No</th>
+                            <th style="background-color: #E8E8E8 !important;">Fecha</th>
+                            <th style="background-color: #E8E8E8 !important;" id="thHoraMS">Hora</th>
+                            <th style="background-color: #E8E8E8 !important;" id="thCaudalMS">Caudal (l/s)</th>
+                            <th style="background-color: #E8E8E8 !important;">Observaciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var muestra in muestrasSimplesList)
+                        {
+                            var numMuestra = muestrasSimplesList.FindIndex(m => m.MuestraID == muestra.MuestraID) + 1;
+                            var fecha = muestra.Fecha?.ToString("dd/MM/yyyy");
+                            var hora = muestra.Fecha?.ToString("HH:mm");
+
+                            <tr>
+                                <td id="tdNumMuestra">@numMuestra</td>
+                                <td>@fecha</td>
+                                <td id="tdHoraMS">@hora</td>
+                                <td id="tdCaudalMS">@muestra.Caudal.ToString("N")</td>
+                                <td>@muestra.Observaciones</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+                @if (Model.Analisis.Muestras.Any(m => m.NivelID == 1 && m.MuestraValors.Any()))
+                {
+                    <h5>Valores capturados.</h5>
+                    <div id="divMuestraValoresCPD" visible="False">
+                        <table class="table table-striped table-sm" style="font-size: 10px">
+                            <thead>
+                                <tr class="active">
+                                    <th style="background-color: #E8E8E8 !important;">No</th>
+                                    @foreach (var etiqueta in muestraSimpleEtiquetas)
+                                    {
+                                        <th style="background-color: #E8E8E8 !important;">@etiqueta</th>
+                                    }
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach (var muestra in muestrasSimplesList)
+                                {
+                                    var numMuestra = muestrasSimplesList.FindIndex(m => m.MuestraID == muestra.MuestraID) + 1;
+                                    var muestraValorList = muestrasSimplesList.FirstOrDefault(m => m.MuestraID == muestra.MuestraID)?.MuestraValors;
+
+                                    <tr>
+                                        <td id="tdNumMuestraBodyValores">@numMuestra</td>
+                                        @foreach (var muestraValor in muestraValorList)
+                                        {
+                                            NumberFormatInfo nfi = new NumberFormatInfo();
+                                            nfi.NumberDecimalSeparator = ".";
+                                            nfi.NumberGroupSeparator = ",";
+                                            nfi.NumberDecimalDigits = muestraValor.EscalaDecimal ?? 4;
+                                            var valor = "";
+
+                                            @if (muestraValor.NoAnalizado)
+                                            {
+                                                valor = "No analizado";
+                                            }
+                                            else if (muestraValor.Exento)
+                                            {
+                                                valor = "Exento";
+                                            }
+                                            else
+                                            {
+                                                if (muestraValor.Muestra.Caudal > 0)
+                                                {
+                                                    if (muestraValor.AceptaValor == true)
+                                                    {
+                                                        valor = muestraValor.Valor?.ToString("N", nfi);
+                                                    }
+                                                    else
+                                                    {
+                                                        valor = muestraValor.ValorValidacion == true ? "Ausente" : "Presente";
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    valor = "---";
+                                                }
+                                            }
+
+                                            <td id="tdMuestraValorSimple" style="text-align: center;">@valor</td>
+                                        }
+                                    </tr>
+                                }
+                                <tr>
+                                    <th style="background-color: #E8E8E8 !important;">LC/MC</th>
+                                    @{
+                                        var muestraSimpleFirst = Model.Analisis.Muestras.FirstOrDefault(m => m.NivelID == 1).MuestraValors;
+
+                                        @foreach (var muestraValor in muestraSimpleFirst)
+                                        {
+                                            NumberFormatInfo nfi = new NumberFormatInfo();
+                                            nfi.NumberDecimalSeparator = ".";
+                                            nfi.NumberGroupSeparator = ",";
+                                            //nfi.NumberDecimalDigits = muestraValor.EscalaDecimalLCM ?? muestraValor.EscalaDecimal ?? 4;
+                                            nfi.NumberDecimalDigits = muestraValor.EscalaDecimal ?? 4;
+                                            var LCM = "";
+
+                                            if (muestraValor.LC_MC != null)
+                                            {
+
+                                                if (muestraValor.NoAnalizado)
+                                                {
+                                                    LCM = "No analizado";
+                                                }
+                                                else if (muestraValor.Exento)
+                                                {
+                                                    LCM = "Exento";
+                                                }
+                                                else
+                                                {
+                                                    LCM = muestraValor.LC_MC?.ToString("N", nfi);
+                                                }
+
+                                            }
+                                            else
+                                            {
+                                                LCM = "---";
+                                            }
+
+                                            <td id="tdLCMMsValores" style="text-align: center;">@LCM</td>
+
+                                        }
+                                    }
+                                </tr>
+                                @if (Model.Analisis.OrdenTrabajo.Norma.CPD)
+                                {
+                                    var muestraSimpleFirstLMP = Model.Analisis.Muestras.FirstOrDefault(m => m.NivelID == 1).MuestraValors;
+
+                                    <tr>
+                                        <th style="background-color: #E8E8E8 !important;">LMP</th>
+                                        @foreach (var muestraValor in muestraSimpleFirstLMP)
+                                        {
+                                            NumberFormatInfo nfi = new NumberFormatInfo();
+                                            nfi.NumberDecimalSeparator = ".";
+                                            nfi.NumberGroupSeparator = ",";
+                                            nfi.NumberDecimalDigits = muestraValor.EscalaDecimal ?? 4;
+                                            var LMP = "";
+                                            var limiteInferior = muestraValor.LimiteInferior < 0 ? muestraValor.LimiteInferior?.ToString("N", nfi).Replace("-1", "0") : muestraValor.LimiteInferior?.ToString("N", nfi);
+                                            var limiteSuperior = muestraValor.LimiteSuperior < 0 ? muestraValor.LimiteSuperior?.ToString("N", nfi).Replace("-1", "0") : muestraValor.LimiteSuperior?.ToString("N", nfi);
+
+                                            @if (muestraValor.Exento || muestraValor.NoAnalizado)
+                                            {
+                                                LMP = muestraValor.Exento ? "Exento" : "No Analizado";
+                                            }
+                                            else
+                                            {
+                                                LMP = muestraValor.AceptaValor == true ? muestraValor.ParametroID == 862 ? limiteInferior + "/" + limiteSuperior : limiteSuperior : "Ausente"; // El parámetro 862 es el PH.Es el único parámetro que tiene límite inferior:
+                                            }
+                                            <td id="tdLMP" style="text-align: center;"> @LMP</td>
+                                        }
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div id="divSituacionParametros">
+                        <h5>Situación parámetros analizados.</h5>
+                        <table class="table table-striped table-sm" style="font-size: 10px">
+                            <thead>
+                                <tr class="active">
+                                    <th style="background-color: #E8E8E8 !important;">Parámetro</th>
+                                    <th style="background-color: #E8E8E8 !important;">Laboratorio</th>
+                                    <th style="background-color: #E8E8E8 !important;">Método</th>
+                                    <th style="background-color: #E8E8E8 !important;">Situación</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @{
+                                    var muestraSimpleFirstSituacion = Model.Analisis.Muestras.FirstOrDefault(m => m.NivelID == 1).MuestraValors;
+
+                                    @foreach (var muestraValor in muestraSimpleFirstSituacion)
+                                    {
+                                        var etiqueta = Model.Analisis.OrdenTrabajo.Norma.NormaConfiguracions.First(nc => nc.ParametroID == muestraValor.ParametroID && nc.NivelID == 1)?.Etiqueta;
+                                        var tdLabSituacionMs = "";
+                                        var tdMetodoSituacionMs = "";
+                                        var tdSituacionMs = "";
+
+                                        if (!muestraValor.Exento && !muestraValor.NoAnalizado)
+                                        {
+                                            tdLabSituacionMs = muestraValor.LaboratorioID == null ? "No capturado" : muestraValor.Laboratorio.Nombre;
+                                        }
+                                        else
+                                        {
+                                            tdLabSituacionMs = muestraValor.Exento ? "Exento" : "No Analizado";
+                                        }
+
+                                        if (!muestraValor.Exento && !muestraValor.NoAnalizado)
+                                        {
+                                            tdMetodoSituacionMs = muestraValor.ParametroMetodoID == null ? "No capturado" : muestraValor.ParametroMetodo.Metodo.Nombre;
+                                        }
+                                        else
+                                        {
+                                            tdMetodoSituacionMs = muestraValor.Exento ? "Exento" : "No Analizado";
+                                        }
+
+                                        if (!muestraValor.Exento && !muestraValor.NoAnalizado)
+                                        {
+                                            tdSituacionMs = muestraValor.LaboratorioID == null || muestraValor.ParametroMetodoID == null ? "No capturado" : "Analizado";
+                                        }
+                                        else
+                                        {
+                                            tdSituacionMs = muestraValor.Exento ? "Exento" : "No Analizado";
+                                        }
+
+                                        <tr>
+                                            <td id="tdEtiquetaSituacionMs" style="text-align: left;">@etiqueta</td>
+                                            <td id="tdLabSituacionMs">@tdLabSituacionMs</td>
+                                            <td id="tdMetodoSituacionMs">@tdMetodoSituacionMs</td>
+                                            <td id="tdSituacionMs" style="width: 100px;">@tdSituacionMs</td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+            }
+            else
+            {
+                @*SDT*@
+                <div id="divMuestraValoresSDT" visible="False">
+                    <table class="table table-striped table-sm" style="font-size: 10px">
+                        <thead>
+                            <tr class="active">
+                                <th style="background-color: #E8E8E8 !important;">Fecha</th>
+                                @foreach (var etiqueta in muestraSimpleEtiquetas)
+                                {
+                                    <th style="background-color: #E8E8E8 !important;">@etiqueta</th>
+                                }
+                                <th style="background-color: #E8E8E8 !important;">Método</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                @{
+                                    var fecha = Model.Analisis.Muestras.FirstOrDefault()?.Fecha?.ToString("dd/MM/yyyy");
+                                    var muestraValor = Model.Analisis.Muestras.FirstOrDefault()?.MuestraValors?.FirstOrDefault();
+                                    NumberFormatInfo nfi = new NumberFormatInfo();
+                                    nfi.NumberDecimalSeparator = ".";
+                                    nfi.NumberGroupSeparator = ",";
+                                    nfi.NumberDecimalDigits = muestraValor.EscalaDecimal ?? 4;
+
+
+                                    <td ID="tdFechaSDT">@fecha</td>
+                                    <td id="tdMuestraValorSimple">@muestraValor.Valor?.ToString("N", nfi)</td>
+                                    <td>@muestraValor.ParametroMetodo?.Metodo?.Nombre</td>
+                                }
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            }
+        </div>
+        @if (Model.Analisis?.Muestras?.Count >= 6 && Model.Analisis.OrdenTrabajo.Norma.CPD)
+        {
+            <div style="page-break-before: always">&nbsp;</div>
+        }
+    }
+
+
+    @* Muestra compuesta: *@
+
+    @if (Model.Analisis.Muestras.Any(m => m.NivelID == 2) && (Model.Analisis.OrdenTrabajo.Norma.RequiereCompuesta ?? true))
+    {
+        <div class="row">
+            <h3>Muestra compuesta.</h3>
+            <table class="table table-striped table-condensed" style="font-size: 10px;">
+                <tbody>
+                    <tr style="border: none !important;">
+                        <td style="border: 0 !important;"><b>Fecha y hora de conformación: </b> @muestraCompuesta?.FechaConformacion?.ToString()</td>
+                        <td style="border: 0 !important;"><b>Fecha y hora de recepción: </b> @muestraCompuesta?.FechaRecepcion?.ToString()</td>
+                    </tr>
+                    <tr style="border: none !important;">
+                        <td style="border: 0px !important;"><b>Caudal promedio (l/s): </b>@muestraCompuesta?.Caudal.ToString("N")</td>
+                        <td id="tdObservacionesMC" style="border: 0px;"><b>Observaciones: </b>@muestraCompuesta?.Observaciones</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-striped table-sm" style="font-size: 10px">
+
+                <tr class="active">
+                    <th style="width: 100px;background-color: #E8E8E8 !important;">Parámetro</th>
+                    @if (esCPD)
+                    {
+                        <th style="background-color: #E8E8E8 !important;">LMP</th>
+                    }
+                    <th style="background-color: #E8E8E8 !important;">Resultado</th>
+                    <th style="background-color: #E8E8E8 !important;">LC/MC</th>
+                    <th style="background-color: #E8E8E8 !important;">Laboratorio</th>
+                    <th style="background-color: #E8E8E8 !important;">Método</th>
+                    <th style="background-color: #E8E8E8 !important;">Situación</th>
+                </tr>
+                <tbody>
+
+
+                    @foreach (var muestraValor in muestraCompuesta?.MuestraValors)
+                    {
+                        NumberFormatInfo nfi = new NumberFormatInfo();
+                        nfi.NumberDecimalSeparator = ".";
+                        nfi.NumberGroupSeparator = ",";
+                        nfi.NumberDecimalDigits = muestraValor.EscalaDecimal ?? 4;
+
+                        var etiqueta = Model.Analisis.OrdenTrabajo.Norma.NormaConfiguracions.FirstOrDefault(nc => nc.ParametroID == muestraValor.ParametroID)?.Etiqueta;
+                        
+                        var tdValor = "";
+                    <tr>
+                        @if (etiqueta == null || etiqueta == string.Empty)
+                        {
+                            var NombreParametro = Model.Analisis.OrdenTrabajo.Norma.NormaConfiguracions.FirstOrDefault(nc => nc.ParametroID == muestraValor.ParametroID)?.Parametro.Nombre;
+                        <td id="tdEtiqueta" style="text-align: left;">@NombreParametro (mg/l)</td>
+                        }
+                        else
+                        {
+                            <td id="tdEtiqueta" style="text-align: left;">@etiqueta</td>
+
+                        }
+
+                        @if (esCPD)
+                        {
+                            var normaConfiguracionPadreId = Model.Analisis.OrdenTrabajo?.Norma?.NormaConfiguracions.FirstOrDefault(nc =>
+                                 nc.NivelID == 2
+                                 && nc.CuerpoReceptorID == Model.Analisis.OrdenTrabajo.CuerpoReceptorID
+                                 && nc.UsoAguaID == Model.Analisis.OrdenTrabajo.UsoAguaID
+                                 && nc.ParametroID == muestraValor.ParametroID)?.NormaConfiguracionPadreID;
+
+                            var tdLPM = "";
+
+                            @if (normaConfiguracionPadreId == null || muestraValor.GeneradoSP == null && muestraValor.OperacionID != null)
+                            {
+                                if (muestraValor.AceptaValor == true)
+                                {
+                                    if (muestraValor.GeneradoSP == null && muestraValor.OperacionID != null)
+                                    {
+                                        //nfi.NumberDecimalDigits = muestraValor.EscalaDecimalLCM ?? muestraValor.EscalaDecimal ?? 4;
+                                        nfi.NumberDecimalDigits = muestraValor.EscalaDecimal ?? 4;
+                                    }
+                                    tdLPM = !muestraValor.Exento && !muestraValor.NoAnalizado ? muestraValor.LimiteSuperior < 0 ? muestraValor.LimiteSuperior?.ToString("N", nfi).Replace("-1", "0") : muestraValor.LimiteSuperior?.ToString("N", nfi) : "---";
+                                }
+                                else
+                                {
+                                    tdLPM = muestraValor.ValorValidacion == true ? "Ausente" : "Presente";
+                                }
+                            }
+
+                            <td>@tdLPM</td>
+                        }
+
+                        @if (muestraValor.AceptaValor == true)
+                        {
+                            if (Model.Analisis.OrdenTrabajo.Norma.CPD)
+                            {
+                                nfi.NumberDecimalDigits = muestraValor.EscalaDecimal ?? 4;
+                            }
+
+                            tdValor = !muestraValor.Exento && !muestraValor.NoAnalizado ? muestraValor.Valor?.ToString("N", nfi) : "---";
+                        }
+                        else
+                        {
+                            tdValor = muestraValor.ValorValidacion == true ? "Ausente" : "Presente";
+                        }
+
+                        <td style="width: 80px">@tdValor</td>
+
+                        <td style="width: 80px">
+                            @if (muestraValor.LCMC ?? true)
+                            {
+                                //nfi.NumberDecimalDigits = muestraValor.EscalaDecimalLCM ?? muestraValor.EscalaDecimal ?? 4;
+                                nfi.NumberDecimalDigits = muestraValor.EscalaDecimal ?? 4;
+                                var textoLCMC = (!muestraValor.Exento && !muestraValor.NoAnalizado) ? muestraValor.LC_MC?.ToString("N", nfi) : "---";
+                                @textoLCMC
+                            }
+                        </td>
+
+                        @if (!muestraValor.Exento && !muestraValor.NoAnalizado)
+                        {
+                            laboratorio = muestraValor.Laboratorio != null ? muestraValor.Laboratorio.Nombre : "";
+
+                        }
+                        else
+                        {
+                            laboratorio = "---";
+                        }
+
+
+
+                        @if (!muestraValor.Exento && !muestraValor.NoAnalizado)
+                        {
+                            if (muestraValor.GeneradoSP == null && muestraValor.OperacionID != null)
+                            {
+                                metodo = muestraCompuesta.Analisis.Muestras?.FirstOrDefault(m => m.NivelID == 1)?.MuestraValors.FirstOrDefault(mueValor => mueValor.ParametroID == muestraValor.ParametroID)?.ParametroMetodo.Metodo.Nombre;
+                            }
+                            else
+                            {
+                                metodo = muestraValor.ParametroMetodo != null ? muestraValor.ParametroMetodo.Metodo.Nombre : "";
+                            }
+                        }
+                        else
+                        {
+                            metodo = "---";
+                        }
+
+
+
+                        @if (muestraValor.Grupo && muestraValor.OperacionID != null)
+                        {
+                            situacion = "";
+                        }
+                        else
+                        {
+                            situacion = muestraValor.Exento switch
+                            {
+                                false when !muestraValor.NoAnalizado => "Analizado",
+                                true => "Exento",
+                                _ => "No Analizado"
+                            };
+                        }
+
+
+                        <td style="text-align: left !important;">@laboratorio</td>
+                        <td>@metodo</td>
+                        <td style="width: 80px;">@situacion</td>
+                    </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    }
+
+<div class="row" style="text-align: justify; font-size: 10px;">
+    <p>Este informe de pruebas no podrá ser reproducido total o parcialmente sin la autorización escrita y firmada del laboratorio.</p>
+
+    @{
+        var fechaCompleta = Model.DatosGenerales?.AnalisisFechaFirma != null
+            ? Model.DatosGenerales?.AnalisisFechaFirma?.ToString("D", CultureInfo.CreateSpecificCulture("es-MX")) + " a las " + Model.DatosGenerales?.AnalisisFechaFirma?.ToString("HH:mm")
+            : DateTime.Now.ToString("D", CultureInfo.CreateSpecificCulture("es-MX")) + " a las " + DateTime.Now.ToString("HH:mm");
+        var pMensajeElaboracion = $"El presente informe fue elaborado con base en los registros que obran a {fechaCompleta} horas, en el Sistema de Recepción de Análisis de Laboratorio (SIRALAB) y se expide sólo para fines fiscales.";
+        var msjNom001 = Model.mensajeNom001;
+        <p runat="server" id="pMensajeElaboracion">@pMensajeElaboracion</p>
+        <p runat="server" id="pMensajeNom001">@msjNom001</p>
+    }
+
+</div>
+
+
+
+    @if (Model.Analisis.Firmada)
+    {
+        <div class="row">
+            <div class="table table-responsive">
+                <table class="table table-bordered table-sm" style="font-size: 9px; table-layout:fixed">
+                    <thead>
+                        <tr>
+                            <th>Firma Digital del Laboratorio:</th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>@firmaLab</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table class="table table-bordered table-sm" style="font-size: 9px">
+                    <thead>
+                        <tr>
+                            <th>Cadena Original:</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>@Model.Analisis.AnalisisFirmas.FirstOrDefault()?.Cadena</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table class="table table-bordered table-sm" style="font-size: 9px">
+                    <thead>
+                        <tr>
+                            <th>Sello Digital Conagua:</th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>@selloDigital</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            @*<div class="row" style="text-align: right">
+                    <img src="data:image/png;base64, @Model.QR" alt="Código QR" width="120" height="120"/>
+                </div>*@
+        </div>
+    }
+
+</body>
+</html>
+
+
+
+

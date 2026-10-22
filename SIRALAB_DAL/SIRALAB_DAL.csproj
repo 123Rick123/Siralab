@@ -1,0 +1,448 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{75C45946-6D7B-49FE-85DA-ECF89DBEBAA3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SIRALAB_DAL</RootNamespace>
+    <AssemblyName>SIRALAB_DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccesoEntidades\IRepository.cs" />
+    <Compile Include="AccesoEntidades\ISpecification.cs" />
+    <Compile Include="AccesoEntidades\Repository.cs" />
+    <Compile Include="Analisi.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AnalisisColaDetalle.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AnalisisColaEncabezado.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AnalisisFaltaPago.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AnalisisFirma.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Anexo.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AnexoMedidor.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatDiaInhabil.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatGerenteYSubgerente.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatGrupoMetodo.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatMediosDeImpugnacion.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatModulo.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatPagina.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatPermisosRol.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatSistema.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatTipoContacto.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatTipoCuerpoReceptor.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatTipoDocumentoAnexo.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatTipoDocumentoMuestra.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatTipoSignatario.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatUnidadMedida.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatUsoAgua.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatUsuarioRol.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClienteContacto.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Colonia.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ColoniaTipo.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConfiguracionGrupoMetodo.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Consecion.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contacto.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Correspondencia_CR_UA_SIRFIC_SIRALAB.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CuerpoReceptor.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Direccion.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Documento.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentoAnalisi.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentoAnexo.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentoMuestra.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Estado.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Estatu.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EstatusApercibidosReincidentes.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EstatusTipo.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Extensiones\AnalisisExt.cs" />
+    <Compile Include="Extensiones\AnexoExt.cs" />
+    <Compile Include="Extensiones\CatModuloExt.cs" />
+    <Compile Include="Extensiones\CatPaginaExt.cs" />
+    <Compile Include="Extensiones\CatPermisosRolExt.cs" />
+    <Compile Include="Extensiones\Columnas.cs" />
+    <Compile Include="Extensiones\Documento.cs" />
+    <Compile Include="Extensiones\LaboratorioExt.cs" />
+    <Compile Include="Extensiones\MuestraExt.cs" />
+    <Compile Include="Extensiones\MuestraValorExt.cs" />
+    <Compile Include="Extensiones\NormaConfiguracion.cs" />
+    <Compile Include="Extensiones\PersonaExt.cs" />
+    <Compile Include="Extensiones\ParametroMetodo.cs" />
+    <Compile Include="Extensiones\UsuarioExt.cs" />
+    <Compile Include="FrecuenciaMuestreo.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Laboratorio.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LaboratorioAcreditacion.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LaboratorioAprobacion.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LaboratorioCliente.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LaboratorioContacto.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LaboratorioRepresentante.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LaboratoriosCNA.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LaboratorioSignatario.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LaboratorioSucursal.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Laboratorios_Apercibidos.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LaboratorioVigencia.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Localidad.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MensajePCNOM.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Metodo.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Muestra.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MuestraValor.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Muestreador.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Municipio.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NivelConfiguracion.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NomenclaturaMemorando.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Norma.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NormaConfiguracion.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OperacionConsolidado.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Operador.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrdenTrabajo.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Parametro.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ParametroMetodo.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persona.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SIRALAB_Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SIRALAB_Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SIRALAB_Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SIRALAB_Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SIRALAB_Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="SolicitudCancelacion.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SolicitudCancelacionDetalle.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_BuscaClientes_Result.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_BuscaConseciones_Result.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_BuscaLaboratorio_Result.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_BuscaMuestreador_Result.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TBitacora.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblEstatusImpugnacion.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblImpugnacion.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblProgramaCumplimientoNom001.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_Reincidencia.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="uspBusquedaOrdenesTrabajoExcel_Result.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="uspConsultaSignatarios_Result.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_AnalisisFirmado_Result.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_BuscaImpugnacionByApercibimiento_Result.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_BuscaImpugnacionByReincidencia_Result.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_BuscaSolicitudCancelacionCount_Result.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_BuscaSolicitudCancelacionDetalleCount_Result.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_BuscaSolicitudCancelacionDetalle_Result.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_BuscaSolicitudCancelacion_Result.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_BusquedaOrdenesTrabajoCount_Result.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ColoniaPorCP_Result.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListaColonias_Result.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListaEntidadesFederativas_Result.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListaLocalidades_Result.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListaMunicipios_Result.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_MetodosLaboratorio_Result.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_MuestraValoresCompuesta_Result.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_MuestraValoresSimpleRecalculo_Result.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ParametrosAdicionales_Result.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ParametrosMetodosNorma_Result.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ReporteAnalisisHeader_Result.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_SolicitudCancelacionDetalle_Result.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_BASE_GLOBAL_ANALISIS_SGAA.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Vw_Habilitar_Analis.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_LaboratoriosPALA.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Vw_Ot_Analisis_Report.cs" />
+    <Compile Include="Vw_Ot_Grid.cs">
+      <DependentUpon>SIRALAB_Model.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <EntityDeploy Include="SIRALAB_Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SIRALAB_Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="SIRALAB_Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SIRALAB_Model.edmx</DependentUpon>
+      <LastGenOutput>SIRALAB_Model.Context.cs</LastGenOutput>
+    </None>
+    <None Include="SIRALAB_Model.edmx.diagram">
+      <DependentUpon>SIRALAB_Model.edmx</DependentUpon>
+    </None>
+    <None Include="SIRALAB_Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SIRALAB_Model.edmx</DependentUpon>
+      <LastGenOutput>SIRALAB_Model.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

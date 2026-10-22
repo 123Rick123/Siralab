@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="InsertarArchivo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="bufferData" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertarArchivoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertarArchivoResult" type="s:short" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerDocumento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerDocumentoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerDocumentoResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarArchivo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarArchivoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EliminarArchivoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IfFileExist">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IfFileExistResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IfFileExistResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="InsertarArchivoSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertarArchivo" />
+  </wsdl:message>
+  <wsdl:message name="InsertarArchivoSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertarArchivoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDocumentoSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerDocumento" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDocumentoSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerDocumentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminarArchivoSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminarArchivo" />
+  </wsdl:message>
+  <wsdl:message name="EliminarArchivoSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminarArchivoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IfFileExistSoapIn">
+    <wsdl:part name="parameters" element="tns:IfFileExist" />
+  </wsdl:message>
+  <wsdl:message name="IfFileExistSoapOut">
+    <wsdl:part name="parameters" element="tns:IfFileExistResponse" />
+  </wsdl:message>
+  <wsdl:portType name="FileTransferSoap">
+    <wsdl:operation name="InsertFile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Recibe un buffer lleno con el archivo a guardar y lo escribe en disco</wsdl:documentation>
+      <wsdl:input name="InsertarArchivo" message="tns:InsertarArchivoSoapIn" />
+      <wsdl:output name="InsertarArchivo" message="tns:InsertarArchivoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Regresa un buffer lleno con el documento, si es que existe</wsdl:documentation>
+      <wsdl:input name="ObtenerDocumento" message="tns:ObtenerDocumentoSoapIn" />
+      <wsdl:output name="ObtenerDocumento" message="tns:ObtenerDocumentoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Recibe el nombre del documento y lo elimina</wsdl:documentation>
+      <wsdl:input name="EliminarArchivo" message="tns:EliminarArchivoSoapIn" />
+      <wsdl:output name="EliminarArchivo" message="tns:EliminarArchivoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IfFileExists">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Verifica que exista el documento</wsdl:documentation>
+      <wsdl:input name="IfFileExist" message="tns:IfFileExistSoapIn" />
+      <wsdl:output name="IfFileExist" message="tns:IfFileExistSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FileTransferSoap" type="tns:FileTransferSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertFile">
+      <soap:operation soapAction="http://tempuri.org/InsertarArchivo" style="document" />
+      <wsdl:input name="InsertarArchivo">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="InsertarArchivo">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFile">
+      <soap:operation soapAction="http://tempuri.org/ObtenerDocumento" style="document" />
+      <wsdl:input name="ObtenerDocumento">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ObtenerDocumento">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFile">
+      <soap:operation soapAction="http://tempuri.org/EliminarArchivo" style="document" />
+      <wsdl:input name="EliminarArchivo">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="EliminarArchivo">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IfFileExists">
+      <soap:operation soapAction="http://tempuri.org/IfFileExist" style="document" />
+      <wsdl:input name="IfFileExist">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="IfFileExist">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FileTransferSoap12" type="tns:FileTransferSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertFile">
+      <soap12:operation soapAction="http://tempuri.org/InsertarArchivo" style="document" />
+      <wsdl:input name="InsertarArchivo">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="InsertarArchivo">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFile">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerDocumento" style="document" />
+      <wsdl:input name="ObtenerDocumento">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ObtenerDocumento">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFile">
+      <soap12:operation soapAction="http://tempuri.org/EliminarArchivo" style="document" />
+      <wsdl:input name="EliminarArchivo">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="EliminarArchivo">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IfFileExists">
+      <soap12:operation soapAction="http://tempuri.org/IfFileExist" style="document" />
+      <wsdl:input name="IfFileExist">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="IfFileExist">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FileTransfer">
+    <wsdl:port name="FileTransferSoap" binding="tns:FileTransferSoap">
+      <soap:address location="http://172.29.149.13/Siralab/qa/FileTransferService/FileTransfer.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FileTransferSoap12" binding="tns:FileTransferSoap12">
+      <soap12:address location="http://172.29.149.13/Siralab/qa/FileTransferService/FileTransfer.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

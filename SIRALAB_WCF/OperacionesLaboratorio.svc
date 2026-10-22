@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true"  Service="SIRALAB_WCF.OperacionesLaboratorio" Factory="System.Web.ApplicationServices.ApplicationServicesHostFactory"  CodeBehind="OperacionesLaboratorio.svc.cs" %>

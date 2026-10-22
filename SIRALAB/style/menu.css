@@ -1,0 +1,61 @@
+﻿.menu, .submenu {
+    margin: 15px 0  0 15px;
+    padding: 0;
+    list-style: none;
+    background-color: #F5F5F5;
+    -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;
+}
+.menu > li > a, .submenu > li > a {
+    display: block;
+    padding: 7px 3px 7px 30px;
+    color: #999;
+    text-decoration: none;
+    border-bottom: 1px dashed #E2E2E2;
+    font: 10pt Segoe UI;
+}
+.submenu > li > a {
+    padding: 7px 3px 7px 35px;
+    font: 9pt Segoe UI;
+}
+.submenu {
+    display: none;
+    margin: 4px;
+}
+
+.menu > li > a:hover, .submenu > li > a:hover 
+{
+    background-color: #A2A2A2;
+    color: #E2E2E2;
+    cursor: pointer;
+}
+
+.menu-metodo { background: url('../image/menu/metodo.png') no-repeat 5px center; }
+.menu-metodo:hover { background-image: url('../image/menu/metodohover.png'); }
+.menu-parametro { background: url('../image/menu/parametro.png') no-repeat 5px center; }
+.menu-parametro:hover { background-image: url('../image/menu/parametrohover.png'); }
+.menu-norma { background: url('../image/menu/norma.png') no-repeat 5px center; }
+.menu-norma:hover { background-image: url('../image/menu/normahover.png'); }
+
+
+.menu-laboratorio { background: url('../image/menu/laboratorio.png') no-repeat 2px center; }
+.menu-laboratorio:hover { background-image: url('../image/menu/laboratoriohover.png'); }
+.menu-consulta { background: url('../image/menu/Consulta.png') no-repeat 2px center; }
+.menu-consulta:hover { background-image: url('../image/menu/Consultahover.png'); }
+.menu-reporte { background: url('../image/menu/reportes.png') no-repeat 2px center; }
+.menu-reporte:hover { background-image: url('../image/menu/reporteshover.png'); }
+.menu-configuracion { background: url('../image/menu/configuracion.png') no-repeat 2px center; }
+.menu-configuracion:hover { background-image: url('../image/menu/configuracionhover.png'); }
+
+.menu-salir { background: url('../image/menu/salir.png') no-repeat 2px center; }
+.menu-salir:hover { background-image: url('../image/menu/salirhover.png'); }
+
+.reloj-page { font: bold 7pt Segoe UI; text-align: center; margin-top: 5px; color: #D2D2D2; }
+
+.change-pass {
+    color: white;
+    text-decoration: none;
+}
+
+.change-pass:hover {
+    text-decoration: underline;
+}

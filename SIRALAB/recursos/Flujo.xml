@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<catalogo>
+  <flujo id="1">
+    <Ruta>OrdenTrabajo.aspx</Ruta>
+    <Nombre>Registro de orden de trabajo</Nombre>
+    <rama>$li>$a href = 'Orden.aspx'> Inicio $/a>$/li></rama>
+  </flujo>
+  <flujo id="2">
+    <Ruta>Analisis.aspx</Ruta>
+    <Nombre>Registro de análisis</Nombre>
+    <rama>$li> $a href = 'Orden.aspx'> Inicio $/a>  $/li> $li>   $a href = 'OrdenTrabajo.aspx'> Orden de trabajo $/a> $/li></rama>
+  </flujo>
+  <flujo id="2">
+    <Ruta>AnalisisParametro.aspx</Ruta>
+    <Nombre>Datos de la muestra</Nombre>
+    <rama>$li>       $a href = 'Orden.aspx'> Inicio $/a>      $/li>      $li>        $a href ='OrdenTrabajo.aspx'> Orden de trabajo $/a>      $/li>      $li>        $a href = 'Analisis.aspx'> Analisis $/a>      $/li></rama>
+  </flujo>
+<flujo id="3">
+    <Ruta>SolicitudCancelacion.aspx</Ruta>
+    <Nombre>Solicitud de Cancelación</Nombre>
+    <rama>$li>       $a href = 'Orden.aspx'> Inicio $/a>      $/li>  </rama>
+  </flujo>
+<flujo id="3">
+    <Ruta>SolicitudCancelacionAnalisis.aspx</Ruta>
+    <Nombre>Solicitud Cancelación de Análisis</Nombre>
+    <rama>$li>       $a href = 'Orden.aspx'> Inicio $/a>      $/li>  $li>       $a href = 'SolicitudCancelacion.aspx'> Solicitud de Cancelación $/a>      $/li> </rama>
+  </flujo>
+  <flujo id="4">
+    <Ruta>EstatusFirmado.aspx</Ruta>
+    <Nombre>Análisis en proceso de firma</Nombre>
+    <rama>$li>$a href = 'Orden.aspx'> Inicio $/a>$/li></rama>
+  </flujo>
+  <flujo id="4">
+    <Ruta>ContactosLaboratorio.aspx</Ruta>
+    <Nombre>Contactos laboratorio</Nombre>
+    <rama>$li>$a href = 'Orden.aspx'> Inicio $/a>$/li></rama>
+  </flujo>
+  <flujo id="4">
+    <Ruta>Habilitarlaboratorios.aspx</Ruta>
+    <Nombre>Habilitar Extemporáneos</Nombre>
+    <rama>$li>$a href = 'Orden.aspx'> Inicio $/a>$/li></rama>
+  </flujo>
+</catalogo>
