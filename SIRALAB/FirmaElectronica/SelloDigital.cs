@@ -158,6 +158,32 @@ namespace SIRALAB.FIEL
                 Prueba.Close();
             }
         }
-        
+
+        /// <summary>
+        /// Verifica que la selladora de CONAGUA (SIRFIC) esté disponible antes de iniciar
+        /// un proceso de firma. Hace una llamada ligera a ObtenerNumeroSerie; si no responde
+        /// o lanza excepción, se considera que el servicio no está disponible.
+        /// </summary>
+        /// <returns>true si la selladora respondió correctamente; false en caso contrario.</returns>
+        public static bool SelladoraDisponible()
+        {
+            SelladoSirficWS.ServicioSelladoSoapClient cliente =
+                new SelladoSirficWS.ServicioSelladoSoapClient();
+            try
+            {
+                cliente.Open();
+                string serie = cliente.ObtenerNumeroSerie();
+                return !string.IsNullOrWhiteSpace(serie);
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                try { cliente.Close(); } catch { cliente.Abort(); }
+            }
+        }
+
     }
 }
