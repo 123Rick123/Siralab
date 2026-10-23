@@ -657,6 +657,17 @@ namespace SIRALAB
                             //args.SelloCNA = sello.SellarCadenaOriginalSirfic();
                             args.SelloCNA = sello.sello;
 
+                            // Validación: no continuar si el servicio de sellado de CONAGUA no
+                            // devolvió un sello válido (sello.sello regresa cadena vacía cuando
+                            // codigoError != 0, sin lanzar excepción). Se lanza la excepción para
+                            // caer al catch y mostrar el error, en lugar de guardar un sello en blanco.
+                            if (string.IsNullOrWhiteSpace(args.SelloCNA))
+                            {
+                                throw new Exception(
+                                    "La selladora de CONAGUA no devolvió un sello válido (" +
+                                    (sello.mensajeError ?? "sin respuesta") + ").");
+                            }
+
                             this.AnalisisFirmaArgs = args;
                             //Debemos solicitar la firma electrónica
                             bool faltaPago = analisisBl.Obten_Analisis(analisisID).FaltaPago;

@@ -155,6 +155,20 @@ namespace SIRALAB.Queue
                     sello.cadenaOriginal = contenedor.cadenaAFirmar;
                     sello.SellarCadenaOriginal();
                     args.SelloCNA = sello.SellarCadenaOriginalSirfic();
+
+                    // Validación: no guardar el análisis como firmado si la selladora de CONAGUA
+                    // (ServicioSelladoSoap.Generar / SIRFIC) no devolvió un sello válido.
+                    // Si el sello viene vacío o con el mensaje de error, se aborta el guardado
+                    // lanzando una excepción; el catch marcará el análisis como FirmaFallida
+                    // para que pueda reintentarse, en lugar de persistir un SelloDigital en blanco.
+                    if (string.IsNullOrWhiteSpace(args.SelloCNA) ||
+                        args.SelloCNA.IndexOf("Hubo algún problema", StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+                        throw new Exception(
+                            "La selladora de CONAGUA no devolvió un sello válido para el análisis " +
+                            analisisID + "; se aborta el guardado para no registrar un sello en blanco.");
+                    }
+
                     var analisis = analisisFirmaBL.Guardar(args);
 
                     //TODO -> Aquí enviar al web service para validación.
