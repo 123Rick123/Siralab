@@ -175,7 +175,7 @@ namespace SIRALAB
                 if (!SelloDigital.SelladoraDisponible())
                 {
                     this.PopMensaje(
-                        "El servicio de sellado de CONAGUA no está disponible en este momento. Por favor, intente firmar más tarde.",
+                        "Estamos teniendo una breve interrupción en el servicio de sellado. No te preocupes, tus datos no se han perdido. Te sugerimos reintentar el proceso un poco más tarde.",
                         "Servicio de sellado no disponible",
                         controles.Opciones.SoloAceptar, controles.Icono.error);
                     return;
