@@ -26,6 +26,9 @@ namespace SIRALAB.Queue
 
         private Queue<FIEL.Contenedor> _jobs = new Queue<FIEL.Contenedor>(); //Cola con los contenedores.
         private bool _delegateQueuedOrRunning = false;
+        // Bandera que indica que la selladora de CONAGUA dejó de responder. Cuando se activa,
+        // se detiene toda la cola en lugar de seguir intentando análisis que también fallarán.
+        private volatile bool _selladoraCaida = false;
         private CorreoQueue correoQueue = new CorreoQueue();
         private byte[] ArchivoKey { get; set; }
         private byte[] ArchivoCer { get; set; }
@@ -62,6 +65,32 @@ namespace SIRALAB.Queue
                 FIEL.Contenedor item;
                 lock (_jobs)
                 {
+                    // Si la selladora de CONAGUA se cayó, no tiene sentido seguir intentando:
+                    // se vacía la cola marcando cada análisis restante como FirmaFallida y se
+                    // detiene el proceso.
+                    if (_selladoraCaida)
+                    {
+                        while (_jobs.Count > 0)
+                        {
+                            var pendiente = _jobs.Dequeue();
+                            int pendienteID = 0;
+                            int.TryParse(pendiente.primaryKey, out pendienteID);
+                            if (ColaID != null)
+                            {
+                                queueBl.setEstatusAnalisisEncabezadoEnFirma(
+                                    pendienteID, ColaID.Value, enumEstatusAnalisis.FirmaFallida.ParseToInt());
+                            }
+                        }
+
+                        if (ColaID != null)
+                        {
+                            queueBl.detenerProceso(ColaID);
+                        }
+
+                        _delegateQueuedOrRunning = false;
+                        break;
+                    }
+
                     if (_jobs.Count == 0)
                     {
                         //Si todos fallan hay que finalizar la cola que creamos al iniciar el proceso de firma: actualizar AnalisisColaDetalle.
@@ -158,15 +187,17 @@ namespace SIRALAB.Queue
 
                     // Validación: no guardar el análisis como firmado si la selladora de CONAGUA
                     // (ServicioSelladoSoap.Generar / SIRFIC) no devolvió un sello válido.
-                    // Si el sello viene vacío o con el mensaje de error, se aborta el guardado
-                    // lanzando una excepción; el catch marcará el análisis como FirmaFallida
-                    // para que pueda reintentarse, en lugar de persistir un SelloDigital en blanco.
+                    // Si el sello viene vacío o con el mensaje de error, se marca la selladora
+                    // como caída y se aborta el guardado lanzando una excepción; el catch marcará
+                    // este análisis como FirmaFallida y la bandera detendrá el resto de la cola,
+                    // en lugar de persistir un SelloDigital en blanco.
                     if (string.IsNullOrWhiteSpace(args.SelloCNA) ||
                         args.SelloCNA.IndexOf("Hubo algún problema", StringComparison.OrdinalIgnoreCase) >= 0)
                     {
+                        _selladoraCaida = true;
                         throw new Exception(
                             "La selladora de CONAGUA no devolvió un sello válido para el análisis " +
-                            analisisID + "; se aborta el guardado para no registrar un sello en blanco.");
+                            analisisID + "; se detiene el proceso de firma para no registrar sellos en blanco.");
                     }
 
                     var analisis = analisisFirmaBL.Guardar(args);
