@@ -170,6 +170,17 @@ namespace SIRALAB
             {
 
                 //
+                // Health-check: si la selladora de CONAGUA no está disponible, no se encola
+                // nada y se avisa al usuario en el momento para que reintente más tarde.
+                if (!SelloDigital.SelladoraDisponible())
+                {
+                    this.PopMensaje(
+                        "Estamos teniendo una breve interrupción en el servicio de sellado. No te preocupes, tus datos no se han perdido. Te sugerimos reintentar el proceso un poco más tarde.",
+                        "Servicio de sellado no disponible",
+                        controles.Opciones.SoloAceptar, controles.Icono.error);
+                    return;
+                }
+
                 try
                 {
                     FirmaQueue queue = new FirmaQueue();

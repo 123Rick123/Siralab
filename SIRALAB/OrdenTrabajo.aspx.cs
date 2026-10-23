@@ -432,6 +432,17 @@ namespace SIRALAB
 
             if (Login.Laboratorio.RFCValidoParaFirmar(e.RFCFirma))
             {
+                // Health-check: si la selladora de CONAGUA no está disponible, no se encola
+                // nada y se avisa al usuario en el momento para que reintente más tarde.
+                if (!SelloDigital.SelladoraDisponible())
+                {
+                    this.PopMensaje(
+                        "Estamos teniendo una breve interrupción en el servicio de sellado. No te preocupes, tus datos no se han perdido. Te sugerimos reintentar el proceso un poco más tarde.",
+                        "Servicio de sellado no disponible",
+                        controles.Opciones.SoloAceptar, controles.Icono.error);
+                    return;
+                }
+
                 try
                 {
                     FirmaQueue queue = new FirmaQueue();
@@ -656,6 +667,17 @@ namespace SIRALAB
                             sello.SellarCadenaOriginal();
                             //args.SelloCNA = sello.SellarCadenaOriginalSirfic();
                             args.SelloCNA = sello.sello;
+
+                            // Validación: no continuar si el servicio de sellado de CONAGUA no
+                            // devolvió un sello válido (sello.sello regresa cadena vacía cuando
+                            // codigoError != 0, sin lanzar excepción). Se lanza la excepción para
+                            // caer al catch y mostrar el error, en lugar de guardar un sello en blanco.
+                            if (string.IsNullOrWhiteSpace(args.SelloCNA))
+                            {
+                                throw new Exception(
+                                    "La selladora de CONAGUA no devolvió un sello válido (" +
+                                    (sello.mensajeError ?? "sin respuesta") + ").");
+                            }
 
                             this.AnalisisFirmaArgs = args;
                             //Debemos solicitar la firma electrónica
